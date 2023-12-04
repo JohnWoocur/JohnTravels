@@ -34,7 +34,10 @@
                     <input id="last_name" type="password" class="validate">
                 </div>
                 <div class="form-group">
-                    <a class="button-primary" href="dashboard.php">Login</a>
+                    <a class="button-primary" href="user-dashboard.php">Login</a>
+                </div>
+                <div class="form-group">
+                    <a class="button-primary" href="register.php">Register</a>
                 </div>
                 <a href="forgot.php" class="for-pass">Forgot Password?</a>
             </form>

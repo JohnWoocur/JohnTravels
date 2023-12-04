@@ -215,7 +215,7 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
+                                            <a href="#"><i class="far fa-trash-alt"></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
+                                            <a href="#"><i class="far fa-trash-alt"></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -277,7 +277,7 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
+                                            <a href="#"><i class="far fa-trash-alt"></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>

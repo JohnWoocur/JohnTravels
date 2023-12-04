@@ -131,7 +131,7 @@
                               </ul>
                            </li>
                            <li class="menu-item-has-children">
-                              <a href="single-page.php">Shop</a>
+                              <a href="single-page.php"></a>
                               <ul>
                                  <li>
                                     <a href="product-detail.php">Products</a>
