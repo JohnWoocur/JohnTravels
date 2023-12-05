@@ -190,21 +190,21 @@
             </div>
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
-                    <h4>Recent Enquiry
-
-                    </h4>
-                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                    <h4>Recent Booking</h4>
+                    <!-- <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p> -->
+                    <p><a href="db-approved-booking.php"><button style="background-color: green; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Approved</button></a>
+                    
+                    <a href="db-booking.php"><button style="background-color: blue; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Pending</button></a></p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>User</th>
-                                    <th>Check_in</th>
-                                    <th>Check_out</th>
+                                    <th>Date</th>
                                     <th>Destination</th>
                                     <th>Id</th>
                                     <th>status</th>
-                                    <th>Enquiry</th>
+                                    <th>Booking</th>
                                     <th>People</th>
                                     <th>action</th>
                                 </tr>
@@ -215,7 +215,6 @@
                                         <span class="list-img"><img src="assets/images/comment.jpg" alt="">
                                         </span><span class="list-enq-name">John Doe</span>
                                     </td>
-                                    <td>12 may</td>
                                     <td>12 may</td>
                                     <td>Japan</td>
                                     <td>755</td>
@@ -235,7 +234,6 @@
                                         </span><span class="list-enq-name">John Doe</span>
                                     </td>
                                     <td>12 may</td>
-                                    <td>12 may</td>
                                     <td>Japan</td>
                                     <td>755</td>
                                     <td><span class="badge badge-primary">Pending</span></td>
@@ -253,7 +251,6 @@
                                         <span class="list-img"><img src="assets/images/comment3.jpg" alt="">
                                         </span><span class="list-enq-name">John Doe</span>
                                     </td>
-                                    <td>12 may</td>
                                     <td>12 may</td>
                                     <td>Japan</td>
                                     <td>755</td>
@@ -273,7 +270,6 @@
                                         </span><span class="list-enq-name">John Doe</span>
                                     </td>
                                     <td>12 may</td>
-                                    <td>12 may</td>
                                     <td>Japan</td>
                                     <td>755</td>
                                     <td><span class="badge badge-primary">Pendding</span></td>
@@ -292,7 +288,6 @@
                                         </span><span class="list-enq-name">John Doe</span>
                                     </td>
                                     <td>12 may</td>
-                                    <td>12 may</td>
                                     <td>Japan</td>
                                     <td>755</td>
                                     <td><span class="badge badge-danger">Reject</span></td>
@@ -310,7 +305,6 @@
                                         <span class="list-img"><img src="assets/images/comment6.jpg" alt="">
                                         </span><span class="list-enq-name">John Doe</span>
                                     </td>
-                                    <td>12 may</td>
                                     <td>12 may</td>
                                     <td>Japan</td>
                                     <td>755</td>

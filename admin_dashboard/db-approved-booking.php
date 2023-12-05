@@ -16,6 +16,7 @@
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
+<body>
 
     <!-- start Container Wrapper -->
     <div id="container-wrapper">
@@ -181,120 +182,145 @@
                         <li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
                         <li><a href="db-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry</a></li>
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
-                        <li class="active-menu"><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
+                        <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap db-wislist-wrap">
-                <div class="dashboard-box ">
-                    <div class="row">
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img25.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$1,900 </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Sunset view of beautiful lakeside resident</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img26.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$2,300 </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Experience the natural beauty of island</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img27.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$1,500 </span>
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Vacation to the water city of Portugal</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="db-info-wrap db-booking">
+                <div class="dashboard-box table-opp-color-box">
+                    <h4>Recent Booking</h4>
+                    <!-- <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p> -->
+                    <p>
+                    <a href="db-rejected-booking.php"><button style="background-color: red; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Rejected</button></a>
+                    <a href="db-booking.php"><button style="background-color: blue; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Pending</button></a></p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Date</th>
+                                    <th>Destination</th>
+                                    <th>Id</th>
+                                    <th>status</th>
+                                    <th>Booking</th>
+                                    <th>People</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="list-img"><img src="assets/images/comment.jpg" alt="">
+                                        </span><span class="list-enq-name">John Doe</span>
+                                    </td>
+                                    <td>12 may</td>
+                                    <td>Japan</td>
+                                    <td>755</td>
+                                    <td><span class="badge badge-success">Approve</span></td>
+                                    <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td>
+                                    <td>
+                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="list-img"><img src="assets/images/comment2.jpg" alt="">
+                                        </span><span class="list-enq-name">John Doe</span>
+                                    </td>
+                                    <td>12 may</td>
+                                    <td>Japan</td>
+                                    <td>755</td>
+                                    <td><span class="badge badge-primary">Pending</span></td>
+                                    <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td>
+                                    <td>
+                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="list-img"><img src="assets/images/comment3.jpg" alt="">
+                                        </span><span class="list-enq-name">John Doe</span>
+                                    </td>
+                                    <td>12 may</td>
+                                    <td>Japan</td>
+                                    <td>755</td>
+                                    <td><span class="badge badge-danger">Reject</span></td>
+                                    <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td>
+                                    <td>
+                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="list-img"><img src="assets/images/comment4.jpg" alt="">
+                                        </span><span class="list-enq-name">John Doe</span>
+                                    </td>
+                                    <td>12 may</td>
+                                    <td>Japan</td>
+                                    <td>755</td>
+                                    <td><span class="badge badge-primary">Pendding</span></td>
+                                    <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td>
+                                    <td>
+                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="list-img"><img src="assets/images/comment5.jpg" alt="">
+                                        </span><span class="list-enq-name">John Doe</span>
+                                    </td>
+                                    <td>12 may</td>
+                                    <td>Japan</td>
+                                    <td>755</td>
+                                    <td><span class="badge badge-danger">Reject</span></td>
+                                    <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td>
+                                    <td>
+                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="list-img"><img src="assets/images/comment6.jpg" alt="">
+                                        </span><span class="list-enq-name">John Doe</span>
+                                    </td>
+                                    <td>12 may</td>
+                                    <td>Japan</td>
+                                    <td>755</td>
+                                    <td><span class="badge badge-success">approve</span></td>
+                                    <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td>
+                                    <td>
+                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                <!-- pagination html -->
-                <div class="pagination-wrap">
-                    <nav class="pagination-inner">
-                        <ul class="pagination disabled">
-                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
             <!-- Content / End -->
@@ -306,7 +332,6 @@
         <!-- Dashboard / End -->
     </div>
     <!-- end Container Wrapper -->
-    <!-- *Scripts* -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

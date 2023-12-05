@@ -130,7 +130,7 @@
                               </ul>
                            </li>
                            <li class="menu-item-has-children">
-                              <a href="single-page.php">Shop</a>
+                              <a href="">Shop</a>
                               <ul>
                                  <li>
                                     <a href="product-detail.php">Products</a>
@@ -183,7 +183,6 @@
                						<ul>
 		                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
 		                           </ul>
@@ -203,7 +202,6 @@
                					<div class="guide-social social-links">
                						<ul>
 		                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
@@ -225,7 +223,6 @@
                						<ul>
 		                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
 		                           </ul>
@@ -245,7 +242,6 @@
                					<div class="guide-social social-links">
                						<ul>
 		                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
@@ -267,7 +263,6 @@
                						<ul>
 		                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
 		                           </ul>
@@ -287,7 +282,6 @@
                					<div class="guide-social social-links">
                						<ul>
 		                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
 		                              <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>

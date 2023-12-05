@@ -135,7 +135,7 @@
                               </ul>
                            </li>
                            <li class="menu-item-has-children">
-                              <a href="single-page.php">Shop</a>
+                              <a href="">Shop</a>
                               <ul>
                                  <li>
                                     <a href="product-detail.php">Products</a>
@@ -204,7 +204,7 @@
                         <input type="text" name="s" placeholder="Enter Destination">
                      </div>
                      <div class="input-group">
-                        <label> Fax Number* </label>
+                        <label> Number of People* </label>
                         <input type="text" name="s" placeholder="No.of People">
                      </div>
                      <div class="input-group width-col-3">

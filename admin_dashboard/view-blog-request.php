@@ -188,145 +188,68 @@
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap">
+            <div class="db-info-wrap db-add-tour-wrap">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="dashboard-box user-form-wrap">
-                            <h4>User Edit Details</h4>
-                            <form class="form-horizontal" method="post">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input name="email" class="form-control" type="email">
-                                        </div>  
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label>Date of Birth</label>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <select>
-                                                        <option value="1">Day</option>
-                                                        <option value="0">Sunday</option>
-                                                        <option value="0">Monday</option>
-                                                        <option value="0">Tuesday</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <select>
-                                                        <option value="1">Month</option>
-                                                        <option value="0">January</option>
-                                                        <option value="0">February</option>
-                                                        <option value="0">March</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <select>
-                                                        <option value="1">Years</option>
-                                                        <option value="0">1990</option>
-                                                        <option value="0">1992</option>
-                                                        <option value="0">1993</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Country Code</label>
-                                            <select>
-                                                <option value="1">+97701</option>
-                                                <option value="0">1990</option>
-                                                <option value="0">1992</option>
-                                                <option value="0">1993</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" class="form-control" value="" placeholder="" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <h4>Contact Details</h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Country</label>
-                                            <select>
-                                                <option value="0">Italy</option>
-                                                <option value="1">Japan</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>State</label>
-                                            <select >
-                                                <option value="0">New York</option>
-                                                <option value="1">Mexico</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <select>
-                                                <option value="0">Tokyo</option>
-                                                <option value="1">Paris</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <input name="address" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <h4>Upload Profile Photo</h4>
-                                    </div>
-                                    <div class="col-sm-6">
+                    <!-- Listings -->
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <div class="form-group">
+                                    <label>Blog Title</label>
+                                    <input type="text" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Special Description</label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>1st Paragraph </label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>2nd Paragraph</label>
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hashtags">Add Hashtags</label>
+                                <input type="text" name="hashtags" id="hashtags" placeholder="#trekking , #tours">
+                            </div>
+                            <div class="custom-field-wrap">
+                                <label>Images</label>
+                                <div class="dragable-field">
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Image1</p>
+                                        <!-- <p>or</p> -->
                                         <div class="upload-input">
                                             <div class="form-group">
-                                              <span class="upload-btn">Upload a image</span>
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
                                               <input type="file" name="myfile">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <h4>Describe Yourself</h4>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Please Tell Us About You</label>
-                                            <textarea class="form-control" id="message" name="message" placeholder="" required=""></textarea>
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info"> Image2</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
                                         </div>
                                     </div>
+                                
                                 </div>
-                                <button type="submit" class="button-primary">Upload Setting</button>
-                            </form>
+                            </div>
                         </div>
-                    </div>  
-                </div>
+                        <!-- Add space here -->
+                        <div>
+                        <button type="submit" class="button-primary" name="approve">Approve</button>
+                        <button type="submit" class="button-primary" name="reject">Reject</button>
+                        </div>
+                        
+                    </div>
+                </div>    
             </div>
             <!-- Content / End -->
             <!-- Copyrights -->

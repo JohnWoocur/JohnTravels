@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="all">
       <!-- Fonts Awesome CSS -->
       <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
-        <!-- google fonts -->
+      <!-- google fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
@@ -167,11 +167,11 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="user.php"><i class="fas fa-user"></i>Users</a>
+                        <li class="active-menu"><a href="user.php"><i class="fas fa-user"></i>Users</a>
                             
                         </li>
                         <li><a href="db-add-package.php"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
-                        <li class="active-menu">
+                        <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
                                 <li><a href="db-package-active.php">Active</a></li>
@@ -188,114 +188,79 @@
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap db-package-wrap">
-                <div class="dashboard-box table-opp-color-box">
-                    <h4>Packages List</h4>
-                    <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Destination</th>
-                                    <th>status</th>
-                                    <th>action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Singapore Holiday Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">New Year‘s Eve in Paris</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Paris Honeymoon Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Japan Holiday Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">California Trip</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Dubai Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- pagination html -->
-                <div class="pagination-wrap">
-                    <nav class="pagination-inner">
-                        <ul class="pagination disabled">
-                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-                        </ul>
-                    </nav>
+            <div class="db-info-wrap">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="dashboard-box">
+                            <h4>Add New ADMIN</h4>
+                            
+                            <form class="form-horizontal" method="POST" action="add-admin.php">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>First name</label>
+                                            <input name="firstname" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Last name</label>
+                                            <input name="lastname" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Mobile</label>
+                                            <input name="phone" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Date</label>
+                                            <input name="phone" class="form-control" type="date">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input name="city" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            <input name="country" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>password</label>
+                                            <input name="password" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input name="email" class="form-control" type="email">
+                                        </div>  
+                                    </div>
+                                    <div class="col-12">
+                                        <h4>Upload Profile Photo</h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <span class="upload-btn">Upload a image</span>
+                                              <input type="file" name="myfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </form>
+                        </div>
+                    </div>  
                 </div>
             </div>
             <!-- Content / End -->

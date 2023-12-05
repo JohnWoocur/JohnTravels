@@ -258,7 +258,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <input type="submit" name="Submit">
+                                <input type="submit" name="Submit" value="update">
                             </form>
                         </div>
                     </div>  
