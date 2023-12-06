@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -193,15 +195,15 @@
                     <!-- Listings -->
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
-                        <form>
+                        <form action="A-add_package.php" method="POST">
                             <div class="custom-field-wrap">
                                 <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" name="name">
+                                    <label>Package Title</label>
+                                    <input type="text" placeholder="Package Title" id="Pack_title" name="Pack_title" required/>
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea></textarea>
+                                    <textarea type="text" placeholder="Description" id="Description" name="Description" required/></textarea>
                                 </div>
                             </div>
                         </div>
@@ -211,8 +213,8 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Group Size</label>
-                                            <input type="number" name="size" placeholder="No of Pax">
+                                            <label>No of People</label>
+                                            <input type="number" placeholder="No of People" id="Group_size" name="Group_size" required/>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -220,12 +222,12 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <input type="number" placeholder="Days">
+                                                    <input type="number" placeholder="Days" id="Days" name="Days" required/>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <input type="number" placeholder="Nights">
+                                                    <input type="number" placeholder="Night" id="Night" name="Night" required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,7 +235,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Category</label>
-                                            <select>
+                                            <select placeholder="Category"  id="Category" name="Category" required/>
                                                 <option>Adult</option>
                                                 <option>Child</option>
                                                 <option>Couple</option>
@@ -243,19 +245,19 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Date</label>
-                                            <input type="date" name="name">
+                                            <input type="date" placeholder="Date" id="Trip_date" name="Trip_date" required/>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Regular Price</label>
-                                            <input type="text" name="name">
+                                            <input type="text" placeholder="Reqular_price" id="Reqular_price" name="Reqular_price" required/>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Discount</label>
-                                            <input type="text" name="name">
+                                            <input type="text" placeholder="Discount" id="Discount" name="Discount" >
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +273,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile">
+                                              <input type="file"  id="Pack_img" name="Pack_img" >
                                             </div>
                                         </div>
                                     </div>
@@ -285,7 +287,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Select Map</label>
-                                            <select>
+                                            <select id="Map" name="Map" required/>
                                                 <option>Google Map</option>
                                             </select>
                                         </div>
@@ -293,18 +295,17 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>API key</label>
-                                            <input type="text" name="apikey">
+                                            <input type="text" id="Api_key" name="Api_key" required/>
                                         </div>
                                     </div>
-                                    <div class="col-5 offset-5 mt-5">
+                                    <div class="col-5 offset-4 mt-5">
                                         <div class="publish-btn">
                                     <div class="form-group">
-                                        <input type="submit" name="draft" value="Create">
+									<button type="submit" class="button-primary">Create</button>
+									<button type="reset" class="button-primary">Reset</button>
                                     </div>
-                                    
                                     </div>
                                     </div>
-                                
                                     </form>
                                 </div>
                             </div>
