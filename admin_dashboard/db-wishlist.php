@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -215,7 +216,7 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Remove</a>
+                                            <a href="conect_wishlist.php? pack_id=1"><i class="far fa-trash-alt" ></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -285,6 +286,8 @@
                         </div>
                     </div>
                 </div>
+
+              
                 <!-- pagination html -->
                 <div class="pagination-wrap">
                     <nav class="pagination-inner">
