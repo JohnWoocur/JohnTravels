@@ -15,6 +15,7 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
+      
 </head>
 <body>
 
