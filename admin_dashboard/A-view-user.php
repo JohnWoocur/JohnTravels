@@ -14,4 +14,4 @@ $query="SELECT * FROM customer_more_details  WHERE Customer_Id='$id'";
     }
     return $record;
 }
-?>
+?> 
