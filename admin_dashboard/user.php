@@ -222,7 +222,7 @@
                                                 <span class="badge badge-primary">02</span>
                                             </td>
                                             <td>
-                                                <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                               <a href="view-user.php"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
                                             </td>
                                             <td>
                                                 <span class="badge badge-success"><i class="far fa-edit"></i></span>
