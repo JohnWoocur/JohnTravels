@@ -166,114 +166,91 @@
                <div class="inner-shape"></div>
             </section>
             <!-- Inner Banner html end-->
-            <div class="testimonial-page-section">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-item text-center">
-                           <figure class="testimonial-img">
-                              <img src="assets/images/img21.jpg" alt="">
-                           </figure>
-                           <div class="testimonial-content">
-                              <p>Vulputate vulputate mauris primis viverra quis netus leo voluptates. Placerat, feugiat nascetur placerat pulvinar parturient dis quaerat facilisis? Dignisim felis pretium amet. Donec eros faucibus.</p>
-                              <div class="start-wrap">
-                                 <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
+
+               <div class="testimonial-page-section">
+                     <div class="testimonial-page-section">
+                        <div class="container">
+                           <div class="row">
+            <?php
+               include "../JohnTravels/admin_dashboard/db-connection.php";
+
+              
+                           $testimonialQuery = "SELECT testimonial.*, customer_more_details.First_name, customer_more_details.Last_name, customer_more_details.About, customer_more_details.Image
+                           FROM testimonial
+                           JOIN customer_more_details ON testimonial.customer_id = customer_more_details.customer_id";
+
+                           $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+                           $itemsPerPage = 6;
+                           
+                           $offset = ($page - 1) * $itemsPerPage;
+                           $testimonialQuery .= " LIMIT $itemsPerPage OFFSET $offset";
+                           
+                           $result = $conn->query($testimonialQuery);  
+                           if ($result) {                         
+                           while ($row = $result->fetch_assoc()) {
+            ?>
+                               <div class="grid-item col-md-6 col-lg-4">
+                                    <div class="testimonial-item text-center">
+                                          <figure class="testimonial-img">                 
+                                             <?php
+                                                $imageBlob = $row['Image'];
+                                                
+                                                if ($imageBlob) {
+                                                      $imageData = base64_encode($imageBlob);
+                                                      $imageType = 'image/jpg';
+                                                      echo '<img src="data:' . $imageType . ';base64,' . $imageData . '" alt="">';
+                                                } else {                                               
+                                                      echo '<img src="path/to/default-image.jpg" alt="Default Image">';
+                                                }                                           
+                                             ?>
+                                          </figure>
+                                             <div class="testimonial-content">
+                                                   <p><?php echo $row['Description'];?></p>
+                                                   
+                                                   <?php
+                                                   if ($result->num_rows > 0) {
+                                                      $ratingValue = $row["Rating"];
+                                                   } else {
+                                                      $ratingValue = 0;
+                                                   }
+                                                   ?>
+                                                   <div class="start-wrap">
+                                                      <div class="rating-start" title="Rated 5 out of 5">
+                                                         <span style="width: <?php echo ($ratingValue/5)*100;?>%"></span>
+                                                      </div>
+                                                   </div>
+                                                   <h3><?php echo $row["First_name"] . " " . $row["Last_name"] ?></h3>
+                                                   <span><?php echo $row['About'];?></span>
+                                             </div>
+                                    </div>   
                                  </div>
-                              </div>
-                              <h3>Robert Holland</h3>
-                              <span>Traveller</span>
+                                        <?php       
+                           }
+                                       }
+                                      /* $totalItemsQuery = "SELECT COUNT(*) AS total FROM testimonial";
+                                       $totalItemsResult = $conn->query($totalItemsQuery);
+                                       
+                                       if ($totalItemsResult) {
+                                             $totalItems = $totalItemsResult->fetch_assoc()['total'];
+                                             $totalPages = ceil($totalItems / $itemsPerPage);
+                                       
+                                             echo '<div class="pagination">';
+                                             for ($i = 1; $i <= $totalPages; $i++) {
+                                                echo '<a href="?page=' . $i . '">' . $i . '</a>';
+                                             }
+                                             echo '</div>';
+                                       } else {
+                                             echo "Error: " . $conn->error;
+                                       }
+                                       */
+                                       $result->free();
+                                                         ?>
+                               </div>
                            </div>
                         </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-item text-center">
-                           <figure class="testimonial-img">
-                              <img src="assets/images/img20.jpg" alt="">
-                           </figure>
-                           <div class="testimonial-content">
-                              <p>Vulputate vulputate mauris primis viverra quis netus leo voluptates. Placerat, feugiat nascetur placerat pulvinar parturient dis quaerat facilisis? Dignisim felis pretium amet. Donec eros faucibus.</p>
-                              <div class="start-wrap">
-                                 <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
-                                 </div>
-                              </div>
-                              <h3>William Wright</h3>
-                              <span>Traveller</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-item text-center">
-                           <figure class="testimonial-img">
-                              <img src="assets/images/img22.jpg" alt="">
-                           </figure>
-                           <div class="testimonial-content">
-                              <p>Vulputate vulputate mauris primis viverra quis netus leo voluptates. Placerat, feugiat nascetur placerat pulvinar parturient dis quaerat facilisis? Dignisim felis pretium amet. Donec eros faucibus.</p>
-                              <div class="start-wrap">
-                                 <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
-                                 </div>
-                              </div>
-                              <h3>Alison Hobb</h3>
-                              <span>Traveller</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-item text-center">
-                           <figure class="testimonial-img">
-                              <img src="assets/images/img20.jpg" alt="">
-                           </figure>
-                           <div class="testimonial-content">
-                              <p>Vulputate vulputate mauris primis viverra quis netus leo voluptates. Placerat, feugiat nascetur placerat pulvinar parturient dis quaerat facilisis? Dignisim felis pretium amet. Donec eros faucibus.</p>
-                              <div class="start-wrap">
-                                 <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
-                                 </div>
-                              </div>
-                              <h3>Scott Harry</h3>
-                              <span>Traveller</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-item text-center">
-                           <figure class="testimonial-img">
-                              <img src="assets/images/img22.jpg" alt="">
-                           </figure>
-                           <div class="testimonial-content">
-                              <p>Vulputate vulputate mauris primis viverra quis netus leo voluptates. Placerat, feugiat nascetur placerat pulvinar parturient dis quaerat facilisis? Dignisim felis pretium amet. Donec eros faucibus.</p>
-                              <div class="start-wrap">
-                                 <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
-                                 </div>
-                              </div>
-                              <h3>Mary James</h3>
-                              <span>Traveller</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-item text-center">
-                           <figure class="testimonial-img">
-                              <img src="assets/images/img21.jpg" alt="">
-                           </figure>
-                           <div class="testimonial-content">
-                              <p>Vulputate vulputate mauris primis viverra quis netus leo voluptates. Placerat, feugiat nascetur placerat pulvinar parturient dis quaerat facilisis? Dignisim felis pretium amet. Donec eros faucibus.</p>
-                              <div class="start-wrap">
-                                 <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
-                                 </div>
-                              </div>
-                              <h3>Harry Smith</h3>
-                              <span>Traveller</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                   </div>  
+                                       
+                                       
          </main>
          <footer id="colophon" class="site-footer footer-primary">
             <div class="top-footer">
