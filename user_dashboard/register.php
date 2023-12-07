@@ -19,7 +19,7 @@
 <body>
     <div class="register-page" style="background-image: url(assets/images/bg.jpg);">
         <div class="register-from-wrap">
-            <form class="register-from">
+            <form class="register-from" action="U-register.php" method="POST"> 
                 <h1 class="site-title">
                     <a href="#">
                         <img src="assets/images/logo.png" alt="">
@@ -27,18 +27,19 @@
                 </h1>
                 <div class="form-group">
                     <label for="first_name1">User Name</label>
-                    <input type="text" class="validate">
+                    <input type="text" class="validate" name="name">
                 </div>
                 <div class="form-group">
                     <label for="first_name1">Email</label>
-                    <input type="text" class="validate">
+                    <input type="text" class="validate" name="mail">
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>
-                    <input id="last_name" type="password" class="validate">
+                    <input id="last_name" type="password" class="validate" name="password">
                 </div>
                 <div class="form-group">
-                    <a class="button-primary" href="login.php">Register</a>
+                    <button class="button-primary" type="submit">Register</button>
+                    <!-- <a class="button-primary">Register</a> -->
                 </div>
                 <div class="form-group">
                     <a class="button-primary" href="login.php">Login</a>

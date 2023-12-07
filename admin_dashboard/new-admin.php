@@ -194,55 +194,55 @@
                         <div class="dashboard-box">
                             <h4>Add New ADMIN</h4>
                             
-                            <form class="form-horizontal" method="POST" action="add-admin.php">
+                            <form class="form-horizontal" method="POST" action="A-add-sub-admin.php">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text">
+                                            <input name="firstname" class="form-control" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text">
+                                            <input name="lastname" class="form-control" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Mobile</label>
-                                            <input name="phone" class="form-control" type="text">
+                                            <input name="phone" class="form-control" type="text" required>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <!-- <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Date</label>
-                                            <input name="phone" class="form-control" type="date">
+                                            <input name="date" class="form-control" type="date" required>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <input name="city" class="form-control" type="text">
+                                            <input name="city" class="form-control" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="country" class="form-control" type="text">
+                                            <input name="country" class="form-control" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>password</label>
-                                            <input name="password" class="form-control" type="text">
+                                            <input name="password" class="form-control" type="text" required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input name="email" class="form-control" type="email">
+                                            <input name="email" class="form-control" type="email" required>
                                         </div>  
                                     </div>
                                     <div class="col-12">
@@ -252,7 +252,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile">
+                                              <input type="file" name="myfile" >
                                             </div>
                                         </div>
                                     </div>
