@@ -8,6 +8,7 @@
       <link rel="icon" type="image/png" href="../assets/images/favicon.png">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="all">
+      
       <!-- Fonts Awesome CSS -->
       <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
       <!-- google fonts -->
