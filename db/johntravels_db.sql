@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 12:02 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 07, 2023 at 10:22 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -162,8 +162,19 @@ CREATE TABLE `package` (
   `Map` varchar(255) NOT NULL,
   `Api_key` varchar(255) NOT NULL,
   `Popular` varchar(255) NOT NULL,
-  `Status` varchar(255) NOT NULL DEFAULT 'Active'
+  `Status` varchar(255) NOT NULL DEFAULT 'Active',
+  `Trip_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`Pack_Id`, `Pack_title`, `Pack_img`, `Description`, `Group_size`, `Days`, `Night`, `Sale_price`, `Reqular_price`, `Discount`, `Category`, `Map`, `Api_key`, `Popular`, `Status`, `Trip_date`) VALUES
+(1, 'fff', 0x53637265656e73686f742028313833292e706e67, 'ffdfwsfwsf', 40, 10, 5, 0, 20000, 20, 'Adult', 'Google Map', '01111', '', 'Active', '2023-12-13'),
+(2, 'kandy', 0x53637265656e73686f742028313833292e706e67, '1002', 40, 10, 5, 0, 40000, 5, 'Adult', 'Google Map', '5454545', '', 'Active', '2023-12-22'),
+(3, 'colombo', 0x53637265656e73686f742028313832292e706e67, 'city of sri lanka', 40, 5, 4, 0, 45000, 10, 'Child', 'Google Map', '1410441', '', 'Active', '2023-12-31'),
+(4, 'kandy', 0x53637265656e73686f742028313834292e706e67, 'fdsgsfs', 50, 5, 5, 18000, 20000, 10, 'Couple', 'Google Map', '111111', '', 'Active', '2023-12-19');
 
 -- --------------------------------------------------------
 
@@ -345,7 +356,7 @@ ALTER TABLE `faq_form`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `package_booking`

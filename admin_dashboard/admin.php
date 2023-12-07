@@ -228,7 +228,7 @@
                                             <a href="admin-edit.php"> <span class="badge badge-success"><i class="far fa-edit"></i></span></a>
                                             </td>
                                             <td>
-                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                                <a href="A-admin-delete.php?id=3"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                             </td>
                                         </tr>
                                         <tr>
