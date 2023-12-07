@@ -196,8 +196,11 @@
                             <h4>Add New ADMIN</h4>
                             <?php 
                             require 'db-connection.php';
+                            if (isset($_GET['Admin_Id'])) {
+                                $id = $_GET['Admin_Id']; 
+                            
 
-                            $id=1;
+                          //  $id=1;
                             $query="SELECT * FROM `admins` WHERE Admin_id='$id'";
                             $result=mysqli_query($conn,$query);
 
@@ -277,6 +280,7 @@
                                 <input type="submit" name="Submit" value="update">
                             </form>
                             <?php
+                            }
                             }
                             ?>
                         </div>
