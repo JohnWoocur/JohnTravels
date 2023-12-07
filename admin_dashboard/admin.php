@@ -234,13 +234,14 @@
                                             echo '<td><span class="list-img"><img src="data:' . $imageType . ';base64,' . $imageData . '" alt=""></span></td>';
                                             } else {                                               
                                              echo '<img src="path/to/default-image.jpg" alt="Default Image">';
-                                            }                                                                              
-                                           echo '<td><a href="#"><span class="list-name">' . $row['First_name'] . '</span></a></td>';
+                                            }  
+                                                                                                                      
+                                           echo '<td><a href="#"><span class="list-name">' . $row['First_name'] . " " . $row["Last_name"]. '</span></a></td>';
                                            echo '<td>' . $row['Mobile_number'] . '</td>';
                                            echo '<td>' . $row['Email'] . '</td>';
                                            echo '<td>' . $row['Country'] . '</td>';
                                     ?>                                          
-                                           <td><a href="admin-edit.php ? Admin_Id=1 " ><span class="badge badge-success"><i class="far fa-eye"></i></span></a></td>
+                                           <td><a href="admin-edit.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a></td>
                                            <td><span class="badge badge-success"><i class="far fa-edit"></i></span></td>
                                            <td><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></td>                                   
                                      </tr>
