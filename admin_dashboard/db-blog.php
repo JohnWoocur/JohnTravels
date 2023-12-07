@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -224,7 +227,7 @@
                                     <!--  <td><span class="badge badge-success">9</span></td> -->
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <a href="A-blog-delete.php?id=1"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -242,7 +245,7 @@
                                     <!--  <td><span class="badge badge-success">9</span></td> --> 
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -260,7 +263,7 @@
                                     <!--    <td><span class="badge badge-success">9</span></td> --> 
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -278,7 +281,7 @@
                                     <!--    <td><span class="badge badge-success">9</span></td> --> 
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -296,7 +299,7 @@
                                     <!--   <td><span class="badge badge-success">9</span></td> --> 
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -314,7 +317,7 @@
                                     <!--  < <td><span class="badge badge-success">9</span></td> --> 
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                             </tbody>
