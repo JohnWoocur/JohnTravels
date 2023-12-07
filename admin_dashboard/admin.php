@@ -186,6 +186,7 @@
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
+                    
                 </div>
             </div>
             <div class="db-info-wrap">
@@ -225,7 +226,7 @@
                                                 <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                             </td>
                                             <td>
-                                                <span class="badge badge-success"><i class="far fa-edit"><a href="admin-edit.php"></a></i></span>
+                                            <a href="admin-edit.php"> <span class="badge badge-success"><i class="far fa-edit"></i></span></a>
                                             </td>
                                             <td>
                                                 <a href="A-admin-delete.php?id=3"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
