@@ -14,8 +14,11 @@ $Discount = $_POST['Discount'];
 $Category = $_POST['Category'];
 $Map = $_POST['Map'];
 $Api_key = $_POST['Api_key'];
+$Sale_price =$Reqular_price-(($Reqular_price/100)*$Discount);
 
-$check = mysqli_query($conn,"INSERT INTO package(Pack_title,Pack_img, Description, Group_size, Trip_date, Days, Night, Reqular_price, Discount, Category, Map, Api_key) VALUES('$Pack_title','$Pack_img','$Description','$Group_size','$Trip_date','$Days','$Night','$Reqular_price','$Discount','$Category','$Map','$Api_key')");
+
+
+$check = mysqli_query($conn,"INSERT INTO package(Pack_title,Pack_img, Description, Group_size, Trip_date, Days, Night, Sale_price, Reqular_price, Discount, Category, Map, Api_key) VALUES('$Pack_title','$Pack_img','$Description','$Group_size','$Trip_date','$Days','$Night','$Sale_price','$Reqular_price','$Discount','$Category','$Map','$Api_key')");
 if($check)
 {	
 	echo "Package Added successfully!";
