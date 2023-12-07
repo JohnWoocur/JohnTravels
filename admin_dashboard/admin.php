@@ -225,7 +225,7 @@
                                                 <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                             </td>
                                             <td>
-                                                <span class="badge badge-success"><i class="far fa-edit"><a href="admin-edit.php"></a></i></span>
+                                            <a href="admin-edit.php"> <span class="badge badge-success"><i class="far fa-edit"></i></span></a>
                                             </td>
                                             <td>
                                                 <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
