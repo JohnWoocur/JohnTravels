@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
    <head>
+    
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +17,7 @@
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
+
 <body>
     <div class="register-page" style="background-image: url(assets/images/bg.jpg);">
         <div class="register-from-wrap">
