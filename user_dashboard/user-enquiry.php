@@ -175,7 +175,8 @@
                         <div class="dashboard-box">
                             <h4> Add User enquiry </h4>
                             
-                            <form class="form-horizontal" method="POST" action="u-add-enquiry.php">
+                            <form class="form-horizontal" method="POST" action="u-add-enquiry.php" >
+                           
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
