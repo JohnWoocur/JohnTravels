@@ -3,6 +3,7 @@
 require '../admin_dashboard/db-connection.php';
 
 
+
 $Username=$_POST['name'];
 $Email=$_POST['mail'];
 $Password=$_POST['password']; 

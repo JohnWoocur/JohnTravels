@@ -4,6 +4,7 @@ require 'db-connection.php';
 
 
 $Firstname=$_POST['firstname'];
+
 $Lastname=$_POST['lastname'];
 $Phone=$_POST['phone'];
 $City=$_POST['city'];
