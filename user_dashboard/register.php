@@ -29,15 +29,15 @@
                 </h1>
                 <div class="form-group">
                     <label for="first_name1">User Name</label>
-                    <input type="text" class="validate" name="name">
+                    <input type="text" class="validate" name="name" Required>
                 </div>
                 <div class="form-group">
                     <label for="first_name1">Email</label>
-                    <input type="text" class="validate" name="mail">
+                    <input type="text" class="validate" name="mail" Required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>
-                    <input id="last_name" type="password" class="validate" name="password">
+                    <input id="last_name" type="password" class="validate" name="password" Required>
                 </div>
                 <div class="form-group">
                     <button class="button-primary" type="submit">Register</button>
