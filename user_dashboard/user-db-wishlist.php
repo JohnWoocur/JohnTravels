@@ -167,104 +167,105 @@
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap db-wislist-wrap">
-                <div class="dashboard-box ">
-                    <div class="row">
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img25.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$1,900 </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Sunset view of beautiful lakeside resident</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
+        
+    <?php
+
+        include 'db-connection.php';
+
+        $customerId = 1;
+
+
+        $customerQuery = "SELECT * FROM customers WHERE Customer_Id = $customerId";
+        $customerResult = $conn->query($customerQuery);
+
+        if ($customerResult->num_rows > 0) {
+            $customer = $customerResult->fetch_assoc();
+
+            // Check Wish Id in user wish table
+            $wishId = $customer['Customer_Id'];
+            $userWishQuery = "SELECT * FROM user_wish WHERE Wish_Id = $wishId";
+            $userWishResult = $conn->query($userWishQuery);
+
+            if ($userWishResult->num_rows > 0) {
+            while ($userWishRow = $userWishResult->fetch_assoc()) {
+            // Fetch packages from the package table
+            $packageId = $userWishRow['Pack_Id'];
+            $packageQuery = "SELECT * FROM package WHERE Pack_Id = $packageId";
+            $packageResult = $conn->query($packageQuery);
+
+            if ($packageResult->num_rows > 0) {
+                while ($packageRow = $packageResult->fetch_assoc()) {
+                    
+                        ?>
+                        <div class="db-info-wrap db-wislist-wrap">
+                        <div class="dashboard-box ">
+                            <div class="row">
+                                <div class="grid-item col-md-6 col-lg-4">
+                                    <div class="package-wrap">
+                                    <figure class="feature-image">
+                                        <a href="#">
+                                        <?php
+                                            // Assuming 'Image_blob' is the column name in your database
+                                            $imageBlob = $packageRow['Pack_img'];
+                                          
+                                            if ($imageBlob) {
+                                                $imageData = base64_encode($imageBlob);
+                                                $imageType = 'image/jpg'; // image type (e.g., image/jpeg)
+
+                                                // Display the image
+                                                echo '<img src="data:' . $imageType . ';base64,' . $imageData . '" alt="">';
+                                            } else {                                               
+                                                echo '<img src="path/to/default-image.png" alt="Default Image">';
+                                            }
+                                            ?>
+                                        </a>
+                                     </figure>
+                                        <div class="package-price">
+                                            <h6>
+                                                <span><?php echo $packageRow['Sale_price'];?></span> / per person
+                                            </h6>
                                         </div>
-                                        <div class="button-container">
-                                            <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
+                                        <div class="package-content-wrap">
+                                            <div class="package-content">
+                                                <h4>
+                                                    <a href="#"><?php echo $packageRow['Pack_title'];?></a>
+                                                </h4>
+                                                <div class="content-details">
+                                                   <div class="rating-start" title="Rated 5 out of 5">
+                                                      <span></span>
+                                                   </div>
+                                                   <span class="review-text"><a href="#"><?php echo $packageRow['Reviews'];?> reviews</a></span>
+                                                </div>
+                                                <div class="button-container">
+                                                    <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
+                                                    <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img26.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$2,300 </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Experience the natural beauty of island</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img27.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$1,500 </span>
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Vacation to the water city of Portugal</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                        </div>
-                                    </div>
+                                    </div>          
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                      
+                         </div>
+
+                    <?php 
+                    
+                }
+            }
+            }
+            } else {
+                echo "No matching Wish_Id in user_wish table for the customer";
+         }
+        } else {
+            echo "Customer not found";
+        }
+
+        $conn->close();
+
+    ?>
+
+           
+              
                 <!-- pagination html -->
                 <div class="pagination-wrap">
                     <nav class="pagination-inner">

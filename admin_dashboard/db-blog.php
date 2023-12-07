@@ -223,100 +223,13 @@
                                     </td>
                                     <!--  <td><span class="badge badge-success">9</span></td> -->
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment2.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!-- <td>755</td> -->
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--  <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment3.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--   <td>755</td> --> 
-                                    <td><span class="badge badge-danger">Reject</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--    <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment4.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--   <td>755</td> --> 
-                                    <td><span class="badge badge-primary">Pendding</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--    <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment5.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--  <td>755</td> -->
-                                    <td><span class="badge badge-danger">Reject</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--   <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment6.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--  <td>755</td> -->
-                                    <td><span class="badge badge-success">approve</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--  < <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
+                                
+                                
                             </tbody>
                         </table>
                     </div>
