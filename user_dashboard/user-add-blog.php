@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -172,27 +173,31 @@
                     <!-- Listings -->
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
+
+                        <form action="U-add-blog.php" method="POST">
+
                             <div class="custom-field-wrap">
                                 <div class="form-group">
+
                                     <label>Blog Title</label>
-                                    <input type="text" name="name">
+                                    <input type="text" name="Blog_title">
                                 </div>
                                 <div class="form-group">
                                     <label>Special Description</label>
-                                    <textarea></textarea>
+                                    <textarea name="Highlighted"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>1st Paragraph </label>
-                                    <textarea></textarea>
+                                    <textarea name="Blog_content1"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>2nd Paragraph</label>
-                                    <textarea></textarea>
+                                    <textarea name="Blog_content2"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="hashtags">Add Hashtags</label>
-                                <input type="text" name="hashtags" id="hashtags" placeholder="#trekking , #tours">
+                                <input type="text" name="Tag_names" id="hashtags" placeholder="#trekking , #tours">
                             </div>
                             <div class="custom-field-wrap">
                                 <label>Images</label>
@@ -203,20 +208,11 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile">
+                                              <input type="file" name="Blog_img">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="dragable-field-inner">
-                                        <p class="drag-drop-info">Drop Larger Resolution Image To Upload</p>
-                                        <p>or</p>
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 
                                 </div>
                             </div>
@@ -251,3 +247,6 @@
 
 <!-- Mirrored from cyclonethemes.com/demo/html/padhai/dashboard-addtour.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2020 09:01:50 GMT -->
 </html>
+
+
+
