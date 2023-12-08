@@ -180,14 +180,14 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Packages Name</label>
-                                            <input type="text" id="Package_name" name="Package_name">
+                                            <label>Packages_Name</label>
+                                            <input type="text" id="Packages_name" name="Packages_name">
                                         </div>
                                     </div>
 									 <div class="col-sm-6">
                                         <div class="form-group">
-                                             <label>Number of People</label>
-                                             <input type="number" id="Numberof_people" name="Numberof_people">
+                                             <label>No of People</label>
+                                             <input type="number" id="No_of_people" name="No_of_people">
                                     </div>
                                      </div>
                                     <div class="col-sm-6">
@@ -207,7 +207,9 @@
                                             <label>Check-OUT Date</label>
                                             <input type="date" id="Checkout_date" name="Checkout_date">
                                         </div>
-                                    </div>                  
+                                    </div>  
+                                    
+                                    
                                 </div>
                                 <br>
                                 <input type="submit" name="Submit">
