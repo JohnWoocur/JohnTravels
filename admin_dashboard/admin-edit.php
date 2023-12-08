@@ -236,7 +236,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Date</label>
-                                            <input name="date" class="form-control" type="date" value="<?php echo $row["Created_at"]?>" readonly>
+                                            <input name="date" class="form-control" type="date" value="<?php echo $row["Create_at"]?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
