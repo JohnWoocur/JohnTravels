@@ -216,7 +216,7 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="conect_wishlist.php? pack_id=1"><i class="far fa-trash-alt" ></i> Remove</a>
+                                            <a href="conect_wishlist.php? Pack_Id=1"><i class="far fa-trash-alt" ></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
