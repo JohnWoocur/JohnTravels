@@ -11,6 +11,7 @@ $City=$_POST['city'];
 $Country=$_POST['country'];
 $Password=$_POST['password'];
 $Email=$_POST['email'];
+
 $Image=$_POST['Image'];
 //$Date=$_POST['date'];
 

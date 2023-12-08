@@ -1,3 +1,6 @@
+<?php
+include'db-connection.php';
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -198,28 +201,41 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>User</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
+                                            
+                                            <th>Id</th>
+                                            <th>Username</th>
                                             <th>Email</th>
-                                            <th>Country</th>
-                                            <th>Listings</th>
+                                            <th>Password</th>
+                                            <th>Create_at</th>
+                                             <th>Status</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><span class="list-img"><img src="assets/images/comment.jpg" alt=""></span>
+                                        <?php
+                                    $sql= "SELECT * FROM `customers`";
+                                    $result= mysqli_query($conn,$sql);
+                                    if($result){
+                                        while($row=mysqli_fetch_assoc($result)){
+                                            $customer_id=$row['Customer_Id'];
+                                            $username=$row['Username'];
+                                            $email=$row['Email'];
+                                            $password=$row['Password'];
+                                            $create_at=$row['Create_at'];
+                                            $status=$row['Status'];
+                                            echo'<tr>
+                                            <td>'.$customer_id.'</td>
+                                            
+                                            <td><a href="#"><span class="list-name">'.$username.'</span></a>
                                             </td>
-                                            <td><a href="#"><span class="list-name">Kathy Brown</span></a>
-                                            </td>
-                                            <td>+01 3214 6522</td>
-                                            <td>chadengle@dummy.com</td>
-                                            <td>Australia</td>
+                                            <td>'.$email.'</td>
+                                            <td>+'.$password.'</td>
+                                            
+                                            <td>'.$create_at.'</td>
                                             <td>
-                                                <span class="badge badge-primary">02</span>
+                                                <span class="badge badge-primary">'.$status.'</span>
                                             </td>
                                             <td>
                                                <a href="view-user.php"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
@@ -228,10 +244,18 @@
                                                 <span class="badge badge-success"><i class="far fa-edit"></i></span>
                                             </td>
                                             <td>
-                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
+                                            <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        </td>
+                                    </tr>';
+
+
+
+                                        }
+                                    }
+                                        ?>
+                                        
+                                           
+                                        <!-- <tr> 
                                             <td><span class="list-img"><img src="assets/images/comment2.jpg" alt=""></span>
                                             </td>
                                             <td><a href="#"><span class="list-name">Kathy Brown</span></a>
@@ -335,7 +359,7 @@
                                             <td>
                                                 <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                             </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>
