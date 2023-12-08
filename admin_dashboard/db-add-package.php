@@ -195,7 +195,7 @@
                     <!-- Listings -->
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
-                        <form action="A-add_package.php" method="POST">
+                        <form action="A-add_package.php" method="post" enctype="multipart/form-data">
                             <div class="custom-field-wrap">
                                 <div class="form-group">
                                     <label>Package Title</label>
@@ -273,7 +273,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file"  id="Pack_img" name="Pack_img" >
+											  <input type="file" id="Pack_img" name="Pack_img" accept="image/*" required>
                                             </div>
                                         </div>
                                     </div>
