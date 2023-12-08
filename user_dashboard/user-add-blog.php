@@ -174,7 +174,7 @@
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
 
-                        <form action="U-add-blog.php" method="POST">
+                        <form action="U-add-blog.php" method="POST" enctype="multipart/form-data">
 
                             <div class="custom-field-wrap">
                                 <div class="form-group">
@@ -219,7 +219,7 @@
                         </div>
                         <!-- Add space here -->
                         <div>
-                        <button type="submit" class="button-primary">Upload Blog</button>
+                        <button type="submit" name="submit" class="button-primary">Upload Blog</button>
                         </div>
                         
                     </div>
