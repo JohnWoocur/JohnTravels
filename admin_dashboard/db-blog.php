@@ -223,7 +223,7 @@
                                     </td>
                                     <!--  <td><span class="badge badge-success">9</span></td> -->
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                      <a href =a-view-blog.php?Customer_Id=<?php echo $row   <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                         
                                     </td>

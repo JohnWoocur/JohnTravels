@@ -17,7 +17,7 @@
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
-
+<body>
     <!-- start Container Wrapper -->
     <div id="container-wrapper">
         <!-- Dashboard -->
@@ -158,136 +158,88 @@
                             
                         </li>
                         <li><a href="user-packages.php"><i class="fas fa-umbrella-beach"></i>View Package</a></li>
-                         
-                        <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li> 
-                        <li class="active-menu"><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
+  
+                        <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li>
+                        <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="user-db-comment.php"> <i class='bx bx-chat'></i>Comments</a></li>
-                        <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
+                        <li class="active-menu"><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-        
-    <?php
-
-        include "../admin_dashboard/db-connection.php";
-
-        $customerId = 1;
-
-
-        $customerQuery = "SELECT * FROM `customers` WHERE Customer_Id = $customerId";
-        $customerResult = $conn->query($customerQuery);
-
-        if ($customerResult->num_rows > 0) {
-            $customer = $customerResult->fetch_assoc();
-
-            // Check Wish Id in user wish table
-            $wishId = $customer['Customer_Id'];
-            $userWishQuery = "SELECT * FROM `user-wish` WHERE Wish_Id = $wishId";
-            $userWishResult = $conn->query($userWishQuery);
-
-            if ($userWishResult->num_rows > 0) {
-            while ($userWishRow = $userWishResult->fetch_assoc()) {
-            // Fetch packages from the package table
-            $packageId = $userWishRow['Pack_Id'];
-            $packageQuery = "SELECT * FROM `package` WHERE Pack_Id = $packageId";
-            $packageResult = $conn->query($packageQuery);
-
-            if ($packageResult->num_rows > 0) {
-                while ($packageRow = $packageResult->fetch_assoc()) {
-                    
-                        ?>
-                        <div class="db-info-wrap db-wislist-wrap">
-                        <div class="dashboard-box ">
-                            <div class="row">
-                                <div class="grid-item col-md-6 col-lg-4">
-                                    <div class="package-wrap">
-                                    <figure class="feature-image">
-                                        <a href="#">
-                                        <?php
-                                            // Assuming 'Image_blob' is the column name in your database
-                                            $imageBlob = $packageRow['Pack_img'];
-                                          
-                                            if ($imageBlob) {
-                                                $imageData = base64_encode($imageBlob);
-                                                $imageType = 'image/jpg'; // image type (e.g., image/jpeg)
-
-                                                // Display the image
-                                                echo '<img src="data:' . $imageType . ';base64,' . $imageData . '" alt="">';
-                                            } else {                                               
-                                                echo '<img src="path/to/default-image.png" alt="Default Image">';
-                                            }
-                                            ?>
-                                        </a>
-                                     </figure>
-                                        <div class="package-price">
-                                            <h6>
-                                                <span><?php echo $packageRow['Sale_price'];?></span> / per person
-                                            </h6>
-                                        </div>
-                                        <div class="package-content-wrap">
-                                            <div class="package-content">
-                                                <h4>
-                                                    <a href="#"><?php echo $packageRow['Pack_title'];?></a>
-                                                </h4>
-                                                <div class="content-details">
-                                                   <div class="rating-start" title="Rated 5 out of 5">
-                                                      <span></span>
-                                                   </div>
-                                                   <span class="review-text"><a href="#"><?php echo $packageRow['Reviews'];?> reviews</a></span>
-                                                </div>
-                                                <div class="button-container">
-                                                    <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
-                                                    <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>          
+            <div class="db-info-wrap db-add-tour-wrap">
+                <div class="row">
+                    <!-- Listings -->
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <div class="form-group">
+                                    <label>Blog Title</label>
+                                    <input type="text" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Special Description</label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>1st Paragraph </label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>2nd Paragraph</label>
+                                    <textarea></textarea>
                                 </div>
                             </div>
-                      
-                         </div>
-
-                    <?php 
-                    
-                }
-            }
-            }
-            } else {
-                echo "No matching Wish_Id in user-wish table for the customer";
-         }
-        } else {
-            echo "Customer not found";
-        }
-
-        $conn->close();
-
-    ?>
-
-           
-              
-                <!-- pagination html -->
-                <div class="pagination-wrap">
-                    <nav class="pagination-inner">
-                        <ul class="pagination disabled">
-                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
+                            <div class="form-group">
+                                <label for="hashtags">Add Hashtags</label>
+                                <input type="text" name="hashtags" id="hashtags" >
+                            </div>
+                            <div class="custom-field-wrap">
+                                <label>Images</label>
+                                <div class="dragable-field">
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Drop Small Resolution Image To Upload</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Drop Larger Resolution Image To Upload</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add space here -->
+                        <div>
+                        <button type="submit" class="button-primary">Approve</button>
+                        </div>
+                        
+                    </div>
+                </div>    
             </div>
             <!-- Content / End -->
+
             <!-- Copyrights -->
             <div class="copyrights">
-               Copyright © 2023 John Travels LK. All rights reserveds.
-            </div>
+                Copyright © 2023 John Travels LK. All rights reserveds.
+             </div>
         </div>
         <!-- Dashboard / End -->
     </div>
     <!-- end Container Wrapper -->
-    <!-- *Scripts* -->
+    <!-- end Container Wrapper -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -296,4 +248,6 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/dashboard-custom.js"></script>
 </body>
+
+<!-- Mirrored from cyclonethemes.com/demo/html/padhai/dashboard-addtour.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2020 09:01:50 GMT -->
 </html>
