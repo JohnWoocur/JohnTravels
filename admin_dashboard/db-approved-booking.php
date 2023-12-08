@@ -242,7 +242,7 @@
                                     </td>
                                     <td><span class="badge badge-success">9</span></td>
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                        <a href="A-approved-booking.php"><span class="badge badge-success"><i class="far fa-edit"></i></span></a>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
