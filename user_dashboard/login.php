@@ -19,22 +19,23 @@
 <body>
     <div class="login-page" style="background-image: url(assets/images/bg.jpg);">
         <div class="login-from-wrap">
-            <form class="login-from">
+            <form class="login-from" action="U-login.php" method="POST">
                 <h1 class="site-title">
                     <a href="#">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </h1>
                 <div class="form-group">
-                    <label for="first_name1">User Name</label>
-                    <input type="text" class="validate">
+                    <label for="first_name1">E-Mail</label>
+                    <input type="text" class="validate" name="mail">
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>
-                    <input id="last_name" type="password" class="validate">
+                    <input id="last_name" type="password" class="validate" name="password">
                 </div>
                 <div class="form-group">
-                    <a class="button-primary" href="user-dashboard.php">Login</a>
+                    <!-- <a class="button-primary" href="user-dashboard.php">Login</a> -->
+                    <button class="button-primary" type="submit">Login</button>
                 </div>
                 <div class="form-group">
                     <a class="button-primary" href="register.php">Register</a>
