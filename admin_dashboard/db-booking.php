@@ -1,3 +1,6 @@
+<?php
+ include'db-connection.php';
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -192,41 +195,70 @@
                 <div class="dashboard-box table-opp-color-box">
                     <h4>Recent Booking</h4>
                     <!-- <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p> -->
-                    <p><a href="db-approved-booking.php"><button style="background-color: green; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Approved</button></a>
+                    <p><a href="db-approved-booking.php"><button style="background-color: green; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block"> Approved</button></a>
                     <a href="db-rejected-booking.php"><button style="background-color: red; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Rejected</button></a></p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>User</th>
+                                    <th>Booking Id</th>
+                                    <th>Customer Name</th>
+                                    <th>Package Id</th>
                                     <th>Date</th>
                                     <th>Destination</th>
-                                    <th>Id</th>
-                                    <th>status</th>
-                                    <th>Booking</th>
                                     <th>People</th>
+                                    <th>Booking</th>
+                                    <th>status</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
+                                <?php
+
+                                 $sql = "SELECT package_booking.*, customer_more_details.First_name, customer_more_details.Last_name
+                                FROM package_booking
+                                JOIN customer_more_details ON package_booking.Customer_id = customer_more_details.Customer_id WHERE Status='Pending'";
+                                $result= mysqli_query($conn,$sql);
+                                if($result){
+                                  while($row=mysqli_fetch_assoc($result)) {
+                                    $booking_id= $row['Booking_Id'];
+                                    $customer= $row["First_name"] . " " . $row["Last_name"];
+                                    $pack_id=$row['Pack_Id'];
+                                    $date=$row['Date'];
+                                    $booking=$row['Booking'];
+                                    $destination=$row['Destination'];
+                                    $num_of_people=$row['Number_of_People'];
+                                    $status=$row['Status'];
+                                    echo '<tr> 
+                                    <td >'.$booking_id.'</td>
+
+                                    <td>  
+                                     </span><span class="list-enq-name">'.$customer.'</span>
                                     </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-success">Approve</span></td>
+                                    <td >'.$pack_id.'</td>
+                                    <td > '.$date.'</td>
+                                    <td>'.$destination.'</td>
+                                    <td><span class="badge badge-success">'.$num_of_people.'</span></td>
+                                    
                                     <td>
-                                        <span class="badge badge-success">15</span>
+                                        <span class="badge badge-success">'.$booking.'</span>
                                     </td>
-                                    <td><span class="badge badge-success">9</span></td>
+                                    
+                                    <td><span class="badge badge-success">'.$status.'</span></td>
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                     </td>
-                                </tr>
+                                </tr>';
+
+
+
+                                  }  
+                                }
+
+                                ?>
+
+                               <!-- 
                                 <tr>
                                     <td>
                                         <span class="list-img"><img src="assets/images/comment2.jpg" alt="">
@@ -316,7 +348,7 @@
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
