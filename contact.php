@@ -186,15 +186,15 @@
                                  <h2>CONTACT US TO GET MORE INFO</h2>
                                  <p>Are you a traveler in need of help? Have an inquiry regarding your survey?.</p>
                               </div>
-                              <form class="contact-from">
+                              <form class="contact-from" action="H_contact.php" method="POST">
                                  <p>
-                                    <input type="text" name="name" placeholder="Your Name*">
+                                    <input type="text" name="Name" placeholder="Your Name*">
                                  </p>
                                  <p>
-                                    <input type="email" name="email" placeholder="Your Email*">
+                                    <input type="email" name="Email" placeholder="Your Email*">
                                  </p>
                                  <p>
-                                    <textarea rows="8" placeholder="Your Message*"></textarea>
+                                    <textarea rows="8" name="Message" placeholder="Your Message*"></textarea>
                                  </p>
                                  <p>
                                     <input type="submit" name="submit" value="SUBMIT MESSAGE">
