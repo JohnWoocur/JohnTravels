@@ -254,7 +254,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>password</label>
-                                            <input name="password" class="form-control" type="text" value="<?php echo $row["Password"]?>">
+                                            <input name="password" class="form-control" type="password" value="<?php echo $row["Password"]?>">
                                         </div>
                                     </div>
                                     
