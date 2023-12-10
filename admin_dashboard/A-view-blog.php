@@ -1,6 +1,3 @@
-
-
-
 <!doctype html>
 <html lang="en">
    <head>
@@ -51,18 +48,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="list-img">
-                                            <img src="assets/images/comment.jpg" alt="">
-                                        </div>
-                                        <div class="notification-content">
-                                            <p>You have a notification.</p>
-                                            <small>2 hours ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="list-img">
-                                            <img src="assets/images/comment2.jpg" alt="">
+                                            <img src="assets/images/comment4.jpg" alt="">
                                         </div>
                                         <div class="notification-content">
                                             <p>You have a notification.</p>
@@ -74,6 +60,17 @@
                                     <a href="#">
                                         <div class="list-img">
                                             <img src="assets/images/comment3.jpg" alt="">
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>You have a notification.</p>
+                                            <small>2 hours ago</small>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="list-img">
+                                            <img src="assets/images/comment2.jpg" alt="">
                                         </div>
                                         <div class="notification-content">
                                             <p>You have a notification.</p>
@@ -98,6 +95,17 @@
                                 <li>
                                     <a href="#">
                                         <div class="list-img">
+                                            <img src="assets/images/comment3.jpg" alt="">
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>You have a notification.</p>
+                                            <small>2 hours ago</small>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="list-img">
                                             <img src="assets/images/comment4.jpg" alt="">
                                         </div>
                                         <div class="notification-content">
@@ -110,17 +118,6 @@
                                     <a href="#">
                                         <div class="list-img">
                                             <img src="assets/images/comment5.jpg" alt="">
-                                        </div>
-                                        <div class="notification-content">
-                                            <p>You have a notification.</p>
-                                            <small>2 hours ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="list-img">
-                                            <img src="assets/images/comment6.jpg" alt="">
                                         </div>
                                         <div class="notification-content">
                                             <p>You have a notification.</p>
@@ -170,7 +167,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="user.php"><i class="fas fa-user"></i>Users</a>
+                        <li ><a href="user.php"><i class="fas fa-user"></i>Users</a>
                             
                         </li>
                         <li><a href="db-add-package.php"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
@@ -184,86 +181,96 @@
                         </li>
                         <li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
                         <li><a href="db-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry</a></li>
-                        <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
+                        <li class="active-menu"><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap db-booking">
-                <div class="dashboard-box table-opp-color-box">
-                    <h4>Recent Blog Request</h4>
-                    
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Blog title</th>
-                                    <!-- <th>Destination</th> -->
-                                    <!-- <th>Id</th> -->
-                                    <!-- <th>People</th>  -->
-                                    <th>status</th>
-                                    <th>Request</th>
-                                    
-                                    <th>action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                include "db-connection.php";
-                                 $sql= "SELECT blog.*, customer_more_details.First_name, customer_more_details.Last_name, customer_more_details.Image
-                                 FROM blog
-                                 JOIN customer_more_details ON blog.Customer_Id = customer_more_details.Customer_Id WHERE blog.Status='pending'";
-                                
+            <div class="db-info-wrap db-add-tour-wrap">
+                <div class="row">
+                    <!-- Listings -->
+                    <?php 
+                            require 'db-connection.php';
+                            if (isset($_GET['Customer_Id'])) {
+                                $id = $_GET['Customer_Id'];
+                                $sql = "SELECT * FROM `Blog` WHERE `Customer_Id` = '$id'";
                                 $result = mysqli_query($conn, $sql);
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    $Blog_Id=$row['Blog_Id'];
-                                    $Customer=$row['First_name'];
-                                    $Blog_title=$row['Blog_title'];
-                                    $Blog_content1=$row['Blog_content1'];
-                                    $Blog_content2=$row['Blog_content2'];
-                                    $Highlighted=$row['Highlighted'];
-                                    $Status=$row['Status'];
-                                    $Blog_img=$row['Blog_img'];
-                                    $date=$row['Create_at'];
-                                    $image=$row['Image']
+                                
+                               
+                    ?>
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <div class="form-group">
+                                    <label>Blog Title</label>
+                                    <input type="text" value="<?php echo $row["Blog_title"]?>"name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Special Description</label>
+                                    <textarea> <?php echo $row["Highlighted"]?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>1st Paragraph </label>
+                                    <textarea><?php echo $row["Blog_content1"]?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>2nd Paragraph</label>
+                                    <textarea><?php echo $row["Blog_content2"]?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hashtags">Add Hashtags</label>
+                                <input type="text" name="hashtags" id="hashtags" >
+                            </div>
+                            <div class="custom-field-wrap">
+                            <label>Images</label>
+                            <div class="dragable-field">
+                                <div class="dragable-field-inner">
+                                    <p class="drag-drop-info">Small Resolution Image</p>
+                                    <div class="upload-input">
+                                        <div class="form-group">
+                                            <input type="file" name="smallImage" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dragable-field-inner">
+                                    <p class="drag-drop-info">Larger Resolution Image </p>
+                                    <div class="upload-input">
+                                        <div class="form-group">
+                                            <input type="file" name="largeImage" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <?php
+                    }
 
-                                ?>
-                                <tr>
-                                    <td>
-                                        
-                                    <?php //echo '<span class="list-img"><img src="users/'.$image.'" alt=""></span>'?>
-                                        </span><span class="list-enq-name"> <?php echo"$Customer";?>  </span>
-                                    </td>
-                                    <td><?php echo"$date";?> </td>
-                                    <td><?php echo"$Blog_title";?> </td>
-                                    <td><span class="badge badge-success"><?php echo"$Status";?> </span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--  <td><span class="badge badge-success">9</span></td> -->
-                                    <td>
-                                        <a href="A-view-blog.php?Customer_Id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
-                                        <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
-                                    </td>
-                                </tr>
-                                <?php }?>
-                            </tbody>
-                        </table>
+}
+?> 
+                        <!-- Add space here -->
+                        <div>
+                        <button type="submit" style="background-color: green; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block" class="button-primary">Approve</button>
+                        <button type="submit" style="background-color: red; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block" class="button-primary" name="reject">Reject</button>
+                        </div>
+                        
                     </div>
-                </div>
+                </div>    
             </div>
             <!-- Content / End -->
+
             <!-- Copyrights -->
             <div class="copyrights">
-               Copyright © 2023 John Travels LK. All rights reserveds.
-            </div>
+                Copyright © 2023 John Travels LK. All rights reserveds.
+             </div>
         </div>
         <!-- Dashboard / End -->
     </div>
+    <!-- end Container Wrapper -->
     <!-- end Container Wrapper -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -273,4 +280,6 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/dashboard-custom.js"></script>
 </body>
+
+<!-- Mirrored from cyclonethemes.com/demo/html/padhai/dashboard-addtour.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2020 09:01:50 GMT -->
 </html>
