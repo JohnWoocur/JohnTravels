@@ -131,10 +131,10 @@
                               </ul>
                            </li>
                            <li class="menu-item-has-children">
-                              <a href="single-page.php"></a>
+                              <a href="">Shop</a>
                               <ul>
                                  <li>
-                                    <a href="product-detail.php">Products</a>
+                                    <a href="product-right.php">Products</a>
                                  </li>
                               </ul>
                            </li>
@@ -148,7 +148,7 @@
                      </nav>
                   </div>
                   <div class="header-btn">
-                     <a href="#" class="button-primary">LOG IN</a>
+                     <a href="user_dashboard/login.php" class="button-primary">LOG IN</a>
                   </div>
                </div>
             </div>
@@ -363,7 +363,7 @@
                         <div class="col-lg-4 secondary">
                            <div class="sidebar">
                               <aside class="widget author_widget">
-                                 <h3 class="widget-title"></h3>
+                                 
                                  <div class="widget-content text-center"> 
                                     <div class="profile"> 
                                        <figure class="avatar"> 
@@ -485,7 +485,6 @@
                                     </li>
                                  </ul>
                               </aside>
-                              
                            </div>
                         </div>
                      </div>
