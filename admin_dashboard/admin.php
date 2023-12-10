@@ -221,20 +221,17 @@
                                     <?php
 
                                        while ($row = $result->fetch_assoc()) {
+                                        $image=$row["Image"];
                                     ?>
                                     <tr>
                                     
-                                    <?php     
+                                    <?php 
+                                    echo ' 
+                                        <td>
+                                        <span class="list-img"><img src="admins/'.$image.'" alt=""></span>
                                         
-                                            $imageBlob = $row['Image'];
-                                                
-                                            if ($imageBlob) {
-                                            $imageData = base64_encode($imageBlob);
-                                            $imageType = 'image/jpg';
-                                            echo '<td><span class="list-img"><img src="data:' . $imageType . ';base64,' . $imageData . '" alt=""></span></td>';
-                                            } else {                                               
-                                             echo '<img src="path/to/default-image.jpg" alt="Default Image">';
-                                            }  
+                                        </td>';
+                                       
                                                                                                                       
                                            echo '<td><a href="#"><span class="list-name">' . $row['First_name'] . " " . $row["Last_name"]. '</span></a></td>';
                                            echo '<td>' . $row['Mobile_number'] . '</td>';
