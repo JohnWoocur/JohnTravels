@@ -197,11 +197,11 @@
                     <h4>Recent Enquiry
 
                     </h4>
-                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                    
                     
                     
                     <div class="table-responsive">
-                        <table class="table" method="POST" action="A-view-db-enquiry.php">
+                        <table class="table" method="POST" action="">
                             <thead>
                                 <tr>
                                     <th>User_name</th>
@@ -209,20 +209,21 @@
                                     <th>Check_out</th>
                                     <th>packages name</th>
                                     <th>Id</th>
-                                    <th>status</th>
-                                    <th>Enquiry</th>    
+                                    <th>status</th>   
                                     <th>People</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql= "SELECT * FROM `enquiry`";
+                                $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
+                                FROM enquiry
+                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id";
                                 $result= mysqli_query($conn,$sql);
                                 if($result){
                                     while($row=mysqli_fetch_assoc($result)){
                                         $Enquiry_Id=$row['Enquiry_Id'];
-                                        $username=$row['Username'];
+                                        $user_name=$row["First_name"] . " " . $row["Last_name"];
                                         $Packages_name=$row['Packages_name'];
                                         $No_of_people=$row['No_of_people'];
                                         $Checkin_date=$row['Checkin_date'];
@@ -230,19 +231,17 @@
                                         $Status=$row['Status'];
                                 
                                                                                         
-                                             echo 
+                              echo 
                             '<tr>
                                        
                                     
-                                    <td>'.$username.'</td>
+                                    <td>'.$user_name.'</td>
                                     <td>'.$Checkin_date.'</td>
                                     <td>'.$Checkout_date.'</td>
                                     <td>'.$Packages_name.'</td>
-                                    <td>755</td>
+                                    <td>'.$Enquiry_Id.'</td>
                                     <td><span class="badge badge-success">'.$Status.'</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
+                                    
                                     <td><span class="badge badge-success">'.$No_of_people.'</span></td>
                                     <td>
                                     <span class="badge badge-success"><i class="far fa-eye"></i></span>
