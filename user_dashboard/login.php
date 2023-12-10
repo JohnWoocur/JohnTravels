@@ -35,12 +35,13 @@
                 </div>
                 <div class="form-group">
                     <!-- <a class="button-primary" href="user-dashboard.php">Login</a> -->
-                    <button class="button-primary" type="submit">Login</button>
-                </div>
-                <div class="form-group">
+                    <center><button class="button-primary" type="submit">Login</button></center>
+                </div><br>
+                <!--<div class="form-group">
                     <a class="button-primary" href="register.php">Register</a>
-                </div>
-                <a href="forgot.php" class="for-pass">Forgot Password?</a>
+                </div>-->
+				<a href="register.php">Don't have an account ?</a> &nbsp; &nbsp; &nbsp; 
+                <a href="forgot.php">Forgot Password?</a>
             </form>
         </div>
     </div>

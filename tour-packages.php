@@ -164,7 +164,7 @@ $result = mysqli_query($conn,$sql);
                      </nav>
                   </div>
                   <div class="header-btn">
-                     <a href="#" class="button-primary">LOG IN</a>
+                     <a href="user_dashboard/login.php" class="button-primary">LOG IN</a>
                   </div>
                </div>
             </div>
