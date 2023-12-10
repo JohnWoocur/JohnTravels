@@ -213,7 +213,7 @@
                                     <?php
 
                                     include 'db-connection.php';
-                                    $query = "SELECT * FROM admins";
+                                    $query = "SELECT * FROM admins WHERE `Status`='Active' ";
                                     $result = $conn->query($query);
                                     ?>
 
@@ -243,7 +243,7 @@
                                     ?>                                          
                                            <td><a href="admin-edit.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a></td>
                                            <td><span class="badge badge-success"><i class="far fa-edit"></i></span></td>
-                                           <td><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></td>                                   
+                                           <td><a href="A-admin-delete.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a></td>                                   
                                      </tr>
                                     <?php  
 
