@@ -212,7 +212,7 @@
                                     
                                 </div>
                                 <br>
-                                <input type="submit" name="Submit">
+                                <input type="submit" value="Submit">
                             </form>
                         </div>
                     </div>  
