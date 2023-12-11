@@ -197,92 +197,71 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Destination</th>
-                                    <th>status</th>
-                                    <th>action</th>
+                                <th>Package Name</th>
+                                    <th>No of people</th>
+                                    <th>Days</th>
+                                    <th>Nights</th>
+                                    <th>Regular Price</th>
+                                    <th >Discount</th>
+                                    <th>Sale Price</th>
+                                    <th> Category</th>
+                                    <th>Trip Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
+                                    <?php
+
+                                    include 'db-connection.php';
+                                        
+
+                                    $query = "SELECT * FROM package";
+                                    $result = $conn->query($query);
+                                ?>
+                                     
                             <tbody>
+                            <?php
+                                    
+
+                                    while ($row = $result->fetch_assoc()) {
+                                  
+                                 ?>
+                                
+                              
                                 <tr>
-                                    <td>
+                                <?php
+                                
+                                 
+                                echo'<td>'. $row['Pack_title'] . '</td>';
+                                echo'<td>'. $row['Group_size'] . '</td>';
+                                echo'<td>'. $row['Days'] . '</td>';
+                                echo'<td>'. $row['Night'] . '</td>';
+                                echo'<td>'. $row['Reqular_price'] . '</td>';
+                                echo'<td>'. $row['Discount'] . '</td>';
+                                echo'<td>'. $row['Sale_price'] . '</td>';
+                                echo'<td>'. $row['Category'] . '</td>';
+                                echo'<td>'. $row['Trip_date'] . '</td>'; 
+                                     
+                                ?>
+                                
+                                     <!-- <td>
                                         </span><span class="package-name">Singapore Holiday Tour</span>
                                     </td>
                                     <td>12 may</td>
                                     <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><span class="badge badge-success">Active</span></td>   -->
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
+                                        <a href ="A-add-wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
+                                       
+                                    </td> 
                                 </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">New Year‘s Eve in Paris</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Paris Honeymoon Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Japan Holiday Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">California Trip</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Dubai Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
+                                        <?php  
+
+                                       }
+                                    $conn->close();
+                                       ?>
+                                         
                             </tbody>
                         </table>
                     </div>
