@@ -9,24 +9,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
      $query="SELECT * FROM customers WHERE Email='$Email' AND Status='Active'";
      $result = mysqli_query($conn,$query);
  
-     if(mysqli_num_rows($result)==1){
+     if(mysqli_num_rows($result)==1){ 
          $row=mysqli_fetch_assoc($result);
          $Customer_Id=$row["Customer_Id"];
-         //echo "3";
+
  
          if($Password==$row["Password"]){
              $_SESSION["id"]=$Customer_Id;
              header("location:user-dashboard.php");
-            //  echo "4";
+             
          }
          
          else{
-            //header("location:login.php");
-            echo "1";
+            $_SESSION['error']="Password wrong";
+            header("location:login.php"); 
          }
      }else{
-        //header("location:login.php");
-        echo "2";
+      $_SESSION['error']="E-mail wrong";
+        header("location:login.php");
      }
 
 ?>
