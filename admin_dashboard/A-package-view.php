@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
    <head>
-    
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,10 +8,9 @@
       <link rel="icon" type="image/png" href="../assets/images/favicon.png">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="all">
-      
       <!-- Fonts Awesome CSS -->
       <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
-      <!-- google fonts -->
+        <!-- google fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
@@ -169,11 +167,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="active-menu"><a href="user.php"><i class="fas fa-user"></i>Users</a>
+                        <li><a href="user.php"><i class="fas fa-user"></i>Users</a>
                             
                         </li>
                         <li><a href="db-add-package.php"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
-                        <li>
+                        <li><a href="A-package-view.php"><i class=""></i> Package List</a></li>
+
+                        <li class="active-menu">
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
                                 <li><a href="db-package-active.php">Active</a></li>
@@ -186,85 +186,90 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
-						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="dashboard-box">
-                            <h4>Add New ADMIN</h4>
+            <div class="db-info-wrap db-package-wrap">
+                <div class="dashboard-box table-opp-color-box">
+                    <h4>Packages List</h4>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+
                             
-                            <form class="form-horizontal" method="POST" action="A-add-sub-admin.php" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Mobile</label>
-                                            <input name="phone" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Date</label>
-                                            <input name="date" class="form-control" type="date" required>
-                                        </div>
-                                    </div> -->
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <input name="city" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Country</label>
-                                            <input name="country" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>password</label>
-                                            <input name="password" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input name="email" class="form-control" type="email" required>
-                                        </div>  
-                                    </div>
-                                    <div class="col-12">
-                                        <h4>Upload Profile Photo</h4>
-                                    </div>
-                                    <div class="col-sm-6"> 
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="Image" id="Image"  accept="image/*" required >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <input type="submit" name="Submit">
-                            </form>
-                        </div>
-                    </div>  
+
+                                <tr>
+                                    <th>Package Name</th>
+                                    <th>Description</th>
+                                    <th>No.of people</th>
+                                    <th>Days</th>
+                                    <th>Night</th>
+                                    <th>Sale Price</th>
+                                    <th>Regular Price</th>
+                                    <th>Discount</th>
+                                    <th>Category</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <?php
+                            include "db-connection.php";
+                            $result = mysqli_query($conn,"SELECT * FROM package");
+
+                            ?>
+
+                            <tbody>
+                                <?php
+
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+
+                                <tr>
+
+                                <?php 
+								// output data of each row
+								
+									echo'<td>'.$row["Pack_title"].'</td>';
+									echo'<td>'.$row["Description"].'</td>';
+                                    echo'<td>'.$row["Group_size"].'</td>';
+									echo'<td>'.$row["Days"].'</td>';
+									echo'<td>'.$row["Night"].'</td>';
+									echo'<td>'.$row["Sale_price"].'</td>';
+                                    echo'<td>'.$row["Reqular_price"].'</td>';
+									echo'<td>'.$row["Discount"].'</td>';
+									echo'<td>'.$row["Category"].'</td>';
+
+                                    ?>
+
+                                    <td>
+                                        
+                                        <a href ="A-pack-active.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-success"><i class="fa fa-check"></i></span></a>
+                                        <a href ="A-pack-expired.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-danger"><i class="fa fa-times"></i></span>
+                                        <a href ="db-edit-package.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-success"><i class="fa fa-edit"></i></span>
+
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            $conn->close();
+                                ?>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- pagination html -->
+                <div class="pagination-wrap">
+                    <nav class="pagination-inner">
+                        <ul class="pagination disabled">
+                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
+                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
             <!-- Content / End -->

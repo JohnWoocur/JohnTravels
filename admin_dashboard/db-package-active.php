@@ -174,6 +174,7 @@
                         <li class="active-menu">
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                            <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -191,8 +192,8 @@
             </div>
             <div class="db-info-wrap db-package-wrap">
                 <div class="dashboard-box table-opp-color-box">
-                    <h4>Packages List</h4>
-                    <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
+                    <h4>Active Packages List</h4>
+
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -209,46 +210,40 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                                    <?php
-
-                                    include 'db-connection.php';
-                                        
 
                                     $query = "SELECT * FROM package WHERE status = 'Active'";
                                     $result = $conn->query($query);
                                 ?>
                                      
                             <tbody>
-                            <?php
-                                    
 
-                                    while ($row = $result->fetch_assoc()) {
-                                  
-                                 ?>
-                                
-                              
-                                <tr>
+                            <?php
+                            include "db-connection.php";
+                            $result = mysqli_query($conn,"SELECT * FROM package WHERE Status = 'Active'");
+
+                            ?>
+
+                            <tbody>
                                 <?php
-                                
-                                 
-                                echo'<td>'. $row['Pack_title'] . '</td>';
-                                echo'<td>'. $row['Group_size'] . '</td>';
-                                echo'<td>'. $row['Days'] . '</td>';
-                                echo'<td>'. $row['Night'] . '</td>';
-                                echo'<td>'. $row['Reqular_price'] . '</td>';
-                                echo'<td>'. $row['Discount'] . '</td>';
-                                echo'<td>'. $row['Sale_price'] . '</td>';
-                                echo'<td>'. $row['Category'] . '</td>';
-                                echo'<td>'. $row['Trip_date'] . '</td>'; 
-                                     
+
+                            while($row = $result->fetch_assoc()) {
                                 ?>
-                                
-                                     <!-- <td>
-                                        </span><span class="package-name">Singapore Holiday Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-success">Active</span></td>   -->
+
+                                <tr>
+
+                                <?php 
+								// output data of each row
+								
+                                echo'<td>'.$row["Pack_title"].'</td>';
+                                echo'<td>'.$row["Trip_date"].'</td>';
+                                echo'<td>'.$row["Location"].'</td>';
+                                echo'<td>'.$row["Status"].'</td>';
+                            
+								
+
+                                    ?>
+
+
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                         <a href ="A-add-wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
@@ -256,12 +251,12 @@
                                        
                                     </td> 
                                 </tr>
-                                        <?php  
+                                <?php
+                            }
+                            $conn->close();
+                                ?>
+                                
 
-                                       }
-                                    $conn->close();
-                                       ?>
-                                         
                             </tbody>
                         </table>
                     </div>
