@@ -177,6 +177,7 @@ include'db-connection.php';
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                            <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -242,18 +243,23 @@ include'db-connection.php';
                                                <a href="view-user.php"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
                                             </td>
                                             <td>
-                                                <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                            </td>
+                                                 <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                            </td>';
+                                            ?>
+
                                             <td>
-                                            <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                            <a href="user-delete.php ?Customer_Id=<?php echo $row['Customer_Id']; ?> "> <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                         </td>
-                                    </tr>';
+                                    </tr>
 
-
-
+                                    <?php
                                         }
-                                    }
-                                        ?>
+                                            }
+                                            $conn->close();
+                                                ?>
+                                                
+
+                                       
                                         
                                            
                                         <!-- <tr> 
