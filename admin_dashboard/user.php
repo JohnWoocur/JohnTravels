@@ -207,7 +207,6 @@ include'db-connection.php';
                                             <th>Id</th>
                                             <th>Username</th>
                                             <th>Email</th>
-                                            <th>Password</th>
                                             <th>Create_at</th>
                                              <th>Status</th>
                                             <th>View</th>
@@ -216,31 +215,23 @@ include'db-connection.php';
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
+                                    <?php
                                     $sql= "SELECT * FROM `customers`";
                                     $result= mysqli_query($conn,$sql);
                                     if($result){
-                                        while($row=mysqli_fetch_assoc($result)){
-                                            $customer_id=$row['Customer_Id'];
-                                            $username=$row['Username'];
-                                            $email=$row['Email'];
-                                            $password=$row['Password'];
-                                            $create_at=$row['Create_at'];
-                                            $status=$row['Status'];
-                                            echo'<tr>
-                                            <td>'.$customer_id.'</td>
-                                            
-                                            <td><a href="#"><span class="list-name">'.$username.'</span></a>
+                                        while($row=mysqli_fetch_assoc($result)):
+                                            ?>
+                                            <tr> 
+                                            <td><span class="list-img"><img src="assets/images/comment2.jpg" alt=""></span>
                                             </td>
-                                            <td>'.$email.'</td>
-                                            <td>+'.$password.'</td>
-                                            
-                                            <td>'.$create_at.'</td>
-                                            <td>
-                                                <span class="badge badge-primary">'.$status.'</span>
+                                            <td><a href="#"><span class="list-name"><?php echo $row['Username'];?></span></a>
                                             </td>
+                                            <td><?php echo $row['Email'];?></td>
+                                            <td><?php echo $row['Create_at'];?></td>
+                                            <td><?php echo $row['Status'];?></td>
+                                            
                                             <td>
-                                               <a href="view-user.php"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
+                                                <a href="view-user.php?id=<?php echo $row['Customer_Id'];?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
                                             </td>
                                             <td>
                                                  <span class="badge badge-success"><i class="far fa-edit"></i></span>
@@ -257,9 +248,6 @@ include'db-connection.php';
                                             }
                                             $conn->close();
                                                 ?>
-                                                
-
-                                       
                                         
                                            
                                         <!-- <tr> 
