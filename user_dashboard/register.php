@@ -40,7 +40,7 @@
                     <input id="last_name" type="password" class="validate" name="password" Required>
                 </div>
                 <div class="form-group">
-                    <button class="button-primary" type="submit">Register</button>
+                    <center><button class="button-primary" type="submit">Register</button></center>
                     <!-- <a class="button-primary">Register</a> -->
                 </div>
                 <div class="form-group">

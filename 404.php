@@ -147,9 +147,7 @@
                         </ul>
                      </nav>
                   </div>
-                  <div class="header-btn">
-                     <a href="#" class="button-primary">LOG IN</a>
-                  </div>
+                  
                </div>
             </div>
             <div class="mobile-menu-container"></div>
