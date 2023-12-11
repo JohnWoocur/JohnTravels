@@ -186,6 +186,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -196,7 +197,7 @@
                         <div class="dashboard-box">
                             <h4>Add New ADMIN</h4>
                             
-                            <form class="form-horizontal" method="POST" action="A-add-sub-admin.php">
+                            <form class="form-horizontal" method="POST" action="A-add-sub-admin.php" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -254,7 +255,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="Image" >
+                                              <input type="file" name="Image" id="Image"  accept="image/*" required >
                                             </div>
                                         </div>
                                     </div>

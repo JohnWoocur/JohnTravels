@@ -195,7 +195,7 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-heart"></i>Add to Wishlist</a>
+                                            <a href="U-add-wishlist.php?Customer_Id=1&Pack_Id=2"><i class="far fa-heart"></i>Add to Wishlist</a>
                                         </div>
                                     </div>
                                 </div>

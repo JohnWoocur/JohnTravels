@@ -184,6 +184,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -213,7 +214,7 @@
                                     <?php
 
                                     include 'db-connection.php';
-                                    $query = "SELECT * FROM admins";
+                                    $query = "SELECT * FROM admins WHERE `Status`='Active' ";
                                     $result = $conn->query($query);
                                     ?>
 
@@ -221,20 +222,17 @@
                                     <?php
 
                                        while ($row = $result->fetch_assoc()) {
+                                        $image=$row["Image"];
                                     ?>
                                     <tr>
                                     
-                                    <?php     
+                                    <?php 
+                                    echo ' 
+                                        <td>
+                                        <span class="list-img"><img src="admins/'.$image.'" alt=""></span>
                                         
-                                            $imageBlob = $row['Image'];
-                                                
-                                            if ($imageBlob) {
-                                            $imageData = base64_encode($imageBlob);
-                                            $imageType = 'image/jpg';
-                                            echo '<td><span class="list-img"><img src="data:' . $imageType . ';base64,' . $imageData . '" alt=""></span></td>';
-                                            } else {                                               
-                                             echo '<img src="path/to/default-image.jpg" alt="Default Image">';
-                                            }  
+                                        </td>';
+                                       
                                                                                                                       
                                            echo '<td><a href="#"><span class="list-name">' . $row['First_name'] . " " . $row["Last_name"]. '</span></a></td>';
                                            echo '<td>' . $row['Mobile_number'] . '</td>';
@@ -243,7 +241,7 @@
                                     ?>                                          
                                            <td><a href="admin-edit.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a></td>
                                            <td><span class="badge badge-success"><i class="far fa-edit"></i></span></td>
-                                           <td><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></td>                                   
+                                           <td><a href="A-admin-delete.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a></td>                                   
                                      </tr>
                                     <?php  
 

@@ -185,6 +185,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -197,11 +198,16 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Destination</th>
-                                    <th>status</th>
-                                    <th>action</th>
+                                <th>Package Name</th>
+                                    <th>No of people</th>
+                                    <th>Days</th>
+                                    <th>Nights</th>
+                                    <th>Regular Price</th>
+                                    <th >Discount</th>
+                                    <th>Sale Price</th>
+                                    <th> Category</th>
+                                    <th>Trip Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
 
@@ -231,17 +237,20 @@
 
                                     ?>
 
+
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
+                                        <a href ="A-add-wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
+                                       
+                                    </td> 
                                 </tr>
                                 <?php
                             }
                             $conn->close();
                                 ?>
                                 
+
                             </tbody>
                         </table>
                     </div>

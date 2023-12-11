@@ -187,6 +187,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -194,7 +195,7 @@
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
                     <h4>Recent Blog Request</h4>
-                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                    
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -212,114 +213,45 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                include "db-connection.php";
+                                 $sql= "SELECT blog.*, customer_more_details.First_name, customer_more_details.Last_name, customer_more_details.Image
+                                 FROM blog
+                                 JOIN customer_more_details ON blog.Customer_Id = customer_more_details.Customer_Id WHERE blog.Status='pending'";
+                                
+                                $result = mysqli_query($conn, $sql);
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $Blog_Id=$row['Blog_Id'];
+                                    $Customer=$row['First_name'];
+                                    $Blog_title=$row['Blog_title'];
+                                    $Blog_content1=$row['Blog_content1'];
+                                    $Blog_content2=$row['Blog_content2'];
+                                    $Highlighted=$row['Highlighted'];
+                                    $Status=$row['Status'];
+                                    $Blog_img=$row['Blog_img'];
+                                    $date=$row['Create_at'];
+                                    $image=$row['Image']
+
+                                ?>
                                 <tr>
                                     <td>
-                                        <span class="list-img"><img src="assets/images/comment.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
+                                        
+                                    <?php //echo '<span class="list-img"><img src="users/'.$image.'" alt=""></span>'?>
+                                        </span><span class="list-enq-name"> <?php echo"$Customer";?>  </span>
                                     </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!-- <td>755</td> -->
-                                    <td><span class="badge badge-success">Approve</span></td>
+                                    <td><?php echo"$date";?> </td>
+                                    <td><?php echo"$Blog_title";?> </td>
+                                    <td><span class="badge badge-success"><?php echo"$Status";?> </span></td>
                                     <td>
                                         <span class="badge badge-success">15</span>
                                     </td>
                                     <!--  <td><span class="badge badge-success">9</span></td> -->
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <a href="A-blog-delete.php?id=1"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                                        <a href="A-view-blog.php?Customer_Id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
+                                        <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment2.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!-- <td>755</td> -->
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--  <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment3.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--   <td>755</td> --> 
-                                    <td><span class="badge badge-danger">Reject</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--    <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment4.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--   <td>755</td> --> 
-                                    <td><span class="badge badge-primary">Pendding</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--    <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment5.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--  <td>755</td> -->
-                                    <td><span class="badge badge-danger">Reject</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--   <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment6.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                   <!--  <td>755</td> -->
-                                    <td><span class="badge badge-success">approve</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--  < <td><span class="badge badge-success">9</span></td> --> 
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><a href="A-blog-delete.php?id" class="text-light"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>

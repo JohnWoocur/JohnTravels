@@ -192,6 +192,7 @@ $result = mysqli_query($conn,$sql);
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li class="active-menu"><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -217,6 +218,7 @@ $result = mysqli_query($conn,$sql);
                                 <figure class="feature-image">
                                     <a href="#">
                                     <img src="admin_dashboard/package/'.$image.'" width ="202px" height ="118px" >
+
                                     </a>
                                 </figure>
                                 <div class="package-price">

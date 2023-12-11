@@ -1,3 +1,7 @@
+<?php
+  include "db-connection.php";
+?>
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -184,6 +188,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -193,143 +198,75 @@
                     <h4>Recent Enquiry
 
                     </h4>
-                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                    
+                    
+                    
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" method="POST" action="">
                             <thead>
                                 <tr>
-                                    <th>User</th>
+                                    <th>User_name</th>
                                     <th>Check_in</th>
                                     <th>Check_out</th>
-                                    <th>Destination</th>
+                                    <th>packages name</th>
                                     <th>Id</th>
-                                    <th>status</th>
-                                    <th>Enquiry</th>
+                                    <th>status</th>   
                                     <th>People</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-success">Approve</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <td><span class="badge badge-success">9</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment2.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <td><span class="badge badge-success">9</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment3.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-danger">Reject</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <td><span class="badge badge-success">9</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment4.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-primary">Pendding</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <td><span class="badge badge-success">9</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment5.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-danger">Reject</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <td><span class="badge badge-success">9</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="list-img"><img src="assets/images/comment6.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-success">approve</span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <td><span class="badge badge-success">9</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                <?php
+                                $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
+                                FROM enquiry
+                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id";
+                                $result= mysqli_query($conn,$sql);
+                                if($result){
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        $Enquiry_Id=$row['Enquiry_Id'];
+                                        $user_name=$row["First_name"] . " " . $row["Last_name"];
+                                        $Packages_name=$row['Packages_name'];
+                                        $No_of_people=$row['No_of_people'];
+                                        $Checkin_date=$row['Checkin_date'];
+                                        $Checkout_date=$row['Checkout_date'];
+                                        $Status=$row['Status'];
+                                
+                                                                                     
+                                        echo 
+                                        '<tr>
+                                                   
+                                                
+                                                <td>'.$user_name.'</td>
+                                                <td>'.$Checkin_date.'</td>
+                                                <td>'.$Checkout_date.'</td>
+                                                <td>'.$Packages_name.'</td>
+                                                <td>'.$Enquiry_Id.'</td>
+                                                <td><span class="badge badge-success">'.$Status.'</span></td>
+                                                
+                                                <td><span class="badge badge-success">'.$No_of_people.'</span></td>
+                                                <td>
+                                                '
+                                                ?>
+                                                   
+                                                <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="fa fa-check"></i></span>
+                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                                </td>
+                                            <?php
+                                            
+                                                }
+                                            }
+                                            
+                                            ?>
+                                            </tr>
+                                
+                                   </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!-- Content / End -->
+             Content / End 
             <!-- Copyrights -->
             <div class="copyrights">
                Copyright © 2023 John Travels LK. All rights reserveds.
@@ -337,6 +274,9 @@
         </div>
         <!-- Dashboard / End -->
     </div>
+
+                                    
+                                
     <!-- end Container Wrapper -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

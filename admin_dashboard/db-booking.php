@@ -184,6 +184,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -224,7 +225,7 @@
                                     <td><span class="badge badge-success">9</span></td>
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <a href="A-booking-reject.php?id=1"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
                                 <tr>
