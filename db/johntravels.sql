@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 07:47 AM
+-- Generation Time: Dec 11, 2023 at 11:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -97,7 +97,7 @@ CREATE TABLE `customers` (
   `Password` varchar(255) NOT NULL,
   `Create_at` date NOT NULL DEFAULT current_timestamp(),
   `Status` varchar(50) NOT NULL DEFAULT 'Active',
-  `verify_token` varchar(255) NOT NULL
+  `verify_token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -163,6 +163,11 @@ CREATE TABLE `package` (
   `Pack_title` varchar(255) NOT NULL,
   `Pack_img` varchar(256) NOT NULL,
   `Description` varchar(255) NOT NULL,
+  `Location` varchar(256) NOT NULL,
+  `Place_one` varchar(256) NOT NULL,
+  `Place_two` varchar(256) NOT NULL,
+  `Place_three` varchar(256) NOT NULL,
+  `Place_four` varchar(256) NOT NULL,
   `Group_size` int(11) NOT NULL,
   `Days` int(11) NOT NULL,
   `Night` int(11) NOT NULL,
@@ -173,7 +178,7 @@ CREATE TABLE `package` (
   `Map` varchar(255) NOT NULL,
   `Api_key` varchar(255) NOT NULL,
   `Popular` varchar(255) NOT NULL,
-  `Status` varchar(255) NOT NULL DEFAULT 'Active',
+  `Status` varchar(255) NOT NULL DEFAULT 'pending',
   `Trip_date` date NOT NULL,
   `Wish` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -393,7 +398,7 @@ ALTER TABLE `faq_form`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `package_booking`
