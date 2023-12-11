@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -25,13 +26,25 @@
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </h1>
+                <?php
+                session_start();
+                if(isset($_SESSION["error"])):{
+                }
+                ?>
+                <div class="form-group">
+                    <label class="badge badge-danger"><?php echo $_SESSION["error"]; ?></label>
+                </div>
+                <?php
+                unset($_SESSION["error"]);
+                endif;
+                ?>
                 <div class="form-group">
                     <label for="first_name1">E-Mail</label>
-                    <input type="text" class="validate" name="mail">
+                    <input type="text" class="validate" name="mail" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>
-                    <input id="last_name" type="password" class="validate" name="password">
+                    <input id="last_name" type="password" class="validate" name="password" required>
                 </div>
                 <div class="form-group">
                     <!-- <a class="button-primary" href="user-dashboard.php">Login</a> -->

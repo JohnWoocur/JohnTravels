@@ -221,7 +221,7 @@
                                     <tbody>
                                     <?php
 
-                                       while ($row = $result->fetch_assoc()) {
+                                       while ($row = $result->fetch_assoc()) { 
                                         $image=$row["Image"];
                                     ?>
                                     <tr>

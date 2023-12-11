@@ -251,7 +251,7 @@
                                     <div class="col-12">
                                         <h4>Upload Profile Photo</h4>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6"> 
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>

@@ -197,6 +197,7 @@
                         <?php 
                         require "A-edit-package.php";
                         $id=$_GET["id"];
+                        //$id=1;
                         $getpack=displayPackage($id);
                         foreach($getpack as $pack):
                         ?>
