@@ -174,6 +174,7 @@
                         <li class="active-menu">
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                                <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -190,8 +191,7 @@
             </div>
             <div class="db-info-wrap db-package-wrap">
                 <div class="dashboard-box table-opp-color-box">
-                    <h4>Packages List</h4>
-                    <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
+                    <h4>Pending Packages List</h4>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -203,89 +203,46 @@
                                     <th>action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Singapore Holiday Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">New Year‘s Eve in Paris</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Paris Honeymoon Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Japan Holiday Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">California Trip</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        </span><span class="package-name">Dubai Tour</span>
-                                    </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td><span class="badge badge-primary">Pending</span></td>
-                                    <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                            <?php
+                                    include "db-connection.php";
+                                    $result = mysqli_query($conn,"SELECT * FROM package WHERE Status = 'Pending'");
+
+                                    ?>
+
+                                    <tbody>
+                                        <?php
+
+                                    while($row = $result->fetch_assoc()) {
+                                        ?>
+
+                                        <tr>
+
+                                        <?php 
+                                        // output data of each row
+                                        
+                                            echo'<td>'.$row["Pack_title"].'</td>';
+                                            echo'<td>'.$row["Trip_date"].'</td>';
+                                            echo'<td>'.$row["Location"].'</td>';
+                                            echo'<td>'.$row["Status"].'</td>';
+                                        
+
+                                            ?>
+
+                                            <td>
+                                                <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <span class="badge badge-success"><i class="far fa-check-circle"></i></span>
+                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    $conn->close();
+                                        ?>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
                 <!-- pagination html -->
                 <div class="pagination-wrap">
                     <nav class="pagination-inner">
