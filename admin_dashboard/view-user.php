@@ -209,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-               
+                
                 
                 <div class="row">
                     <div class="col-lg-12">
@@ -218,7 +218,8 @@
 
                     <?php 
                     require "A-view-user.php";
-                    $getuser=displayUser(1);
+                    $id=$_GET['id'];
+                    $getuser=displayUser($id);
                     foreach($getuser as $user):
                     ?>
                             
@@ -241,7 +242,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>NIC/Passport</label>
-                                            <input name="ID" class="form-control" type="number" value="">
+                                            <input name="ID" class="form-control" type="number" value="<?php echo $user['NIC']; ?>">
                                         </div>  
                                     </div>
                                     
