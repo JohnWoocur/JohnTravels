@@ -1,12 +1,12 @@
 <?php
 include 'db-connection.php';
 
-if (isset($_GET['pack_id'])) {
+if (isset($_GET['Pack_Id'])) {
    
-    $pack_id = $_GET['pack_id'];
-     // $sql = "DELETE FROM `package` WHERE Pack_Id = $pack_id";
+    $Pack_Id = $_GET['Pack_Id'];
+     
     $status = "Delete";
-    $sql = "UPDATE `package` SET `Status` = '$status' WHERE `Pack_Id` = $pack_id";
+    $sql = "UPDATE `package` SET `Status` = '$status' WHERE `Pack_Id` = $Pack_Id";
   
     if ($conn->query($sql) === TRUE) {
         echo "Package deleted successfully";

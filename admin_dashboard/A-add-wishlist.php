@@ -7,7 +7,7 @@ if (isset($_GET['Pack_Id'])){
     
     
      
-    $sql = "UPDATE `package` SET `wish`= 'Active' WHERE  `Pack_Id`=$Pack_Id ";
+    $sql = "UPDATE `package` SET `Wish`= 'Active' WHERE  `Pack_Id`=$Pack_Id ";
     $result = mysqli_query($conn,$sql);
     if ($result) {
         echo"wishlist added succseful";
