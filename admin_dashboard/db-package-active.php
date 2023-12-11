@@ -214,7 +214,7 @@
                                     include 'db-connection.php';
                                         
 
-                                    $query = "SELECT * FROM package";
+                                    $query = "SELECT * FROM package WHERE status = 'Active'";
                                     $result = $conn->query($query);
                                 ?>
                                      
@@ -252,7 +252,7 @@
                                     <td>
                                         <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                         <a href ="A-add-wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <a href ="A-package-delete.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                        
                                     </td> 
                                 </tr>
