@@ -264,6 +264,44 @@
                                 </div>
                             </div>
                         </div>
+						<div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <h4>Trip location and places</h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text" placeholder="Location" id="Location" name="Location" required/>
+                                        </div>
+                                    </div><br>
+                                    <div class="col-sm-6">
+                                        <label>Places</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place1" id="Place_one" name="Place_one" required/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place2" id="Place_two" name="Place_two" required/>
+                                                </div>
+                                            </div>
+											<div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place3" id="Place_three" name="Place_three" required/>
+                                                </div>
+                                            </div>
+											<div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place4" id="Place_four" name="Place_four" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="dashboard-box">
                             <h4>Gallery</h4>
                             <div class="custom-field-wrap">
@@ -414,6 +452,7 @@
     <script src="assets/js/counterup.min.js"></script>
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/dashboard-custom.js"></script>
+	<script src="image.js"></script>
 </body>
 
 <!-- Mirrored from cyclonethemes.com/demo/html/padhai/dashboard-addtour.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2020 09:01:50 GMT -->
