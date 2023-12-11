@@ -215,6 +215,7 @@
                                     <th>action</th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 <?php
                                 $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
@@ -231,29 +232,34 @@
                                         $Checkout_date=$row['Checkout_date'];
                                         $Status=$row['Status'];
                                 
-                                                                                        
-                              echo 
-                            '<tr>
-                                       
-                                    
-                                    <td>'.$user_name.'</td>
-                                    <td>'.$Checkin_date.'</td>
-                                    <td>'.$Checkout_date.'</td>
-                                    <td>'.$Packages_name.'</td>
-                                    <td>'.$Enquiry_Id.'</td>
-                                    <td><span class="badge badge-success">'.$Status.'</span></td>
-                                    
-                                    <td><span class="badge badge-success">'.$No_of_people.'</span></td>
-                                    <td>
-                                    <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
-                                    </td>
-                                </tr>';
-                                    }
-                                }
-                                
-                                ?>
+                                                                                     
+                                        echo 
+                                        '<tr>
+                                                   
+                                                
+                                                <td>'.$user_name.'</td>
+                                                <td>'.$Checkin_date.'</td>
+                                                <td>'.$Checkout_date.'</td>
+                                                <td>'.$Packages_name.'</td>
+                                                <td>'.$Enquiry_Id.'</td>
+                                                <td><span class="badge badge-success">'.$Status.'</span></td>
+                                                
+                                                <td><span class="badge badge-success">'.$No_of_people.'</span></td>
+                                                <td>
+                                                '
+                                                ?>
+                                                   
+                                                <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="fa fa-check"></i></span>
+                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                                </td>
+                                            <?php
+                                            
+                                                }
+                                            }
+                                            
+                                            ?>
+                                            </tr>
                                 
                                    </tbody>
                         </table>
