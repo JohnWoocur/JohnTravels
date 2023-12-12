@@ -198,24 +198,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                <th>Package Name</th>
-                                    <th>No of people</th>
-                                    <th>Days</th>
-                                    <th>Nights</th>
-                                    <th>Regular Price</th>
-                                    <th >Discount</th>
-                                    <th>Sale Price</th>
-                                    <th> Category</th>
-                                    <th>Trip Date</th>
-                                    <th>Status</th>
+                                             <th>Name</th>
+                                            <th>Date</th>
+                                            <th>Destination</th>
+                                            <th>status</th>
+                                            <th>action</th>
                                 </tr>
                             </thead>
-
-                                    $query = "SELECT * FROM package WHERE status = 'Active'";
-                                    $result = $conn->query($query);
-                                ?>
-                                     
-                            <tbody>
 
                             <?php
                             include "db-connection.php";
@@ -245,7 +234,7 @@
 
 
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                        
                                         <a href ="A-add-wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
                                         <a href ="A-package-delete.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                        
