@@ -174,7 +174,7 @@ session_start();
             <div class="db-info-wrap">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="dashboard-box user-form-wrap">
+                        <!-- <div class="dashboard-box user-form-wrap">
                             <div class="col-12">
                                 <h4>Upload Profile Photo</h4>
                             </div>
@@ -183,11 +183,11 @@ session_start();
                                     <div class="form-group">
                                       <span class="upload-btn">Select a image</span>
                                       <input type="file" name="myfile">                                        
-                                      <button type="submit" class="button-primary" value="<?php echo $user['Image']; ?>">Upload Image</button>
+                                      <button type="submit" class="button-primary" value="">Upload Image</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                
@@ -195,6 +195,26 @@ session_start();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
+                        <?php
+                                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
                             <h4>Profile Details add</h4>
 
                     <?php 
@@ -207,11 +227,26 @@ session_start();
                     //require "A-user-edit.php";
                     $getuser=displayUser($id);
                     foreach($getuser as $user):
+                        //$Image=$row["Image"];
                     ?>
                             
 
-                            <form class="form-horizontal" method="POST" action="A-user-edit-update.php">
+                            <form class="form-horizontal" method="POST" action="A-user-edit-update.php" enctype="multipart/form-data">
+                            <div class="dashboard-box user-form-wrap">
+                            <div class="col-12">
+                            </div>
+                            
+                            </div>
                                 <div class="row">
+                                <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group">
+                                      <span class="upload-btn">Select a image</span>
+                                      <img src="Customers/<?php echo $user['Image']?>" alt="User image">
+                                      <input type="file" name="myfile" accept="image/*" >                              
+                                    </div>
+                                </div>
+                            </div>
                                     <div class="col-sm-6">
                                         <div class="form-group"> 
                                             <label>First name</label>
@@ -284,6 +319,9 @@ session_start();
                                             <input name="about" id="Address" class="form-control" value="<?php echo $user['About']; ?>" placeholder="" type="text">
                                         </div>
                                     </div>
+                                    <div class="col-sm-12">
+                                        
+                                    </div>
                                     <!-- <div class="col-12">
                                         <h4>Social Media Links </h4>
                                         <div class="form-group">
@@ -317,39 +355,52 @@ session_start();
                                 
                             ?> 
 
-                            <form class="form-horizontal" method="POST" action="A-new-user-edit-update.php">
+                            <form class="form-horizontal" method="POST" action="A-new-user-edit-update.php" enctype="multipart/form-data">
+                            <div class="dashboard-box user-form-wrap">
+                            <div class="col-12">
+                                <h4>Upload Profile Photo</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group">
+                                      <span class="upload-btn">Select a image</span>
+                                      <input type="file" name="myfile" accept="image/*" required>           
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                                     <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group"> 
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" value="">
+                                            <input name="firstname" class="form-control" type="text" value="" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" value="">
+                                            <input name="lastname" class="form-control" type="text" value="" required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>NIC/Passport</label>
-                                            <input name="ID" class="form-control" type="number" value="">
+                                            <input name="ID" class="form-control" type="number" value="" required>
                                         </div>  
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" class="form-control" value="" placeholder="" type="text">
+                                            <input name="phone" id="input-phone" class="form-control" value="" placeholder="" type="text" required>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Date of Birth</label>
-                                            <input type="date" id="dob" name="dob" value="">
+                                            <input type="date" id="dob" name="dob" value="" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -358,27 +409,27 @@ session_start();
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="country" id="country" class="form-control" value="" placeholder="" type="text">
+                                            <input name="country" id="country" class="form-control" value="" placeholder="" type="text" required>
 
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                          <label>District</label>
-                                         <input name="district" id="district" class="form-control" value="" placeholder="" type="text">
+                                         <input name="district" id="district" class="form-control" value="" placeholder="" type="text" required>
                                          
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                             <div class="form-group">
                                             <label>City</label>
-                                            <input name="city" id="City" class="form-control" value="" placeholder="" type="text">
+                                            <input name="city" id="City" class="form-control" value="" placeholder="" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input name="Address" id="Address" class="form-control" value="" placeholder="" type="text">
+                                            <input name="Address" id="Address" class="form-control" value="" placeholder="" type="text" required>
                                         </div>
                                     </div>
                                     
@@ -388,7 +439,7 @@ session_start();
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Please Tell Us About You</label>
-                                            <input name="about" id="Address" class="form-control" value="" placeholder="" type="text">
+                                            <input name="about" id="Address" class="form-control" value="" placeholder="" type="text" required>
                                         </div>
                                     </div>
                                     <div>

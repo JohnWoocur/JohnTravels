@@ -1,7 +1,12 @@
-
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+    unset($_SESSION['id']);
+}
+?>
 <!doctype html>
 <html lang="en">
-   <head>
+   <head> 
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +32,6 @@
                     </a>
                 </h1>
                 <?php
-                session_start();
                 if(isset($_SESSION["error"])):{
                 }
                 ?>

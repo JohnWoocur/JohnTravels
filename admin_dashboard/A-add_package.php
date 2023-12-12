@@ -6,7 +6,7 @@ include_once ("db-connection.php");
 
     $tempname = $_FILES["Pack_img"]["tmp_name"];  
 
-    $folder = "package/".$filename;
+    $folder = "package/".$filename; 
 		
 $Pack_title = $_POST['Pack_title'];
 $Description = $_POST['Description'];
