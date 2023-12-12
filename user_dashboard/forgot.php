@@ -17,20 +17,50 @@
       <title>John Travels LK</title>
 </head>
 <body>
+
+<?php
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "johntravels";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    include 'functions.php';
+    session_start();
+
+    if (isset($_SESSION['status']))
+        {
+            ?>
+            <div class="alert alert-success">
+                <h5><?= $_SESSION['status']; ?></h5>
+            </div>
+            <?php
+            unset($_SESSION['status']);
+        }
+?>
+
     <div class="login-page" style="background-image: url(assets/images/bg.jpg);">
         <div class="login-from-wrap">
-            <form class="login-from">
+            <form class="login-from" method="post" action="password-reset-code.php">
                 <h1 class="site-title">
                     <a href="#">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </h1>
                 <div class="form-group">
-                    <label for="first_name1">User Email</label>
-                    <input name="email" type="email" class="validate">
+                    <label for="User Email">User Email</label>
+                    <input name="Email" type="email" class="validate">
                 </div>
                 <div class="form-group">
-                    <a class="button-primary" href="login.php">Submit</a>
+                     <center><button class="button-primary" name="reset_password" type="submit">Submit</button></center>
+                    <!-- <a class="button-primary" href="user-dashboard.php">Login</a> -->
                 </div>
                 <a href="login.php" class="for-pass">Login</a>
             </form>
