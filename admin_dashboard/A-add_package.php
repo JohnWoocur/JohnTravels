@@ -31,11 +31,15 @@ $Sale_price =$Reqular_price-(($Reqular_price/100)*$Discount);
 $check = mysqli_query($conn,"INSERT INTO package(Pack_title, Pack_img, Description, Location, Place_one, Place_two, Place_three, Place_four, Group_size, Trip_date, Days, Night, Sale_price, Reqular_price, Discount, Category, Map, Api_key) VALUES('$Pack_title','$filename','$Description','$Location','$Place_one','$Place_two','$Place_three','$Place_four','$Group_size','$Trip_date','$Days','$Night','$Sale_price','$Reqular_price','$Discount','$Category','$Map','$Api_key')");
 if (move_uploaded_file($tempname, $folder)) {
 
-            echo "Image uploaded successfully";
+            echo "Package added. ";
+        header("Location: db-add-package.php");
+        exit;
 
         }else{
 
-            echo "Failed to upload image";
+            echo "Package adding failed. ";
+        header("Location: db-add-package.php");
+        exit;
 
     }
 /*
@@ -51,3 +55,4 @@ else
 }
 */
 ?>
+

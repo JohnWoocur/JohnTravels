@@ -237,7 +237,7 @@ $result = mysqli_query($conn,$sql);
                                     </div>
                                     <p>'.$description.'.</p>
                                     <div class="btn-wrap">
-                                    <a href ="package-detail.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><a href="package-detail.php" class="button-text width-6">SEE MORE<i class="fas fa-arrow-right"></i></a>
+                                    <a href ="package-detail.php ?Pack_Id=<?php  echo $row["Pack_Id"]; "?>SEE MORE<i class="fas fa-arrow-right"></i></a>
                                        <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
                                     </div>
                                  </div>

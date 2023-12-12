@@ -195,27 +195,31 @@
             </section>
             <!-- slider html start -->
             <!-- Home search field html start -->
+			<form method="POST" action="Guest-enquiry.php" >
             <div class="trip-search-section shape-search-section">
                <div class="slider-shape"></div>
                <div class="container">
                   <div class="trip-search-inner white-bg d-flex">
+					 <div class="input-group">
+                        <label> Full Name * </label>
+                        <input type="text" name="Guest_Name" placeholder="Enter Name"required>
+                     </div>
+					 <div class="input-group">
+                        <label> Contact Number * </label>
+                        <input type="text" name="Phone_Number" placeholder="Enter Number" required>
+                     </div>
                      <div class="input-group">
                         <label> Search Destination* </label>
-                        <input type="text" name="s" placeholder="Enter Destination">
+                        <input type="text" name="Destination" placeholder="Enter Destination">
                      </div>
                      <div class="input-group">
                         <label> Number of People* </label>
-                        <input type="text" name="s" placeholder="No.of People">
+                        <input type="text" name="No_of_people" placeholder="No.of People" required>
                      </div>
                      <div class="input-group width-col-3">
                         <label> Checkin Date* </label>
                         <i class="far fa-calendar"></i>
-                        <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
-                     </div>
-                     <div class="input-group width-col-3">
-                        <label> Checkout Date* </label>
-                        <i class="far fa-calendar"></i>
-                        <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                        <input class="date" type="date" name="Date">
                      </div>
                      <div class="input-group width-col-3">
                         <label class="screen-reader-text"> Search </label>
@@ -224,6 +228,7 @@
                   </div>
                </div>
             </div>
+			</form>
             <!-- search search field html end -->
             <section class="destination-section">
                <div class="container">
