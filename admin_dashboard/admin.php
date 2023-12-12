@@ -239,8 +239,9 @@
                                            echo '<td>' . $row['Email'] . '</td>';
                                            echo '<td>' . $row['Country'] . '</td>';
                                     ?>                                          
-                                           <td><a href="admin-edit.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a></td>
-                                           <td><span class="badge badge-success"><i class="far fa-edit"></i></span></td>
+                                           
+                                           <td><span class="badge badge-success"><i class="far fa-eye"></i></span></td>
+										   <td><a href="admin-edit.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-edit"></i></span></a></td>
                                            <td><a href="A-admin-delete.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a></td>                                   
                                      </tr>
                                     <?php  

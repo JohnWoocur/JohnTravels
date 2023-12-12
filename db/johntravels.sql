@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 11:39 AM
+-- Generation Time: Dec 11, 2023 at 06:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,6 +40,14 @@ CREATE TABLE `admins` (
   `Password` varchar(255) NOT NULL,
   `Status` varchar(50) NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`Admin_Id`, `First_name`, `Last_name`, `Mobile_number`, `Create_at`, `City`, `Country`, `Email`, `Image`, `Password`, `Status`) VALUES
+(9, 'woocur', 'dilaxsan', 778497666, '2023-12-11', 'vavuniya', 'sri lanka', 'antonydilaxsan99@gmail.com', 'testimonial-3.jpg', 'ad001', 'Active'),
+(10, 'john', 'woocur', 112225441, '2023-12-11', 'vavuniya', 'sri lanka', 'admin@mirabilis.com', 'testimonial-2.jpg', '1234', 'Active');
 
 -- --------------------------------------------------------
 
@@ -100,6 +108,15 @@ CREATE TABLE `customers` (
   `verify_token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`Customer_Id`, `Username`, `Email`, `Password`, `Create_at`, `Status`, `verify_token`) VALUES
+(4, 'dilaxsan', 'antonydilaxsan@gmail.com', '1234', '2023-12-11', 'Active', NULL),
+(5, 'ad', 'ad@mail', '123', '2023-12-11', 'Active', NULL),
+(8, 'dilaxsan001', 'antony@gmail', '123456', '2023-12-11', 'Active', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +138,13 @@ CREATE TABLE `customer_more_details` (
   `Image` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `customer_more_details`
+--
+
+INSERT INTO `customer_more_details` (`Customer_Id`, `First_name`, `Last_name`, `Mobile_number`, `NIC`, `City`, `Country`, `district`, `Address`, `Dob`, `About`, `Image`) VALUES
+(8, 'antony', 'ad', 2147483647, '991653821', 'nellukullam', 'sri lanka', 'vavuniya', 'no.22', '2023-12-13', 'ho iam dilaxsan hello', '');
+
 -- --------------------------------------------------------
 
 --
@@ -138,6 +162,13 @@ CREATE TABLE `enquiry` (
   `Status` varchar(50) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `enquiry`
+--
+
+INSERT INTO `enquiry` (`Enquiry_Id`, `Customer_Id`, `Packages_name`, `Phone_number`, `No_of_people`, `Checkin_date`, `Checkout_date`, `Status`) VALUES
+(7, 8, 'galle', 775487965, 20, '2023-12-13', '2023-12-22', 'Active');
+
 -- --------------------------------------------------------
 
 --
@@ -151,6 +182,28 @@ CREATE TABLE `faq_form` (
   `Phone_number` int(11) NOT NULL,
   `Message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guest_enquiry`
+--
+
+CREATE TABLE `guest_enquiry` (
+  `Guest_enquriy_Id` int(11) NOT NULL,
+  `Guest_Name` varchar(256) NOT NULL,
+  `Phone_Number` int(10) NOT NULL,
+  `Destination` varchar(256) NOT NULL,
+  `No_of_people` int(11) NOT NULL,
+  `Date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `guest_enquiry`
+--
+
+INSERT INTO `guest_enquiry` (`Guest_enquriy_Id`, `Guest_Name`, `Phone_Number`, `Destination`, `No_of_people`, `Date`) VALUES
+(4, 'dilaxsan', 122546695, 'kandy', 10, '1999-12-06');
 
 -- --------------------------------------------------------
 
@@ -182,6 +235,13 @@ CREATE TABLE `package` (
   `Trip_date` date NOT NULL,
   `Wish` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`Pack_Id`, `Pack_title`, `Pack_img`, `Description`, `Location`, `Place_one`, `Place_two`, `Place_three`, `Place_four`, `Group_size`, `Days`, `Night`, `Sale_price`, `Reqular_price`, `Discount`, `Category`, `Map`, `Api_key`, `Popular`, `Status`, `Trip_date`, `Wish`) VALUES
+(26, 'mannar', 'about.jpg', 'jjjjjjjjjjjjj', 'kandy', 'daf', 'iuiuiu', 'dwqdw', 'dwedwed', 10, 2, 1, 7200, 8000, 10, 'Couple', 'Google Map', '999996', '', 'Expired', '2023-12-13', 'Active');
 
 -- --------------------------------------------------------
 
@@ -306,6 +366,12 @@ ALTER TABLE `faq_form`
   ADD PRIMARY KEY (`Form_Id`);
 
 --
+-- Indexes for table `guest_enquiry`
+--
+ALTER TABLE `guest_enquiry`
+  ADD PRIMARY KEY (`Guest_enquriy_Id`);
+
+--
 -- Indexes for table `package`
 --
 ALTER TABLE `package`
@@ -356,13 +422,13 @@ ALTER TABLE `user-wish`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `Admin_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Admin_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `blog_tags`
@@ -380,13 +446,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `enquiry`
 --
 ALTER TABLE `enquiry`
-  MODIFY `Enquiry_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Enquiry_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `faq_form`
@@ -395,10 +461,16 @@ ALTER TABLE `faq_form`
   MODIFY `Form_Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `guest_enquiry`
+--
+ALTER TABLE `guest_enquiry`
+  MODIFY `Guest_enquriy_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `package_booking`
@@ -428,7 +500,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT for table `user-wish`
 --
 ALTER TABLE `user-wish`
-  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
