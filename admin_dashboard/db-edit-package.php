@@ -1,6 +1,9 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
-   <head>
+   <head> 
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -193,17 +196,49 @@
                     <!-- Listings -->
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
+                        <?php
+                                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
 
                         <?php 
                         require "A-edit-package.php";
-                        $id=$_GET["id"];
-                        //$id=1;
+                        //$id=$_GET["id"];
+                        $id=16;
                         $getpack=displayPackage($id);
                         foreach($getpack as $pack):
                         ?>
 
-                        <form action="A-edit-package-update.php" method="POST">
+                        <form action="A-edit-package-update.php" method="POST" enctype="multipart/form-data">
+                        <div class="col-sm-6">
+                                
+                            </div>
                             <div class="custom-field-wrap">
+                            <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group">
+                                      <span class="upload-btn">Select a image</span>
+                                      <img src="package/<?php echo $pack['Pack_img']?>" alt="User image">
+                                      <input type="file" name="myfile" accept="image/*" >                              
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="form-group">
                                     <label>ID</label>
                                     <input type="text" name="id" value="<?php echo $pack["Pack_Id"] ?>" readonly>
@@ -233,11 +268,13 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
+                                                    <label>Days</label>
                                                     <input type="number" name="day" placeholder="Days" value="<?php echo $pack["Days"] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
+                                                    <label>Nights</label>
                                                     <input type="number" name="night" placeholder="Nights" value="<?php echo $pack["Night"] ?>">
                                                 </div>
                                             </div>
@@ -254,12 +291,18 @@
                                             </select> -->
                                         </div>
                                     </div>
-                                    <!-- <div class="col-sm-3">
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Date</label>
-                                            <input type="date" name="date" value="<?php echo $pack["Date"] ?>">
+                                            <input type="date" name="date" value="<?php echo $pack["Trip_date"] ?>">
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Sales Price</label>
+                                            <input type="text" name="saleprice" value="<?php echo $pack["Sale_price"] ?>">
+                                        </div>
+                                    </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Regular Price</label>
@@ -275,23 +318,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-box">
-                            <h4>Gallery</h4>
-                            <div class="custom-field-wrap">
-                                <div class="dragable-field">
-                                    <div class="dragable-field-inner">
-                                        <p class="drag-drop-info">Drop Files To Upload</p>
-                                        <p>or</p>
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile">
-                                            </div>
-                                        </div>
+                        <!-- <div class="dashboard-box user-form-wrap">
+                            <div class="col-12">
+                                <h4>Package Photo</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group">
+                                      <span class="upload-btn">Select a image</span>
+                                      <input type="file" name="myfile" accept="image/*" >                              
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            </div> -->
                         <div class="dashboard-box">
                             <h4>Location</h4>
                             <div class="custom-field-wrap">
@@ -319,15 +358,16 @@
                                         <div class="form-group">
                                             <label>Popular</label>
                                             <input type="text" name="popular" value="<?php echo $pack["Popular"] ?>">
-                                            <!-- <select>
-                                                <option value="<?php echo $pack["Map"] ?>">Google Map</option>
-                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Status</label>
                                             <input type="text" name="status" value="<?php echo $pack["Status"] ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wish</label>
+                                            <input type="text" name="wish" value="<?php echo $pack["Status"] ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -350,87 +390,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xl-3">
-                        <div class="dashboard-box">
-                            <div class="custom-field-wrap">
-                                <h4>Publish</h4>
-                                <div class="publish-btn">
-                                    <div class="form-group">
-                                        <input type="submit" name="draft" value="Save Draft">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" name="preview" value="Preview">
-                                    </div>
-                                </div>
-                                <div class="publish-status">
-                                    <span>
-                                        <strong>Status:</strong>
-                                        Draft
-                                    </span>
-                                    <a href="#">Edit</a>
-                                </div>
-                                <div class="publish-status">
-                                    <span>
-                                        <strong>Visibility:</strong>
-                                        Poblic
-                                    </span>
-                                    <a href="#">Edit</a>
-                                </div>
-                                <div class="publish-status">
-                                    <span>
-                                        <strong>Visibility:</strong>
-                                        Poblic
-                                    </span>
-                                    <a href="#">Edit</a>
-                                </div>
-                                <div class="publish-action">
-                                    <input type="submit" name="publish" value="Publish">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dashboard-box">
-                            <div class="custom-field-wrap db-pop-field-wrap">
-                                <h4>Popular</h4>
-                                <div class="form-group">
-                                    <label class="custom-input"><input type="checkbox">
-                                        <span class="custom-input-field"></span>
-                                        Use Polpular
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="custom-field-wrap db-pop-field-wrap">
-                                <h4>Keywords</h4>
-                                <div class="form-group">
-                                    <input type="text" name="keyword" placeholder="Keywords">
-                                </div>
-                            </div>
-                            <div class="custom-field-wrap db-cat-field-wrap">
-                                <h4>Category</h4>
-                                <div class="form-group">
-                                    <label class="custom-input"><input type="checkbox">
-                                        <span class="custom-input-field"></span>
-                                        Hotel
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="custom-input"><input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                        Walking
-                                    </label>
-                                </div>
-                                <div class="add-btn">
-                                    <a href="#">Add category</a>
-                                </div>
-                            </div>
-                            <div class="custom-field-wrap db-media-field-wrap">
-                                <h4>Add image</h4>
-                                <div class="upload-input">
-                                    <div class="form-group">
-                                      <span class="upload-btn">Upload a image</span>
-                                      <input type="file" name="myfile">
-                                    </div>
-                                </div>
-                            </div>
+                    
                         </div>
                     </div>
                 </div>      
