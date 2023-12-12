@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"])){
+    header("Location:login.php");
+    exit();
+}
+?>
+<?php
+require 'U-dashboard.php';
+$name=displayUser();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -134,7 +145,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <!-- <span>My Account </span> -->
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -143,7 +155,7 @@
                                 <li><a href="user-edit.php"><i class="fas fa-cog"></i>Edit Profile</a></li>
                                 <li><a href="profile-card.php"><i class="fas fa-user-tie"></i>Profile</a></li>
                                 <li><a href="user-change-password.php"><i class="fas fa-key"></i>Password</a></li>
-                                <li><a href="login.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                <li><a href="U-logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -163,7 +175,7 @@
                          <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="user-db-comment.php"> <i class='bx bx-chat'></i>Comments</a></li>
                         <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
-                        <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a href="U-logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>

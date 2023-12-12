@@ -17,8 +17,10 @@ $query="UPDATE `customer_more_details` SET `First_name`='$First_name',`Last_name
 $result=mysqli_query($conn,$query);
 if($result){
     header('location:user-dashboard.php');
+    $_SESSION['msg']="Details Updated";
 }
 else{
     header('location:user-edit.php');
+    $_SESSION['msg']="Details Updated failed";
 }
 ?>

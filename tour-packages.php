@@ -2,17 +2,9 @@
 
 include "../JohnTravels/admin_dashboard/db-connection.php";
 
-// $Pack_title = $_POST['Pack_title'];
-// $Group_size = $_POST['Group_size'];
-// $Days = $_POST['Days'];
-// $Night = $_POST['Night'];
-// $Reqular_price = $_POST['Reqular_price']; 
-
-
-
 $sql ="SELECT * FROM package";
 $result = mysqli_query($conn,$sql); 
-//$row = mysqli_fetch_assoc($result);    
+   
 ?>
 
 
@@ -198,21 +190,22 @@ $result = mysqli_query($conn,$sql);
 									$days=$row["Days"];
 									$night=$row["Night"];
 									$group_size=$row["Group_size"];
-									$pack_title=$row["Pack_title"];
+									$Location=$row["Location"];
 									$description=$row["Description"];
+                           $Pack_title=$row["Pack_title"];
 									
 						echo '
                         <div class="col-lg-4 col-md-6">
                            <div class="package-wrap">
                               <figure class="feature-image">
                                  <a href="#">
-                                   <img src="admin_dashboard/package/'.$image.'">
+                                   <img src="admin_dashboard/package/'.$image.'" width = "376px" height="249px">
                                  </a>
                                  
                               </figure>
                               <div class="package-price">
                                  <h6>
-                                    <span >'.$pack_price.'</span>
+                                    <span >$'.$pack_price.'  </span>  / per person
                                  </h6>
                               </div>
                               <div class="package-content-wrap">
@@ -228,13 +221,13 @@ $result = mysqli_query($conn,$sql);
                                        </li>
                                        <li>
                                           <i class="fas fa-map-marker-alt"></i>
-                                          '.$pack_title.'
+                                          '.$Location.'
                                        </li>
                                     </ul>
                                  </div>
                                  <div class="package-content">
                                     <h3>
-                                       <a href="#">'.$description.'</a>
+                                       <a href="#">'.$Pack_title.'</a>
                                     </h3>
                                     <div class="review-area">
                                        <span class="review-text">(25 reviews)</span>
@@ -242,9 +235,9 @@ $result = mysqli_query($conn,$sql);
                                           <span style="width: 60%"></span>
                                        </div>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                    <p>'.$description.'.</p>
                                     <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
+                                    <a href ="package-detail.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><a href="package-detail.php" class="button-text width-6">SEE MORE<i class="fas fa-arrow-right"></i></a>
                                        <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
                                     </div>
                                  </div>
