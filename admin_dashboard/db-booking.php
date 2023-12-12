@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -191,6 +194,26 @@
             </div>
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
+                <?php
+                                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
                     <h4>Recent Booking</h4>
                     <!-- <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p> -->
                     <p><a href="db-approved-booking.php"><button style="background-color: green; border:none; color:white; padding:15px 32px; text-align:center;display:inline-block">Approved</button></a>

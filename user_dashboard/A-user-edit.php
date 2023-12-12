@@ -1,5 +1,5 @@
 <?php
-
+ 
 function displayUser($id){  
 require '../admin_dashboard/db-connection.php';
 // $id=$_GET['id'];
