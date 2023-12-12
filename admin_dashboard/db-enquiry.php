@@ -245,15 +245,20 @@
                                     
                                     <td><span class="badge badge-success">'.$No_of_people.'</span></td>
                                     <td>
+                                    '
+                                    ?>
+                                       
                                     <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    <a href ="A-add-wishlist.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                    <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                     </td>
-                                </tr>';
+                                <?php
+                                
                                     }
                                 }
                                 
                                 ?>
+                                </tr>
                                 
                                    </tbody>
                         </table>
