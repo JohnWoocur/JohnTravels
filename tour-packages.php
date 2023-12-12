@@ -2,7 +2,7 @@
 
 include "../JohnTravels/admin_dashboard/db-connection.php";
 
-$sql ="SELECT * FROM package";
+$sql ="SELECT * FROM package WHERE Status ='Active' ";
 $result = mysqli_query($conn,$sql); 
    
 ?>
