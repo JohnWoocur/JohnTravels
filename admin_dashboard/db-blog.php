@@ -247,11 +247,12 @@
                                     </td>
                                     <!--  <td><span class="badge badge-success">9</span></td> -->
                                     <td>
+
                                         <a href="A-view-blog.php?Customer_Id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
                                         <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
-                                <?php }?>
+                                <?php }?
                             </tbody>
                         </table>
                     </div>

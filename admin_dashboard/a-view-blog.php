@@ -1,7 +1,3 @@
-<?php
-  include "db-connection.php";
-?>
-
 <!doctype html>
 <html lang="en">
    <head>
@@ -16,12 +12,12 @@
       <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
       <!-- google fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
 <body>
-
     <!-- start Container Wrapper -->
     <div id="container-wrapper">
         <!-- Dashboard -->
@@ -143,10 +139,10 @@
                         </a>
                         <div class="dropdown-menu account-menu">
                             <ul>
-                                <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
-                                <li><a href="#"><i class="fas fa-user-tie"></i>Profile</a></li>
-                                <li><a href="#"><i class="fas fa-key"></i>Password</a></li>
-                                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                <li><a href="user-edit.php"><i class="fas fa-cog"></i>Edit Profile</a></li>
+                                <li><a href="profile-card.php"><i class="fas fa-user-tie"></i>Profile</a></li>
+                                <li><a href="user-change-password.php"><i class="fas fa-key"></i>Password</a></li>
+                                <li><a href="login.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,42 +153,21 @@
                 <div id="dashboard-Navigation" class="slick-nav"></div>
                 <div id="navigation" class="navigation-container">
                     <ul>
-                        <li><a href="dashboard.php"><i class="far fa-chart-bar"></i> Dashboard</a></li>
-                        <li><a><i class="fas fa-user"></i>Admins</a>
-                            <ul>
-                                <li>
-                                    <a href="admin.php">Admin</a>
-                                </li>
-                                <!-- <li>
-                                    <a href="admin-edit.php">Admin edit</a>
-                                </li> -->
-                                <li>
-                                    <a href="new-admin.php">New admin</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="user.php"><i class="fas fa-user"></i>Users</a>
+                        <li><a href="user-dashboard.php"><i class="far fa-chart-bar"></i> Dashboard</a></li>
+                        <li><a href="user-edit.php"><i class="fas fa-user"></i>Edit Profile</a> </li>
                             
                         </li>
-                        <li><a href="db-add-package.php"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
-                        <li>
-                            <a><i class="fas fa-hotel"></i></i>packages</a>
-                            <ul>
-                                <li><a href="db-package-active.php">Active</a></li>
-                                <li><a href="db-package-pending.php">Pending</a></li>
-                                <li><a href="db-package-expired.php">Expired</a></li>
-                            </ul>   
-                        </li>
-                        <li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
-                        <li><a href="db-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry</a></li>
-                        <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
-                        <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
-                        <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
-						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
+                        <li><a href="user-packages.php"><i class="fas fa-umbrella-beach"></i>View Package</a></li>
+  
+                        <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li>
+                        <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
+                        <li><a href="user-db-comment.php"> <i class='bx bx-chat'></i>Comments</a></li>
+                        <li class="active-menu"><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD:admin_dashboard/db-enquiry.php
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
                     <h4>Recent Enquiry
@@ -264,20 +239,80 @@
                                 
                                    </tbody>
                         </table>
+=======
+            <div class="db-info-wrap db-add-tour-wrap">
+                <div class="row">
+                    <!-- Listings -->
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <div class="form-group">
+                                    <label>Blog Title</label>
+                                    <input type="text" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Special Description</label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>1st Paragraph </label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>2nd Paragraph</label>
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hashtags">Add Hashtags</label>
+                                <input type="text" name="hashtags" id="hashtags" >
+                            </div>
+                            <div class="custom-field-wrap">
+                                <label>Images</label>
+                                <div class="dragable-field">
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Drop Small Resolution Image To Upload</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Drop Larger Resolution Image To Upload</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add space here -->
+                        <div>
+                        <button type="submit" class="button-primary">Approve</button>
+                        </div>
+                        
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54:admin_dashboard/a-view-blog.php
                     </div>
-                </div>
+                </div>    
             </div>
-             Content / End 
+            <!-- Content / End -->
+
             <!-- Copyrights -->
             <div class="copyrights">
-               Copyright © 2023 John Travels LK. All rights reserveds.
-            </div>
+                Copyright © 2023 John Travels LK. All rights reserveds.
+             </div>
         </div>
         <!-- Dashboard / End -->
     </div>
-
-                                    
-                                
+    <!-- end Container Wrapper -->
     <!-- end Container Wrapper -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -287,4 +322,6 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/dashboard-custom.js"></script>
 </body>
+
+<!-- Mirrored from cyclonethemes.com/demo/html/padhai/dashboard-addtour.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2020 09:01:50 GMT -->
 </html>

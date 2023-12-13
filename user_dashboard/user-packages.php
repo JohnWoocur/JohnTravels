@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 
 include "db-connection.php";
 
@@ -178,7 +181,28 @@ $result = mysqli_query($conn,$sql);
             </div>
             <div class="db-info-wrap db-wislist-wrap">
                 <div class="dashboard-box ">
+                <?php
+                                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
                     <div class="row">
+                        
 
                      <?php 
 						  if ($result->num_rows > 0) {
@@ -220,7 +244,7 @@ $result = mysqli_query($conn,$sql);
                                         </div>
                                         <div class="button-container">
                                             <a href="../booking.php"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="U-add-wishlist.php?Customer_Id=1&Pack_Id=2"><i class="far fa-heart"></i>Add to Wishlist</a>
+                                            <a href="U-add-wishlist.php?Pack_Id='.$package_id.'"><i class="far fa-heart"></i>Add to Wishlist</a>
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +262,7 @@ $result = mysqli_query($conn,$sql);
                ?>
 
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -247,7 +271,7 @@ $result = mysqli_query($conn,$sql);
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
                                         
                                 

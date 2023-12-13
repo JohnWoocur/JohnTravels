@@ -191,7 +191,7 @@
             </div>
             
             <div class="db-info-wrap">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
                             <div class="col-12">
@@ -205,17 +205,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
                 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
+<<<<<<< HEAD
+=======
+                            <h4>Profile Details </h4>
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
 
                     <?php 
                     
                     require "A-view-user.php";
                     $id=$_GET['id'];
+                    //$id=4;
                     $getuser=displayUser($id);
                     foreach($getuser as $user):
                         require 'A-show-customer.php'; 
@@ -232,11 +237,28 @@
                             
 
                             <form class="form-horizontal" method="post">
+                                   
                                 <div class="row">
+                                <div class="col-sm-6">
+                                <div class="upload-input">
+                                <div class="form-group" style="border-radius:50px ; width:30%;">
+                                      <img src="../user_dashboard/Customers/<?php echo $user['Image']; ?>" alt="user" readonly >
+                                    </div>
+                                    <br>
+                                </div>
+                                
+                            </div>
+                            <br></br>
+                                    <div class="col-sm-6">
+                                    </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
+<<<<<<< HEAD
                                             <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?>" readonly>
+=======
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?> " readonly>
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -305,23 +327,13 @@
                                             <input name="Address" id="Address" class="form-control" value="<?php echo $user['About']; ?>" placeholder="" type="text" readonly>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-12">
-                                        <h4>Social Media Links </h4>
-                                        <div class="form-group">
-                                            <label>Facebook</label>
-                                            <input name="Facebook" id="Facebook" class="form-control" value="" placeholder="" type="text">
-                                            <label>Instagram</label>
-                                            <input name="Instagram" id="Instagram" class="form-control" value="" placeholder="" type="text">
-                                            <label>Twitter</label>
-                                            <input name="Twitter" id="Twitter" class="form-control" value="" placeholder="" type="text">
-                                            <label>Google</label>
-                                            <input name="Google" id="Google" class="form-control" value="" placeholder="" type="text">
-                                            <label>Linkedin</label>
-                                            <input name="Linkedin" id="Linkedin" class="form-control" value="" placeholder="" type="text">
-                                        </div>
-                                    </div> -->
+                                    
                                 
+<<<<<<< HEAD
                                     <!-- <button type="submit" class="button-primary">Update Profile</button> -->
+=======
+                                    
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
                                 </div>
                             </form>
                             <?php
