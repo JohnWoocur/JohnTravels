@@ -195,15 +195,12 @@
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
                             <div class="col-12">
-                                <h4>Upload Profile Photo</h4>
                             </div>
                             <div class="col-sm-6">
                                 <div class="upload-input">
-                                    <div class="form-group">
-                                      <span class="upload-btn">Select a image</span>
-                                      <input type="file" name="myfile">                                        
-                                      <button type="submit" class="button-primary" value="<?php echo $user['Image']; ?>">Upload Image</button>
-                                    </div>
+                                    <div class="form-group"> 
+                                        <h3><u>User profile</u></h3>                  
+                                      </div>
                                 </div>
                             </div>
                         </div>
@@ -214,15 +211,29 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
+<<<<<<< HEAD
+=======
                             <h4>Profile Details </h4>
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
 
                     <?php 
+                    
                     require "A-view-user.php";
                     $id=$_GET['id'];
                     //$id=4;
                     $getuser=displayUser($id);
                     foreach($getuser as $user):
+                        require 'A-show-customer.php'; 
+                        $r=show($user['Customer_Id']); 
                     ?>
+                                <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group"> 
+                                        <img src="../user_dashboard/Customers/<?php echo $r ?>" readonly>
+                                                               
+                                      </div>
+                                </div>
+                                </div>
                             
 
                             <form class="form-horizontal" method="post">
@@ -243,7 +254,11 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
+<<<<<<< HEAD
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?>" readonly>
+=======
                                             <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?> " readonly>
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -314,7 +329,11 @@
                                     </div>
                                     
                                 
+<<<<<<< HEAD
+                                    <!-- <button type="submit" class="button-primary">Update Profile</button> -->
+=======
                                     
+>>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
                                 </div>
                             </form>
                             <?php

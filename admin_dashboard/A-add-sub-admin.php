@@ -3,9 +3,9 @@
 require 'db-connection.php';
 $filename = $_FILES["Image"]["name"];
 
-    $tempname = $_FILES["Image"]["tmp_name"];  
+// $tempname = $_FILES["Image"]["tmp_name"];  
 
-    $folder = "admins/".$filename;
+$folder = "admins/".$filename;
 
 $Firstname=$_POST['firstname'];
 
