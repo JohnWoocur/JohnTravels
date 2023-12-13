@@ -195,15 +195,12 @@
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
                             <div class="col-12">
-                                <h4>Upload Profile Photo</h4>
                             </div>
                             <div class="col-sm-6">
                                 <div class="upload-input">
-                                    <div class="form-group">
-                                      <span class="upload-btn">Select a image</span>
-                                      <input type="file" name="myfile">                                        
-                                      <button type="submit" class="button-primary" value="<?php echo $user['Image']; ?>">Upload Image</button>
-                                    </div>
+                                    <div class="form-group"> 
+                                        <h3><u>User profile</u></h3>                  
+                                      </div>
                                 </div>
                             </div>
                         </div>
@@ -214,14 +211,24 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
-                            <h4>Profile Details add</h4>
 
                     <?php 
+                    
                     require "A-view-user.php";
                     $id=$_GET['id'];
                     $getuser=displayUser($id);
                     foreach($getuser as $user):
+                        require 'A-show-customer.php'; 
+                        $r=show($user['Customer_Id']); 
                     ?>
+                                <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group"> 
+                                        <img src="../user_dashboard/Customers/<?php echo $r ?>" readonly>
+                                                               
+                                      </div>
+                                </div>
+                                </div>
                             
 
                             <form class="form-horizontal" method="post">
@@ -229,34 +236,34 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?>">
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" value="<?php echo $user['Last_name']; ?>">
+                                            <input name="lastname" class="form-control" type="text" value="<?php echo $user['Last_name']; ?>" readonly>
                                         </div>
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>NIC/Passport</label>
-                                            <input name="ID" class="form-control" type="number" value="<?php echo $user['NIC']; ?>">
+                                            <input name="ID" class="form-control" type="number" value="<?php echo $user['NIC']; ?>" readonly>
                                         </div>  
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="" type="text">
+                                            <input name="phone" id="input-phone" class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="" type="text" readonly>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Date of Birth</label>
-                                            <input type="date" id="dob" name="dob" value="<?php echo $user['Dob']; ?>">
+                                            <input type="date" id="dob" name="dob" value="<?php echo $user['Dob']; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -265,27 +272,27 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text">
+                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text" readonly>
 
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                          <label>District</label>
-                                         <input name="district" id="district" class="form-control" value="<?php echo $user['district']; ?>" placeholder="" type="text">
+                                         <input name="district" id="district" class="form-control" value="<?php echo $user['district']; ?>" placeholder="" type="text" readonly>
                                          
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                             <div class="form-group">
                                             <label>City</label>
-                                            <input name="City" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text">
+                                            <input name="City" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text">
+                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text" readonly>
                                         </div>
                                     </div>
                                     
@@ -295,7 +302,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Please Tell Us About You</label>
-                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['About']; ?>" placeholder="" type="text">
+                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['About']; ?>" placeholder="" type="text" readonly>
                                         </div>
                                     </div>
                                     <!-- <div class="col-12">
@@ -314,7 +321,7 @@
                                         </div>
                                     </div> -->
                                 
-                                    <button type="submit" class="button-primary">Update Profile</button>
+                                    <!-- <button type="submit" class="button-primary">Update Profile</button> -->
                                 </div>
                             </form>
                             <?php

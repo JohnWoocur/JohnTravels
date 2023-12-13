@@ -240,7 +240,7 @@ include'db-connection.php';
                                                 <span class="badge badge-primary">'.$status.'</span>
                                             </td>
                                             <td>
-                                               <a href="view-user.php"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
+                                               <a href="view-user.php?id='.$customer_id.'"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
                                             </td>
                                             <td>
                                                  <span class="badge badge-success"><i class="far fa-edit"></i></span>

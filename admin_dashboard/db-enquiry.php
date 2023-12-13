@@ -219,8 +219,8 @@
                             <tbody>
                                 <?php
                                 $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
-                                FROM enquiry
-                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id";
+                                FROM enquiry 
+                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id" ;
                                 $result= mysqli_query($conn,$sql);
                                 if($result){
                                     while($row=mysqli_fetch_assoc($result)){
@@ -249,9 +249,10 @@
                                                 '
                                                 ?>
                                                    
-                                                <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <!-- <span class="badge badge-success"><i class="far fa-eye"></i></span>
                                                 <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="fa fa-check"></i></span>
-                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span> -->
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span>
                                                 </td>
                                             <?php
                                             
@@ -259,7 +260,7 @@
                                             }
                                             
                                             ?>
-                                            </tr>
+                                            </tr>
                                 
                                    </tbody>
                         </table>
