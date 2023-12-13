@@ -1,11 +1,11 @@
 <?php
     include'db-connection.php';
 
-if (isset($_GET['pack_id'])){
+if (isset($_GET['Pack_Id'])){
     
-    $pack_id=$_GET['pack_id'];
-    $wish="hello ";
-    $sql = "UPDATE `package` SET `wish`='$wish' WHERE pack_id=1";
+    $Pack_Id =$_GET['Pack_Id'];
+    $Wish="delete";
+    $sql = "UPDATE `package` SET `Wish`='$Wish' WHERE Pack_Id=$Pack_Id";
 
     if ($conn->query ($sql)=== TRUE) {
         echo"update succseful";

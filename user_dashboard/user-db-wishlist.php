@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -167,6 +168,7 @@
                     </ul>
                 </div>
             </div>
+
         
     <?php
 
@@ -224,6 +226,7 @@
                                             <h6>
                                                 <span><?php echo $packageRow['Sale_price'];?></span> / per person
                                             </h6>
+        
                                         </div>
                                         <div class="package-content-wrap">
                                             <div class="package-content">
@@ -238,7 +241,7 @@
                                                 </div>
                                                 <div class="button-container">
                                                     <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
-                                                    <a href="#"><i class="far fa-trash-alt"></i> Delete</a>
+                                                    <a href="U-wishlist-delete.php?id=7""><i class="far fa-trash-alt"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </div>

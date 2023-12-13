@@ -1,14 +1,42 @@
 <?php
 
 include_once ("db-connection.php");
+    if(isset($_GET['id']))
+    {
+    $Enquiry_id = mysqli_real_escape_string($con, $_GET['id']);
+     $query = "SELECT * FROM enquiry" ;
+    $query_run = mysqli_query($con, $query);
 
-$Numberof_people = $_POST['Numberof_people'];
-$Phone_number = $_POST['Phone_number'];
-$Package_name = $_POST['Package_name'];
-$Checkin_date = $_POST['Checkin_date'];
-$Checkout_date = $_POST['Checkout_date'];
+    if(mysqli_num_rows($query_run) > 0)
+         {
+            $Enquiry = mysqli_fetch_array($query_run);
+            {
+                foreach($query_run as $Enquiry)
+                {
+                    ?>
+                    <tr>
+                        
+                    <td><?= $Enquiry ['user'];?></td>
+                    <td><?= $Enquiry ['Check_in'];?></td>
+                    <td><?= $Enquiry ['Check_out'];?></td>
+                    <td><?= $Enquiry ['Destination'];?></td>
+                    <td><?= $Enquiry ['Id'];?></td>
+                    <td><?= $Enquiry ['status'];?></td>
+                    <td><?= $Enquiry ['Enquiry'];?></td>
+                    <td><?= $Enquiry ['People'];?></td>
+                    <td>
+                        <a href="" class="btn btn-sucecess btn-sm"></a>
+                    </td>
+                    </tr>
+                    <?php
+                }
+            }
 
-$query = "SELECT * FROM enquiry  WHERE condition = 'Enquiry_Id = $id'";
-each $query;
 
-while (fetch_array($query))
+}
+      else
+         {
+             echo "<h4>No Such Id Found</h4>";
+         }
+}
+?>

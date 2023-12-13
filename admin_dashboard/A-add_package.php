@@ -1,14 +1,24 @@
 <?php
 include_once ("db-connection.php");
 
+
+	$filename = $_FILES["Pack_img"]["name"];
+
+    $tempname = $_FILES["Pack_img"]["tmp_name"];  
+
+    $folder = "package/".$filename; 
+		
 $Pack_title = $_POST['Pack_title'];
-$Pack_img = $_POST['Pack_img'];
 $Description = $_POST['Description'];
+$Location = $_POST['Location'];
+$Place_one = $_POST['Place_one'];
+$Place_two = $_POST['Place_two'];
+$Place_three = $_POST['Place_three'];
+$Place_four = $_POST['Place_four'];
 $Group_size = $_POST['Group_size'];
 $Trip_date = $_POST['Trip_date'];
 $Days = $_POST['Days'];
 $Night = $_POST['Night'];
-//$Sale_price = $_POST['Sale_price'];
 $Reqular_price = $_POST['Reqular_price'];
 $Discount = $_POST['Discount'];
 $Category = $_POST['Category'];
@@ -18,7 +28,21 @@ $Sale_price =$Reqular_price-(($Reqular_price/100)*$Discount);
 
 
 
-$check = mysqli_query($conn,"INSERT INTO package(Pack_title,Pack_img, Description, Group_size, Trip_date, Days, Night, Sale_price, Reqular_price, Discount, Category, Map, Api_key) VALUES('$Pack_title','$Pack_img','$Description','$Group_size','$Trip_date','$Days','$Night','$Sale_price','$Reqular_price','$Discount','$Category','$Map','$Api_key')");
+$check = mysqli_query($conn,"INSERT INTO package(Pack_title, Pack_img, Description, Location, Place_one, Place_two, Place_three, Place_four, Group_size, Trip_date, Days, Night, Sale_price, Reqular_price, Discount, Category, Map, Api_key) VALUES('$Pack_title','$filename','$Description','$Location','$Place_one','$Place_two','$Place_three','$Place_four','$Group_size','$Trip_date','$Days','$Night','$Sale_price','$Reqular_price','$Discount','$Category','$Map','$Api_key')");
+if (move_uploaded_file($tempname, $folder)) {
+
+            echo "Package added. ";
+        header("Location: db-add-package.php");
+        exit;
+
+        }else{
+
+            echo "Package adding failed. ";
+        header("Location: db-add-package.php");
+        exit;
+
+    }
+/*
 if($check)
 {	
 	echo "Package Added successfully!";
@@ -29,4 +53,6 @@ else
   echo "Package Added failure!";
   header("Location: db-add-package.php");
 }
+*/
 ?>
+

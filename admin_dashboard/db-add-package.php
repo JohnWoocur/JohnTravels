@@ -186,6 +186,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -195,7 +196,7 @@
                     <!-- Listings -->
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
-                        <form action="A-add_package.php" method="POST">
+                        <form action="A-add_package.php" method="post" enctype="multipart/form-data">
                             <div class="custom-field-wrap">
                                 <div class="form-group">
                                     <label>Package Title</label>
@@ -263,6 +264,44 @@
                                 </div>
                             </div>
                         </div>
+						<div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <h4>Trip location and places</h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text" placeholder="Location" id="Location" name="Location" required/>
+                                        </div>
+                                    </div><br>
+                                    <div class="col-sm-6">
+                                        <label>Places</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place1" id="Place_one" name="Place_one" required/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place2" id="Place_two" name="Place_two" required/>
+                                                </div>
+                                            </div>
+											<div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place3" id="Place_three" name="Place_three" required/>
+                                                </div>
+                                            </div>
+											<div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Place4" id="Place_four" name="Place_four" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="dashboard-box">
                             <h4>Gallery</h4>
                             <div class="custom-field-wrap">
@@ -273,7 +312,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file"  id="Pack_img" name="Pack_img" >
+											  <input type="file" id="Pack_img" name="Pack_img" accept="image/*" required>
                                             </div>
                                         </div>
                                     </div>
@@ -413,6 +452,7 @@
     <script src="assets/js/counterup.min.js"></script>
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/dashboard-custom.js"></script>
+	<script src="image.js"></script>
 </body>
 
 <!-- Mirrored from cyclonethemes.com/demo/html/padhai/dashboard-addtour.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2020 09:01:50 GMT -->

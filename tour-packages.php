@@ -1,3 +1,13 @@
+<?php
+
+include "../JohnTravels/admin_dashboard/db-connection.php";
+
+$sql ="SELECT * FROM package WHERE Status ='Active' ";
+$result = mysqli_query($conn,$sql); 
+   
+?>
+
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -146,7 +156,7 @@
                      </nav>
                   </div>
                   <div class="header-btn">
-                     <a href="#" class="button-primary">LOG IN</a>
+                     <a href="user_dashboard/login.php" class="button-primary">LOG IN</a>
                   </div>
                </div>
             </div>
@@ -170,16 +180,32 @@
                <div class="container">
                   <div class="package-inner">
                      <div class="row">
+					 <?php 
+						  if ($result->num_rows > 0) {
+								// output data of each row
+								while($row = $result->fetch_assoc()) {
+									$package_id=$row["Pack_Id"];
+									$image=$row["Pack_img"];
+									$pack_price=$row["Reqular_price"];
+									$days=$row["Days"];
+									$night=$row["Night"];
+									$group_size=$row["Group_size"];
+									$Location=$row["Location"];
+									$description=$row["Description"];
+                           $Pack_title=$row["Pack_title"];
+									
+						echo '
                         <div class="col-lg-4 col-md-6">
                            <div class="package-wrap">
                               <figure class="feature-image">
                                  <a href="#">
-                                    <img src="assets/images/img5.jpg" alt="">
+                                   <img src="admin_dashboard/package/'.$image.'" width = "376px" height="249px">
                                  </a>
+                                 
                               </figure>
                               <div class="package-price">
                                  <h6>
-                                    <span>$1,900 </span> / per person
+                                    <span >$'.$pack_price.'  </span>  / per person
                                  </h6>
                               </div>
                               <div class="package-content-wrap">
@@ -187,21 +213,21 @@
                                     <ul>
                                        <li>
                                           <i class="far fa-clock"></i>
-                                          7D/6N
+                                          '.$days.'D/'.$night.'N
                                        </li>
                                        <li>
                                           <i class="fas fa-user-friends"></i>
-                                          People: 5
+                                          People: '.$group_size.'
                                        </li>
                                        <li>
                                           <i class="fas fa-map-marker-alt"></i>
-                                          Malaysia
+                                          '.$Location.'
                                        </li>
                                     </ul>
                                  </div>
                                  <div class="package-content">
                                     <h3>
-                                       <a href="#">Sunset view of beautiful lakeside resident</a>
+                                       <a href="#">'.$Pack_title.'</a>
                                     </h3>
                                     <div class="review-area">
                                        <span class="review-text">(25 reviews)</span>
@@ -209,259 +235,23 @@
                                           <span style="width: 60%"></span>
                                        </div>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                    <p>'.$description.'.</p>
                                     <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
+                                    <a href ="package-detail.php ?Pack_Id=<?php  echo $row["Pack_Id"]; "?>SEE MORE<i class="fas fa-arrow-right"></i></a>
                                        <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img6.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$1,230 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          5D/4N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 8
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Canada
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Experience the natural beauty of island</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(17 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 100%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img7.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$2,000 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          6D/5N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 6
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Portugal
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Vacation to the water city of Portugal</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(22 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 80%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img7.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$2,000 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          6D/5N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 6
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Portugal
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Trekking to the base camp of mountain</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(22 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 80%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img7.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$2,000 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          6D/5N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 6
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Portugal
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Beautiful season of the rural village</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(22 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 80%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img7.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$2,000 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          6D/5N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 6
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Portugal
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Summer holiday to the Oxolotan River</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(22 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 80%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="#" class="button-text width-6">BOOK NOW<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">WISH LIST<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+						';
+
+									}
+							} else {
+								echo "<p>Nothing to show</p>";
+							}
+
+						   ?>
             <!-- packages html end -->
             <!-- Home activity section html start -->
             <section class="activity-section">

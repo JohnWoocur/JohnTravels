@@ -1,6 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+    unset($_SESSION['id']);
+}
+?>
 <!doctype html>
 <html lang="en">
-   <head>
+   <head> 
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,27 +25,40 @@
 <body>
     <div class="login-page" style="background-image: url(assets/images/bg.jpg);">
         <div class="login-from-wrap">
-            <form class="login-from">
+            <form class="login-from" action="U-login.php" method="POST">
                 <h1 class="site-title">
                     <a href="#">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </h1>
+                <?php
+                if(isset($_SESSION["error"])):{
+                }
+                ?>
                 <div class="form-group">
-                    <label for="first_name1">User Name</label>
-                    <input type="text" class="validate">
+                    <label class="badge badge-danger"><?php echo $_SESSION["error"]; ?></label>
+                </div>
+                <?php
+                unset($_SESSION["error"]);
+                endif;
+                ?>
+                <div class="form-group">
+                    <label for="first_name1">E-Mail</label>
+                    <input type="text" class="validate" name="mail" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>
-                    <input id="last_name" type="password" class="validate">
+                    <input id="last_name" type="password" class="validate" name="password" required>
                 </div>
                 <div class="form-group">
-                    <a class="button-primary" href="user-dashboard.php">Login</a>
-                </div>
-                <div class="form-group">
+                    <!-- <a class="button-primary" href="user-dashboard.php">Login</a> -->
+                    <center><button class="button-primary" type="submit">Login</button></center>
+                </div><br>
+                <!--<div class="form-group">
                     <a class="button-primary" href="register.php">Register</a>
-                </div>
-                <a href="forgot.php" class="for-pass">Forgot Password?</a>
+                </div>-->
+				<a href="register.php">Don't have an account ?</a> &nbsp; &nbsp; &nbsp; 
+                <a href="forgot.php">Forgot Password?</a>
             </form>
         </div>
     </div>

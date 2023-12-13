@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-   <head>
+   <head> 
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,6 +15,7 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
+      
 </head>
 <body>
 
@@ -184,6 +185,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -193,56 +195,74 @@
                     <div class="col-lg-12">
                         <div class="dashboard-box">
                             <h4>Add New ADMIN</h4>
+                            <?php 
+                            require 'db-connection.php';
+                            if (isset($_GET['Admin_Id'])) {
+                                $id = $_GET['Admin_Id']; 
                             
-                            <form class="form-horizontal" method="POST" action="add-admin.php">
+
+                          //  $id=1;
+                            $query="SELECT * FROM `admins` WHERE Admin_id='$id'";
+                            $result=mysqli_query($conn,$query);
+
+                            if(mysqli_num_rows($result)==1){
+                            $row=mysqli_fetch_assoc($result);
+                            ?>
+                            <form class="form-horizontal" method="POST" action="A-edit-admin.php">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
+                                            <label>Id</label>
+                                            <input name="id" class="form-control" type="text" value="<?php echo $row["Admin_Id"]?>" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text">
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $row["First_name"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text">
+                                            <input name="lastname" class="form-control" type="text" value="<?php echo $row["Last_name"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Mobile</label>
-                                            <input name="phone" class="form-control" type="text">
+                                            <input name="phone" class="form-control" type="text" value="<?php echo $row["Mobile_number"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Date</label>
-                                            <input name="phone" class="form-control" type="date">
+                                            <input name="date" class="form-control" type="date" value="<?php echo $row["Create_at"]?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <input name="city" class="form-control" type="text">
+                                            <input name="city" class="form-control" type="text" value="<?php echo $row["City"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="country" class="form-control" type="text">
+                                            <input name="country" class="form-control" type="text" value="<?php echo $row["Country"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>password</label>
-                                            <input name="password" class="form-control" type="text">
+                                            <input name="password" class="form-control" type="password" value="<?php echo $row["Password"]?>">
                                         </div>
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input name="email" class="form-control" type="email">
+                                            <input name="email" class="form-control" type="email" value="<?php echo $row["Email"]?>">
                                         </div>  
                                     </div>
                                     <div class="col-12">
@@ -252,7 +272,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile">
+                                              <input type="file" name="myfile" value="<?php echo $row["Status"]?>">
                                             </div>
                                         </div>
                                     </div>
@@ -260,6 +280,10 @@
                                 <br>
                                 <input type="submit" name="Submit" value="update">
                             </form>
+                            <?php
+                            }
+                            }
+                            ?>
                         </div>
                     </div>  
                 </div>

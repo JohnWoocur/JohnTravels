@@ -1,3 +1,15 @@
+<?php
+session_start();
+?>
+<?php
+
+include "db-connection.php";
+
+$sql ="SELECT * FROM package WHERE Status = 'Active'";
+$result = mysqli_query($conn,$sql); 
+   
+?>
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -169,23 +181,60 @@
             </div>
             <div class="db-info-wrap db-wislist-wrap">
                 <div class="dashboard-box ">
+                <?php
+                                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
                     <div class="row">
+                        
+
+                     <?php 
+						  if ($result->num_rows > 0) {
+								// output data of each row
+								while($row = $result->fetch_assoc()) {
+									$package_id=$row["Pack_Id"];
+									$image=$row["Pack_img"];
+									$pack_price=$row["Reqular_price"];
+									 $pack_title=$row["Pack_title"];
+									
+									
+						echo '
                         <div class="grid-item col-md-6 col-lg-4">
+
+
+
+                        
                             <div class="package-wrap">
                                 <figure class="feature-image">
                                     <a href="#">
-                                        <img src="assets/images/img25.jpg" alt="">
+                                    <img src="../admin_dashboard/package/'.$image.'" width = "1200px" height = "700px">
                                     </a>
                                 </figure>
                                 <div class="package-price">
                                     <h6>
-                                        <span>$1,900 </span> / per person
+                                        <span>$'.$pack_price.'</span> / per person
                                     </h6>
                                 </div>
                                 <div class="package-content-wrap">
                                     <div class="package-content">
                                         <h4>
-                                            <a href="#">Sunset view of beautiful lakeside resident</a>
+                                            <a href="#">'. $pack_title.'</a>
                                         </h4>
                                         <div class="content-details">
                                            <div class="rating-start" title="Rated 5 out of 5">
@@ -194,79 +243,26 @@
                                            <span class="review-text"><a href="#">1 review</a></span>
                                         </div>
                                         <div class="button-container">
-                                            <a href="#"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-heart"></i>Add to Wishlist</a>
+                                            <a href="../booking.php"><i class="bx bx-book"></i>Book Now</a>
+                                            <a href="U-add-wishlist.php?Pack_Id='.$package_id.'"><i class="far fa-heart"></i>Add to Wishlist</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img26.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$2,300 </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Experience the natural beauty of island</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-heart"></i> Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img27.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$1,500 </span>
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Vacation to the water city of Portugal</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="bx bx-book"></i>Book Now</a>
-                                            <a href="#"><i class="far fa-heart"></i> Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        
+                    ';
+
+                    }
+    
+                } else {
+                    echo "<p>Nothing to show</p>";
+                }
+
+               ?>
+
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -275,7 +271,7 @@
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
                                         
                                 

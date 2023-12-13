@@ -1,4 +1,11 @@
+<?php
 
+include "db-connection.php";
+
+$sql ="SELECT * FROM package WHERE wish = 'Active'";
+$result = mysqli_query($conn,$sql); 
+   
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -174,6 +181,7 @@
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                               <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -184,6 +192,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li class="active-menu"><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -191,22 +200,36 @@
             <div class="db-info-wrap db-wislist-wrap">
                 <div class="dashboard-box ">
                     <div class="row">
+
+                    <?php 
+						  if ($result->num_rows > 0) {
+								// output data of each row
+								while($row = $result->fetch_assoc()) {
+									$package_id=$row["Pack_Id"];
+									$image=$row["Pack_img"];
+									$pack_price=$row["Reqular_price"];
+									$Pack_title=$row["Pack_title"];
+									
+									
+						echo '
+
                         <div class="grid-item col-md-6 col-lg-4">
                             <div class="package-wrap">
                                 <figure class="feature-image">
                                     <a href="#">
-                                        <img src="assets/images/img25.jpg" alt="">
+                                    <img src="admin_dashboard/package/'.$image.'" width ="202px" height ="118px" >
+
                                     </a>
                                 </figure>
                                 <div class="package-price">
                                     <h6>
-                                        <span>$1,900 </span> / per person
+                                    <span >$'.$pack_price.'  </span>/ per person
                                     </h6>
                                 </div>
                                 <div class="package-content-wrap">
                                     <div class="package-content">
                                         <h4>
-                                            <a href="#">Sunset view of beautiful lakeside resident</a>
+                                        <a href="#">'.$Pack_title.'</a>
                                         </h4>
                                         <div class="content-details">
                                            <div class="rating-start" title="Rated 5 out of 5">
@@ -216,76 +239,20 @@
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="conect_wishlist.php? pack_id=1"><i class="far fa-trash-alt" ></i> Remove</a>
+                                            <a href=""><i class="far fa-trash-alt" ></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img26.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$2,300 </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Experience the natural beauty of island</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Remove</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                        <img src="assets/images/img27.jpg" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>$1,500 </span>
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                            <a href="#">Vacation to the water city of Portugal</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href="#"><i class="far fa-trash-alt"></i> Remove</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        ';
+
+									}
+							} else {
+								echo "<p>Nothing to show</p>";
+							}
+						   ?>
+
 
               
                 <!-- pagination html -->

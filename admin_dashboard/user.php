@@ -1,3 +1,6 @@
+<?php
+include'db-connection.php';
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -14,7 +17,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
-      <title>John Travels LK</title>
+      <title>John Travels LK</title> 
 </head>
 <body>
 
@@ -174,6 +177,7 @@
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                            <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -184,6 +188,7 @@
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
+						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -198,31 +203,36 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>User</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
+                                            
+                                            <th>Id</th>
+                                            <th>Username</th>
                                             <th>Email</th>
-                                            <th>Country</th>
-                                            <th>Listings</th>
+                                            <!-- <th>Password</th> -->
+                                            <th>Create_at</th>
+                                             <th>Status</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><span class="list-img"><img src="assets/images/comment.jpg" alt=""></span>
+                                    <?php
+                                    $sql= "SELECT * FROM `customers`";
+                                    $result= mysqli_query($conn,$sql);
+                                    if($result){
+                                        while($row=mysqli_fetch_assoc($result)):
+                                            ?>
+                                            <tr> 
+                                            <td><a href="#"><span class="list-name"><?php echo $row['Customer_Id'];?></span></a>
                                             </td>
-                                            <td><a href="#"><span class="list-name">Kathy Brown</span></a>
+                                            <td><a href="#"><span class="list-name"><?php echo $row['Username'];?></span></a>
                                             </td>
-                                            <td>+01 3214 6522</td>
-                                            <td>chadengle@dummy.com</td>
-                                            <td>Australia</td>
+                                            <td><?php echo $row['Email'];?></td>
+                                            <td><?php echo $row['Create_at'];?></td>
+                                            <td><?php echo $row['Status'];?></td>
+                                            
                                             <td>
-                                                <span class="badge badge-primary">02</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <a href="view-user.php?id=<?php echo $row['Customer_Id'];?>"><span class="badge badge-success"><i class="far fa-eye"></i></span>
                                             </td>
                                             <td>
                                                 <span class="badge badge-success"><i class="far fa-edit"></i></span>
@@ -231,7 +241,13 @@
                                                 <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                             </td>
                                         </tr>
-                                        <tr>
+
+
+
+                                        <?php endwhile;
+                                        }
+                                        ?>
+                                        <!-- <tr> 
                                             <td><span class="list-img"><img src="assets/images/comment2.jpg" alt=""></span>
                                             </td>
                                             <td><a href="#"><span class="list-name">Kathy Brown</span></a>
@@ -335,7 +351,7 @@
                                             <td>
                                                 <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                             </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>
