@@ -225,33 +225,50 @@ session_start();
                                     <th>User</th>
                                     <th>Date</th>
                                     <th>Destination</th>
-                                    <th>Id</th>
+                                    <th>Package Id</th>
+                                    <th>Booking Id</th>
                                     <th>status</th>
-                                    <th>Booking</th>
-                                    <th>People</th>
+                                    <!-- <th>Booking</th>
+                                    <th>People</th> -->
                                     <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                require 'db-connection.php';
+                                $query= "SELECT * FROM `package_booking` WHERE Status='Pending'";
+                                $result= mysqli_query($conn,$query);
+                                if($result){
+                                    while($row=mysqli_fetch_assoc($result)):
+                                        $id=$row['Customer_Id'];
+                                        require_once 'A-show-customer.php'; 
+                                        $r=show($row['Customer_Id']); 
+                                ?>  
                                 <tr>
                                     <td>
-                                        <span class="list-img"><img src="assets/images/comment.jpg" alt="">
-                                        </span><span class="list-enq-name">John Doe</span>
+                                        <a href="view-user.php?id=<?php echo $row['Customer_Id'] ?>"><span class="list-img"><img src="../user_dashboard/Customers/<?php echo $r ?>" alt="">
+                                        </span></a><span class="list-enq-name">
+                                        </span>
                                     </td>
-                                    <td>12 may</td>
-                                    <td>Japan</td>
-                                    <td>755</td>
-                                    <td><span class="badge badge-success">Approve</span></td>
-                                    <td>
+                                    <td><?php echo $row['Date'] ?></td>
+                                    <td><?php echo $row['Destination'] ?></td>
+                                    <td><?php echo $row['Pack_Id'] ?></td>
+                                    <td><?php echo $row['Booking_Id'] ?></td>
+                                    <td><span class="badge badge-primary"><?php echo $row['Status'] ?></span></td>
+                                    <!-- <td>
                                         <span class="badge badge-success">15</span>
                                     </td>
-                                    <td><span class="badge badge-success">9</span></td>
+                                    <td><span class="badge badge-success">9</span></td> -->
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <a href="A-booking-reject.php?id=1"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                                        <a href="A-approved-booking.php?id=<?php echo $row['Booking_Id'] ?>"><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
+                                        <a href="A-booking-reject.php?id=<?php echo $row['Booking_Id'] ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
-                                <tr>
+                                <?php
+                                endwhile;
+                                }
+                                ?>
+                                <!-- <tr>
                                     <td>
                                         <span class="list-img"><img src="assets/images/comment2.jpg" alt="">
                                         </span><span class="list-enq-name">John Doe</span>
@@ -340,7 +357,7 @@ session_start();
                                         <span class="badge badge-success"><i class="far fa-edit"></i></span>
                                         <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>

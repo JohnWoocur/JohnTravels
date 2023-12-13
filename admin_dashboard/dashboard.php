@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(!isset($_SESSION["aid"])){
+header("Location:login.php");
+exit();
+}
+?>
+<?php
+require 'A-dashboard.php';
+$name=displayAdmin();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -133,7 +144,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <!-- <span>My Account </span> -->
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -142,7 +154,7 @@
                                 <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
                                 <li><a href="#"><i class="fas fa-user-tie"></i>Profile</a></li>
                                 <li><a href="#"><i class="fas fa-key"></i>Password</a></li>
-                                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                <li><a href="A-logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -185,11 +197,21 @@
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
 						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
-                        <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a href="A-logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
             <div class="db-info-wrap">
+            <?php
+                if(isset($_SESSION["msg"])):
+                ?>
+                <div class="form-group">
+                    <label class="badge badge-success"><?php echo $_SESSION["msg"]; ?></label>
+                </div>
+                <?php
+                unset($_SESSION["msg"]);
+                endif;
+                ?>
                 <div class="row">
                     <!-- Item -->
                     <div class="col-xl-3 col-sm-6">

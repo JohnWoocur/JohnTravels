@@ -180,7 +180,7 @@
                                 <li><a href="db-package-expired.php">Expired</a></li>
                             </ul>   
                         </li>
-                        <<li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
+                        <li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
                         <li><a href="db-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry</a></li>
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
                         <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>

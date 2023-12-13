@@ -200,7 +200,7 @@
                                 <tr>
                                              <th>Name</th>
                                             <th>Date</th>
-                                            <th>Destination</th>
+                                            <th>Description</th>
                                             <th>status</th>
                                             <th>action</th>
                                 </tr>
@@ -225,7 +225,7 @@
 								
                                 echo'<td>'.$row["Pack_title"].'</td>';
                                 echo'<td>'.$row["Trip_date"].'</td>';
-                                echo'<td>'.$row["Location"].'</td>';
+                                echo'<td>'.$row["Description"].'</td>';
                                 echo'<td>'.$row["Status"].'</td>';
                             
 								

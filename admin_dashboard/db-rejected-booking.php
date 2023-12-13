@@ -202,63 +202,51 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
-                                <tr>
-                                <th>Booking Id</th>
-                                <th>Customer Name</th>
-                                    <th>Package Id</th>
+                            <tr>
+                                    <th>User</th>
                                     <th>Date</th>
                                     <th>Destination</th>
-                                    <th>People</th>
-                                    <th>Booking</th>
+                                    <th>Package Id</th>
+                                    <th>Booking Id</th>
                                     <th>status</th>
+                                    <!-- <th>Booking</th>
+                                    <th>People</th> -->
                                     <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php
-                                
-                                $sql = "SELECT package_booking.*, customer_more_details.First_name, customer_more_details.Last_name
-                                FROM package_booking
-                                JOIN customer_more_details ON package_booking.Customer_id = customer_more_details.Customer_id WHERE Status='Reject'";
-                                $result= mysqli_query($conn,$sql);
+                                require 'db-connection.php';
+                                $query= "SELECT * FROM `package_booking` WHERE Status='Rejected'";
+                                $result= mysqli_query($conn,$query);
                                 if($result){
-                                  while($row=mysqli_fetch_assoc($result)) {
-                                    $booking_id= $row['Booking_Id'];
-                                    $customer= $row["First_name"] . " " . $row["Last_name"];
-                                    $pack_id=$row['Pack_Id'];
-                                    $date=$row['Date'];
-                                    $booking=$row['Booking'];
-                                    $destination=$row['Destination'];
-                                    $num_of_people=$row['Number_of_People'];
-                                    $status=$row['Status'];
-                                    echo '<tr>
-                                    <td >'.$booking_id.'</td>
-
-                                    <td>  
-                                    
-                                     </span><span class="list-enq-name">'.$customer.'</span>
-                                    </td>
-                                    <td >'.$pack_id.'</td>
-                                    <td > '.$date.'</td>
-                                    <td>'.$destination.'</td>
-                                    <td><span class="badge badge-success">'.$num_of_people.'</span></td>
-                                    
+                                    while($row=mysqli_fetch_assoc($result)):
+                                        $id=$row['Customer_Id'];
+                                        require_once 'A-show-customer.php'; 
+                                        $r=show($row['Customer_Id']); 
+                                ?>  
+                                <tr>
                                     <td>
-                                        <span class="badge badge-success">'.$booking.'</span>
+                                        <a href="view-user.php?id=<?php echo $row['Customer_Id'] ?>"><span class="list-img"><img src="../user_dashboard/Customers/<?php echo $r ?>" alt="">
+                                        </span></a><span class="list-enq-name">
+                                        </span>
                                     </td>
-                                    
-                                    <td><span class="badge badge-success">'.$status.'</span></td>
+                                    <td><?php echo $row['Date'] ?></td>
+                                    <td><?php echo $row['Destination'] ?></td>
+                                    <td><?php echo $row['Pack_Id'] ?></td>
+                                    <td><?php echo $row['Booking_Id'] ?></td>
+                                    <td><span class="badge badge-danger"><?php echo $row['Status'] ?></span></td>
+                                    <!-- <td>
+                                        <span class="badge badge-success">15</span>
+                                    </td>
+                                    <td><span class="badge badge-success">9</span></td> -->
                                     <td>
-                                        <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                    <a href="A-approved-booking.php?id=<?php echo $row['Booking_Id'] ?>"><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
                                     </td>
-                                </tr>';
-
-
-
-                                  }  
+                                </tr>
+                                <?php
+                                endwhile;
                                 }
-
                                 ?>
                                <!-- <tr>
                                     <td>

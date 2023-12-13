@@ -262,7 +262,7 @@
                     </div>
                 </div>
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -271,7 +271,7 @@
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
             <!-- Content / End -->
             <!-- Copyrights -->
