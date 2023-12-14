@@ -19,7 +19,7 @@
 <body>
     <div class="change-pwd-page" style="background-image: url(assets/images/bg.jpg);">
         <div class="change-pwd-from-wrap">
-            <form class="change-pwd-from">
+            <form class="change-pwd-from" method="post" action="U-password-change.php">
                 <h1 class="site-title">
                     <a href="#">
                         <img src="assets/images/logo.png" alt="">
@@ -27,22 +27,22 @@
                 </h1>
                 <div class="form-group">
                     <label for="first_name1">User Email</label>
-                    <input type="text" class="validate">
+                    <input type="text" class="validate" name="mail">
                 </div>
                 <div class="form-group">
                     <label for="first_name1">Old Password</label>
-                    <input type="text" class="validate">
+                    <input type="text" class="validate" name="old_password">
                 </div>
                 <div class="form-group">
                     <label for="last_name">New Password</label>
-                    <input id="last_name" type="password" class="validate">
+                    <input id="last_name" type="password" name="New_password"  class="validate">
                 </div>
                 <div class="form-group">
                     <label for="last_name">Confirm Password</label>
-                    <input id="last_name" type="password" class="validate">
+                    <input id="last_name" type="password" name="Con_password" class="validate">
                 </div>
                 <div class="form-group">
-                    <a class="button-primary" href="login.php">Update</a>
+                <center><button class="button-primary" type="submit">Update</button></center>
                 </div>
             </form>
         </div>
