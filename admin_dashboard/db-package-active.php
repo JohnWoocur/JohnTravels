@@ -172,7 +172,7 @@
                         </li>
                         <li><a href="db-add-package.php"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
                         <li class="active-menu">
-                            <a><i class="fas fa-hotel"></i></i>packages</a>
+                            <i class="fas fa-hotel"></i><a>packages</a>
                             <ul>
                             <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
@@ -251,7 +251,7 @@
                     </div>
                 </div>
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -260,7 +260,7 @@
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
             <!-- Content / End -->
             <!-- Copyrights -->

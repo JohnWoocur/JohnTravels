@@ -4,7 +4,7 @@ include "db-connection.php";
 
 $sql ="SELECT * FROM package WHERE wish = 'Active'";
 $result = mysqli_query($conn,$sql); 
-   
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -217,7 +217,7 @@ $result = mysqli_query($conn,$sql);
                             <div class="package-wrap">
                                 <figure class="feature-image">
                                     <a href="#">
-                                    <img src="admin_dashboard/package/'.$image.'" width ="202px" height ="118px" >
+                                    <img src="../admin_dashboard/package/'.$image.'" width ="202px" height ="118px" >
 
                                     </a>
                                 </figure>
@@ -239,7 +239,7 @@ $result = mysqli_query($conn,$sql);
                                         </div>
                                         <div class="button-container">
                                             <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href=""><i class="far fa-trash-alt" ></i> Remove</a>
+                                            <a href="conect_wishlist.php?id='.$package_id.'"><i class="far fa-trash-alt" ></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +256,7 @@ $result = mysqli_query($conn,$sql);
 
               
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -265,7 +265,7 @@ $result = mysqli_query($conn,$sql);
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
             <!-- Content / End -->
             <!-- Copyrights -->

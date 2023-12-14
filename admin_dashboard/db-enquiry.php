@@ -1,5 +1,6 @@
-
-
+<?php
+  include "db-connection.php";
+?>
 
 <!doctype html>
 <html lang="en">
@@ -194,71 +195,79 @@
             </div>
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
-                    <h4>Recent Blog Request</h4>
+                    <h4>Recent Enquiry
+
+                    </h4>
+                    
+                    
                     
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" method="POST" action="">
                             <thead>
                                 <tr>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Blog title</th>
-                                    <!-- <th>Destination</th> -->
-                                    <!-- <th>Id</th> -->
-                                    <!-- <th>People</th>  -->
-                                    <th>status</th>
-                                    <th>Request</th>
-                                    
+                                    <th>User_name</th>
+                                    <th>Check_in</th>
+                                    <th>Check_out</th>
+                                    <th>packages name</th>
+                                    <th>Id</th>
+                                    <th>status</th>   
+                                    <th>People</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 <?php
-                                include "db-connection.php";
-                                 $sql= "SELECT blog.*, customer_more_details.First_name, customer_more_details.Last_name, customer_more_details.Image
-                                 FROM blog
-                                 JOIN customer_more_details ON blog.Customer_Id = customer_more_details.Customer_Id WHERE blog.Status='pending'";
+                                $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
+                                FROM enquiry 
+                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id" ;
+                                $result= mysqli_query($conn,$sql);
+                                if($result){
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        $Enquiry_Id=$row['Enquiry_Id'];
+                                        $user_name=$row["First_name"] . " " . $row["Last_name"];
+                                        $Packages_name=$row['Packages_name'];
+                                        $No_of_people=$row['No_of_people'];
+                                        $Checkin_date=$row['Checkin_date'];
+                                        $Checkout_date=$row['Checkout_date'];
+                                        $Status=$row['Status'];
                                 
-                                $result = mysqli_query($conn, $sql);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $Blog_Id=$row['Blog_Id'];
-                                    $Customer=$row['First_name'];
-                                    $Blog_title=$row['Blog_title'];
-                                    $Blog_content1=$row['Blog_content1'];
-                                    $Blog_content2=$row['Blog_content2'];
-                                    $Highlighted=$row['Highlighted'];
-                                    $Status=$row['Status'];
-                                    $Blog_img=$row['Blog_img'];
-                                    $date=$row['Create_at'];
-                                    $image=$row['Image']
-
-                                ?>
-                                <tr>
-                                    <td>
-                                        
-                                    <?php //echo '<span class="list-img"><img src="users/'.$image.'" alt=""></span>'?>
-                                        </span><span class="list-enq-name"> <?php echo"$Customer";?>  </span>
-                                    </td>
-                                    <td><?php echo"$date";?> </td>
-                                    <td><?php echo"$Blog_title";?> </td>
-                                    <td><span class="badge badge-success"><?php echo"$Status";?> </span></td>
-                                    <td>
-                                        <span class="badge badge-success">15</span>
-                                    </td>
-                                    <!--  <td><span class="badge badge-success">9</span></td> -->
-                                    <td>
-
-                                        <a href="A-view-blog.php?Customer_Id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
-                                        <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
-                                    </td>
-                                </tr>
-                                <?php }?>
-                            </tbody>
+                                                                                     
+                                        echo 
+                                        '<tr>
+                                                   
+                                                
+                                                <td>'.$user_name.'</td>
+                                                <td>'.$Checkin_date.'</td>
+                                                <td>'.$Checkout_date.'</td>
+                                                <td>'.$Packages_name.'</td>
+                                                <td>'.$Enquiry_Id.'</td>
+                                                <td><span class="badge badge-success">'.$Status.'</span></td>
+                                                
+                                                <td><span class="badge badge-success">'.$No_of_people.'</span></td>
+                                                <td>
+                                                '
+                                                ?>
+                                                   
+                                                <!-- <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="fa fa-check"></i></span>
+                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span> -->
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span>
+                                                </td>
+                                            <?php
+                                            
+                                                }
+                                            }
+                                            
+                                            ?>
+                                            </tr>
+                                
+                                   </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!-- Content / End -->
+             Content / End 
             <!-- Copyrights -->
             <div class="copyrights">
                Copyright © 2023 John Travels LK. All rights reserveds.
@@ -266,6 +275,9 @@
         </div>
         <!-- Dashboard / End -->
     </div>
+
+                                    
+                                
     <!-- end Container Wrapper -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
