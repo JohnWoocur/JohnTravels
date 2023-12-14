@@ -1,6 +1,22 @@
 <?php
+include 'db-connection.php';
 session_start();
+if(isset($_SESSION['id'])){
+    $Customer_Id = $_SESSION['id'];
+
+    $sql = "SELECT Customers.*, customer_more_details.Image
+            FROM Customers
+            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
+            WHERE Customers.Customer_id = '$Customer_Id'"; 
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $uImage = $row['Image'];
+}
 ?>
+
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -15,6 +31,7 @@ session_start();
       <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
       <!-- google fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
@@ -135,17 +152,18 @@ session_start();
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                            <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
+                                
+                                <span><?php echo $row['Username'];?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
                         <div class="dropdown-menu account-menu">
                             <ul>
-                                <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
-                                <li><a href="#"><i class="fas fa-user-tie"></i>Profile</a></li>
-                                <li><a href="#"><i class="fas fa-key"></i>Password</a></li>
-                                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                <li><a href="user-edit.php"><i class="fas fa-cog"></i>Edit Profile</a></li>
+                                <li><a href="profile-card.php"><i class="fas fa-user-tie"></i>Profile</a></li>
+                                <li><a href="user-change-password.php"><i class="fas fa-key"></i>Password</a></li>
+                                <li><a href="login.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,15 +175,15 @@ session_start();
                 <div id="navigation" class="navigation-container">
                     <ul>
                         <li><a href="user-dashboard.php"><i class="far fa-chart-bar"></i> Dashboard</a></li>
-                        <li><a href="user-edit.php"><i class="fas fa-user"></i>Edit Profile</a> </li>
+                        <li class="active-menu"><a href="user-edit.php"><i class="fas fa-user"></i>Edit Profile</a> </li>
                             
                         </li>
                         <li><a href="user-packages.php"><i class="fas fa-umbrella-beach"></i>View Package</a></li>
   
                         <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li>
                         <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
-                        <li><a href="user-db-comment.php"> <i class='bx bx-chat'></i>Comments</a></li>
-                        <li class="active-menu"><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
+                        <li><a href="user-db-comment.php"><i class='bx bx-chat'></i>Comments</a></li>
+                        <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>

@@ -1,3 +1,21 @@
+<?php
+include 'db-connection.php';
+session_start();
+if(isset($_SESSION['id'])){
+    $Customer_Id = $_SESSION['id'];
+
+    $sql = "SELECT Customers.*, customer_more_details.Image
+            FROM Customers
+            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
+            WHERE Customers.Customer_id = '$Customer_Id'"; 
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $uImage = $row['Image'];
+}
+?>
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -134,8 +152,8 @@
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                            <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
+                                <span><?php echo $row['Username'];?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -163,7 +181,7 @@
   
                         <li class="active-menu"><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li>
                         <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
-                        <li><a href="user-db-comment.php"> <i class="bx bx-chat"></i>Comments</a></li>
+                        <li><a href="user-db-comment.php"><i class="bx bx-chat"></i>Comments</a></li>
                         <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
@@ -180,7 +198,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Packages_Name</label>
+                                            <label>Packages Name</label>
                                             <input type="text" id="Packages_name" name="Packages_name">
                                         </div>
                                     </div>
@@ -193,7 +211,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="integerInput">Phone Number </label>
-                                            <input type="text" id="Phone_number" name="Phone_number" required>
+                                            <input type="number" id="Phone_number" name="Phone_number" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

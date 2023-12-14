@@ -6,8 +6,20 @@ if(!isset($_SESSION["id"])){
 }
 ?>
 <?php
-require 'U-dashboard.php';
-$name=displayUser();
+include 'db-connection.php';
+if(isset($_SESSION['id'])){
+    $Customer_Id = $_SESSION['id'];
+
+    $sql = "SELECT Customers.*, customer_more_details.Image
+            FROM Customers
+            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
+            WHERE Customers.Customer_id = '$Customer_Id'"; 
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $uImage = $row['Image'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -143,12 +155,11 @@ $name=displayUser();
                     </div>
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
-                            <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
-                                <!-- <span>My Account </span> -->
-                                <span><?php echo $name;?></span>
-                                <i class="fas fa-caret-down"></i>
-                            </div>
+                        <div class="dropdown-item profile-sec">
+                            <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
+                            <span><?php echo $row['Username'];?></span>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
                         </a>
                         <div class="dropdown-menu account-menu">
                             <ul>
@@ -173,12 +184,64 @@ $name=displayUser();
                         
                         <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li>   
                          <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
-                        <li><a href="user-db-comment.php"> <i class='bx bx-chat'></i>Comments</a></li>
+                        <li><a href="user-db-comment.php"><i class='bx bx-chat'></i>Comments</a></li>
                         <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="U-logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
+            <?php
+            // Count the number of bookings
+            $sqlBookings = "SELECT COUNT(*) AS total_bookings FROM package_booking WHERE Customer_Id =$Customer_Id";
+            $resultBookings = $conn->query($sqlBookings);
+
+            if ($resultBookings) {
+                $rowBookings = $resultBookings->fetch_assoc();
+                $totalBookings = $rowBookings['total_bookings'];
+                
+            } else {
+                echo "Error: " . $sqlBookings . "<br>" . $conn->error;
+            }
+
+            // Count the number of  Approval
+            $sqlapproval = "SELECT COUNT(*) AS total_approval FROM package_booking WHERE Status = 'Approval'";
+            $resultapproval = $conn->query($sqlapproval);
+
+            if ($resultapproval) {
+                $rowapproval = $resultapproval->fetch_assoc();
+                $totalapproval = $rowapproval['total_approval'];
+                
+            } else {
+                echo "Error: " . $sqlapproval . "<br>" . $conn->error;
+            }
+
+            // Count the number of pending 
+            $sqlPending = "SELECT COUNT(*) AS total_pending FROM package_booking WHERE Status = 'Pending'";
+            $resultPending = $conn->query($sqlPending);
+
+            if ($resultPending) {
+                $rowPending = $resultPending->fetch_assoc();
+                $totalPending = $rowPending['total_pending'];
+                
+            } else {
+                echo "Error: " . $sqlPending . "<br>" . $conn->error;
+            }
+
+            // Count the number of Cancelled 
+            $sqlcancel = "SELECT COUNT(*) AS total_cancel FROM package_booking WHERE Status = 'Cancel'";
+            $resultcancel = $conn->query($sqlcancel);
+
+            if ($resultcancel) {
+                $rowcancel = $resultcancel->fetch_assoc();
+                $totalcancel = $rowcancel['total_cancel'];
+                
+            } else {
+                echo "Error: " . $sqlcancel . "<br>" . $conn->error;
+            }
+            
+            
+            ?>
+
             <div class="db-info-wrap">
                 <div class="row">
                     <!-- Item -->
@@ -189,7 +252,7 @@ $name=displayUser();
                             </div>
                             <div class="dashboard-stat-content">
                                 <h4>Booking</h4>
-                                <h5>22,520</h5> 
+                                <h5><?php echo"$totalBookings" ?></h5> 
                             </div>
                         </div>
                     </div>
@@ -202,7 +265,7 @@ $name=displayUser();
                             </div>
                             <div class="dashboard-stat-content">
                                 <h4>Approval</h4>
-                                <h5>16,520</h5> 
+                                <h5><?php echo"$totalapproval" ?></h5> 
                             </div>
                         </div>
                     </div>
@@ -215,7 +278,7 @@ $name=displayUser();
                             </div>
                             <div class="dashboard-stat-content">
                                 <h4>Pending</h4>
-                                <h5>18,520</h5> 
+                                <h5><?php echo"$totalPending" ?></h5> 
                             </div>
                         </div>
                     </div>
@@ -227,7 +290,7 @@ $name=displayUser();
                             </div>
                             <div class="dashboard-stat-content">
                                 <h4>Cancel</h4>
-                                <h5>9,520</h5> 
+                                <h5><?php echo"$totalcancel" ?></h5> 
                             </div>
                         </div>
                     </div>
@@ -246,7 +309,7 @@ $name=displayUser();
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Package</th>
+                                            <th>Package Name</th>
                                             <th>Date</th>
                                             <th>Destination</th>
                                             <th>package ID</th>
@@ -254,17 +317,33 @@ $name=displayUser();
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            
-                                            <td><a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city"></span></a>
-                                            </td>
-                                            <td>12.21.2121</td>
-                                            <td>vavuniya</td>
-                                            <td>100</td>
-                                            <td>
-                                                <span class="badge badge-primary">Pending</span>
-                                            </td>
-                                        </tr>
+                                    <?php
+                                $sql ="SELECT package_booking.*, package.Pack_title FROM package_booking
+                                JOIN package ON package_booking.Pack_Id = package.Pack_Id
+                                WHERE package_booking.Customer_Id = $Customer_Id";
+
+                                $result=mysqli_query($conn,$sql);
+                                
+
+                                if ($result->num_rows > 0) {
+                                    
+                                    while($row = $result->fetch_assoc()) {
+
+                                        echo "<tr>";
+                                        echo "<td><span class='list-name'>" . $row['Pack_title'] . "</span><span class='list-enq-city'></span></td>";
+                                        echo "<td>" . $row['Date'] . "</td>";
+                                        echo "<td>" . $row['Destination'] . "</td>";
+                                        echo "<td>" . $row['Pack_Id'] . "</td>";
+                                        echo "<td><span class='badge badge-primary'>" . $row['Status'] . "</span></td>";
+                                        echo "</tr>";
+                                        
+
+                                    }
+                                }
+                            
+                                  ?>
+                                 
+     
                                     </tbody>
                                 </table>
                             </div>

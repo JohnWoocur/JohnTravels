@@ -14,7 +14,7 @@ if ($conn->query($sql)) {
 
 	
 } else {
-    header("Location: user-packages.php");
+    header("Location: huu.php");
     $_SESSION['Emsg']="Added Failed";
 
 }

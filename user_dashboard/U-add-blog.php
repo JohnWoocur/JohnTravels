@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once ("db-connection.php");
 
 	$filename = $_FILES["Blog_img"]["name"];
@@ -14,6 +15,7 @@ $Blog_content2 = $_POST['Blog_content2'];
 $Tag_names = $_POST['Tag_names'];
 
 
+$customerid=$_SESSION['id'];
 
 $result = mysqli_query($conn,"INSERT INTO blog(Blog_title,Highlighted,Blog_content1,Blog_content2,Blog_img) values ('$Blog_title','$Highlighted','$Blog_content1','$Blog_content2','$filename')");
 $result2 = mysqli_query($conn,"INSERT INTO tags(Tag_names) values ('$Tag_names')");
