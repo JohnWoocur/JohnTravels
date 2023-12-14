@@ -16,46 +16,81 @@
 </head>
 
 
+<?php
+session_start();
+include "db-connection.php";
+
+if(isset($_SESSION['id']))
+
+{
+    $Customer_Id = $_SESSION['id'];
+
+    $sql="SELECT customer_more_details.*, customers.Email
+    FROM customer_more_details
+    JOIN customers ON customer_more_details.Customer_Id = customers.Customer_Id
+    WHERE customer_more_details.Customer_Id = $Customer_Id";
+     
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+
+    $uImage = $row['Image'];
+    $Customer_Name = $row['First_name'] ." ".$row['Last_name'];
+    $Customer_Email = $row['Email'];
+    $Customer_Phone = $row['Mobile_number'];
+    $Customer_About = $row['About'];
+    $Customer_Nic = $row['NIC'];
+    $Customer_Dob = $row['Dob']; 
+    $Customer_Country = $row['Country'];
+
+
+
+
+
+}
+
+?>
+
+
   
 
 
 <main class="container">
   <div class="card">
-    <img src="assets/images/profile2.jpg" alt="User image" class="card__image" />
+    <img src="Customers/<?php echo $uImage; ?>" alt="User image" class="card__image" />
     <div class="card__text">
-      <h2>Alexandra Caulea</h2>
+      <h2><?php echo $Customer_Name; ?></h2>
         <form name="Full Name" class="form-control" type="text">
         </form>
-        <label>I enjoy drinking a cup of coffee every day</label>
+        <label><?php echo $Customer_About; ?></label>
         <form name="descripe" class="describe" type="text">
         </form>
           <div class="t-box">
             <i class="fa fa-calendar info" ></i>
-            <label>Date Of Birth </label>
+            <label><?php echo $Customer_Dob; ?> </label>
             <form name="dob" class="form-control" type="date">
             </form>
           </div>  
         <div class="t-box">
         <i class="fa fa-envelope" ></i>
-        <label>Email </label>
+        <label><?php echo $Customer_Email; ?></label>
         <form name="email" class="form-control" type="text">
         </form>
         </div>
         <div class="t-box">
           <i class="fa fa-id-card info"></i>
-          <label>NIC</label>
+          <label><?php echo $Customer_Nic; ?></label>
           <form name="nic" class="form-control" type="text">
           </form>
         </div>
         <div class="t-box">
           <i class="fa fa-mobile info"></i>
-          <label> Phone Number</label>
+          <label><?php echo $Customer_Phone; ?></label>
           <form name="phone-number" class="form-control" type="number">    
           </form>  
         </div>
         <div class="t-box">
           <i class="fa fa-address-card info"></i>
-          <label>Address</label>
+          <label><?php echo $Customer_Country; ?></label>
           <form name="address" class="form-control" type="text">
           </form>
         </div>

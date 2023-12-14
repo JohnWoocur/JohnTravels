@@ -1,3 +1,22 @@
+<?php
+
+include 'db-connection.php';
+session_start();
+if(isset($_SESSION['id'])){
+    $Customer_Id = $_SESSION['id'];
+
+    $sql = "SELECT Customers.*, customer_more_details.Image
+            FROM Customers
+            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
+            WHERE Customers.Customer_id = '$Customer_Id'"; 
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $uImage = $row['Image'];
+}
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -18,6 +37,7 @@
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
+<body>
 
     <!-- start Container Wrapper -->
     <div id="container-wrapper">
@@ -132,9 +152,9 @@
                     </div>
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
-                            <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                        <div class="dropdown-item profile-sec">
+                            <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
+                                <span><?php echo $row['Username'];?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -155,122 +175,108 @@
                 <div id="navigation" class="navigation-container">
                     <ul>
                         <li><a href="user-dashboard.php"><i class="far fa-chart-bar"></i> Dashboard</a></li>
-                        <li><a href="user-edit.php"><i class="fas fa-user"></i>Edit Profile</a> </li>
-                            
-                        </li>
+                        <li ><a href="user-edit.php"><i class="fas fa-user"></i>Edit Profile</a> </li>
+                        
                         <li><a href="user-packages.php"><i class="fas fa-umbrella-beach"></i>View Package</a></li>
-                         
+                        
                         <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li> 
                         <li class="active-menu"><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
-                        <li><a href="user-db-comment.php"> <i class='bx bx-chat'></i>Comments</a></li>
+                        <li><a href="user-db-comment.php"><i class='bx bx-chat'></i>Comments</a></li>
                         <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-
-        
-    <?php
-
-        include "../admin_dashboard/db-connection.php";
-
-        $customerId = 1;
-
-
-        $customerQuery = "SELECT * FROM `customers` WHERE Customer_Id = $customerId";
-        $customerResult = $conn->query($customerQuery);
-
-        if ($customerResult->num_rows > 0) {
-            $customer = $customerResult->fetch_assoc();
-
-            // Check Wish Id in user wish table
-            $wishId = $customer['Customer_Id'];
-            $userWishQuery = "SELECT * FROM `user-wish` WHERE Wish_Id = $wishId";
-            $userWishResult = $conn->query($userWishQuery);
-
-            if ($userWishResult->num_rows > 0) {
-            while ($userWishRow = $userWishResult->fetch_assoc()) {
-            // Fetch packages from the package table
-            $packageId = $userWishRow['Pack_Id'];
-            $packageQuery = "SELECT * FROM `package` WHERE Pack_Id = $packageId";
-            $packageResult = $conn->query($packageQuery);
-
-            if ($packageResult->num_rows > 0) {
-                while ($packageRow = $packageResult->fetch_assoc()) {
-                    
-                        ?>
-                        <div class="db-info-wrap db-wislist-wrap">
-                        <div class="dashboard-box ">
-                            <div class="row">
-                                <div class="grid-item col-md-6 col-lg-4">
-                                    <div class="package-wrap">
-                                    <figure class="feature-image">
-                                        <a href="#">
-                                        <?php
-                                            // Assuming 'Image_blob' is the column name in your database
-                                            $imageBlob = $packageRow['Pack_img'];
-                                          
-                                            if ($imageBlob) {
-                                                $imageData = base64_encode($imageBlob);
-                                                $imageType = 'image/jpg'; // image type (e.g., image/jpeg)
-
-                                                // Display the image
-                                                echo '<img src="data:' . $imageType . ';base64,' . $imageData . '" alt="">';
-                                            } else {                                               
-                                                echo '<img src="path/to/default-image.png" alt="Default Image">';
-                                            }
-                                            ?>
-                                        </a>
-                                     </figure>
-                                        <div class="package-price">
-                                            <h6>
-                                                <span><?php echo $packageRow['Sale_price'];?></span> / per person
-                                            </h6>
-        
-                                        </div>
-                                        <div class="package-content-wrap">
-                                            <div class="package-content">
-                                                <h4>
-                                                    <a href="#"><?php echo $packageRow['Pack_title'];?></a>
-                                                </h4>
-                                                <div class="content-details">
-                                                   <div class="rating-start" title="Rated 5 out of 5">
-                                                      <span></span>
-                                                   </div>
-                                                   <span class="review-text"><a href="#"><?php echo $packageRow['Reviews'];?> reviews</a></span>
-                                                </div>
-                                                <div class="button-container">
-                                                    <a href="user_booking-form.php"><i class="bx bx-book"></i>Book Now</a>
-                                                    <a href="U-wishlist-delete.php?id=7""><i class="far fa-trash-alt"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>          
+            <div class="db-info-wrap db-wislist-wrap">
+                <div class="dashboard-box ">
+                <?php
+                                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
                                 </div>
-                            </div>
-                      
-                         </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
+                    <div class="row">
+                        
 
-                    <?php 
-                    
-                }
-            }
-            }
-            } else {
-                echo "No matching Wish_Id in user-wish table for the customer";
-         }
-        } else {
-            echo "Customer not found";
-        }
+                     <?php 
+						  
+                          $customerId = $_SESSION['id'];
 
-        $conn->close();
+                          // Display the wishlist for the logged-in customer
+                          $wishlistQuery = "SELECT `user-wish`.`Wish_Id`, `package`.* FROM `user-wish`
+                                            JOIN `package` ON `user-wish`.`Pack_Id` = `package`.`Pack_Id`
+                                            WHERE `user-wish`.`Customer_Id` = $customerId";
+                          
+                          $wishlistResult = $conn->query($wishlistQuery);
+                          
+                          if ($wishlistResult === false) {
+                              // Query execution failed
+                              die("Error executing query: " . $conn->error);
+                          }
+                          
+                          if ($wishlistResult->num_rows > 0) {
+                              // Display wishlist items
+                              while ($row = $wishlistResult->fetch_assoc()) {
+                                  $wishid = $row['Wish_Id'];
+                                  $image = $row['Pack_img'];
+                                  $pack_price = $row['Reqular_price'];
+                                  $pack_title = $row['Pack_title'];
+                                  $package_id = $row['Pack_Id'];
+                          
+                                  echo '
+                                      <div class="grid-item col-md-6 col-lg-4">
+                                          <div class="package-wrap">
+                                              <figure class="feature-image">
+                                                  <a href="#">
+                                                      <img src="../admin_dashboard/package/' . $image . '" width="1200px" height="700px">
+                                                  </a>
+                                              </figure>
+                                              <div class="package-price">
+                                                  <h6>
+                                                      <span>$' . $pack_price . '</span> / per person
+                                                  </h6>
+                                              </div>
+                                              <div class="package-content-wrap">
+                                                  <div class="package-content">
+                                                      <h4>
+                                                          <a href="#">' . $pack_title . '</a>
+                                                      </h4>
+                                                      <div class="content-details">
+                                                          <div class="rating-start" title="Rated 5 out of 5">
+                                                              <span></span>
+                                                          </div>
+                                                          <span class="review-text"><a href="#">1 review</a></span>
+                                                      </div>
+                                                      <div class="button-container">
+                                                          <a href="booking-form.php"><i class="bx bx-book"></i>Book Now</a>
+                                                          <a href="U-wishlist-delete.php?id=' . $wishid . '"><i class="far fa-trash-alt"></i> Delete</a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>';
+                              }
+                          } else {
+                              echo "<p>Nothing to show</p>";
+                          }
+                ?>                          
 
-    ?>
-
-           
-              
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -279,13 +285,20 @@
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div>
+                                        
+                                
+                   
+                </div>
+               
             <!-- Content / End -->
             <!-- Copyrights -->
-            <div class="copyrights">
-               Copyright © 2023 John Travels LK. All rights reserveds.
             </div>
+            <div class="copyrights">
+
+                Copyright © 2023 John Travels LK. All rights reserveds.
+             
         </div>
         <!-- Dashboard / End -->
     </div>
@@ -295,6 +308,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/canvasjs.min.js"></script>
+    <script src="assets/js/chart.js"></script>
     <script src="assets/js/counterup.min.js"></script>
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/dashboard-custom.js"></script>

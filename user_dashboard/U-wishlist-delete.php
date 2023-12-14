@@ -1,20 +1,24 @@
 <?php
-
+    session_start();
     require '../admin_dashboard/db-connection.php';
 
-    // if(isset($_POST['delete_id']))
-    // {    
+     
         $wish_id = $_GET['id'];
-        //$wish_id=1;
-        $query = "DELETE FROM `user_wish` WHERE Wish_Id='$wish_id' ";
+        
+        $query = "DELETE FROM `user-wish` WHERE Wish_Id='$wish_id' ";
         $result = mysqli_query($conn, $query); 
         if($result)
         {
-            echo " Deleted Successfully!";
-        } 
-        else
-        {
-            echo " Not Deleted!. Error: ";
+            header("Location: user-db-wishlist.php");
+             $_SESSION['Smsg']="Wishlist Deleted Successfully!";
         }
-    // }
+        else
+        {   
+            header("Location: user-db-wishlist.php");
+            $_SESSION['Emsg']="Wishlist Not Deleted!. Error:";
+        }
+
+        $conn->close();
+    
 ?>
+

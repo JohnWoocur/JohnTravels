@@ -1,3 +1,31 @@
+<?php
+include 'db-connection.php';
+session_start();
+if(isset($_SESSION['id'])){
+    $Customer_Id = $_SESSION['id'];
+
+    $sql = "SELECT Customers.*, customer_more_details.Image,customer_more_details.First_name,customer_more_details.Last_name,customer_more_details.Address,customer_more_details.City,customer_more_details.district,customer_more_details.Country,customer_more_details.Mobile_number
+            FROM Customers
+            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
+            WHERE Customers.Customer_id = '$Customer_Id'"; 
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $uImage = $row['Image'];
+    $uName = $row['First_name'];
+    $uName = $row['Last_name'];
+    $uNumber =$row['Mobile_number'];
+    $uEmail = $row['Email'];
+    $uAddress = $row['Address'];
+    $uCity = $row['City'];
+    $uState = $row['district'];
+    $uCountry = $row['Country'];
+
+
+}
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -133,9 +161,9 @@
                     </div>
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
-                            <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                        <div class="dropdown-item profile-sec">
+                            <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
+                                <span><?php echo $row['Username'];?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -161,19 +189,19 @@
                                         <div class="form-group">
 
                                             <label>Booking Id</label>
-                                            <input name="Booking Id" class="form-control" type="text" readonly>
+                                            <input name="Booking Id" class="form-control" type="text" readonly >
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text">
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $uName; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text">
+                                            <input name="lastname" class="form-control" type="text" value="<?php echo $uEmail; ?>">
                                         </div>
                                     </div>
                                     
@@ -181,20 +209,20 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input name="email" class="form-control" type="email">
+                                            <input name="email" class="form-control" type="email" value="<?php echo $uEmail; ?>">
                                         </div>  
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Number of People</label>
-                                            <input name="password" class="form-control" type="text">
+                                            <input name="password" class="form-control" type="text" value="<?php echo $uEmail; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input name="phone" class="form-control" type="text">
+                                            <input name="phone" class="form-control" type="text" value="<?php echo $uNumber; ?>">
                                         </div>
                                     </div>
                                     
@@ -203,26 +231,26 @@
                                 <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input name="address" class="form-control" type="text">
+                                            <input name="address" class="form-control" type="text" value="<?php echo $uAddress; ?>">
                                         </div>
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <input name="City" class="form-control" type="text">
+                                            <input name="City" class="form-control" type="text" value="<?php echo $uCity; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>District</label>
-                                            <input name="district" class="form-control" type="text">
+                                            <input name="district" class="form-control" type="text" value="<?php echo $u; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="Country" class="form-control" type="text">
+                                            <input name="Country" class="form-control" type="text" value="<?php echo $uCountry; ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -248,7 +276,7 @@
                         
                         <li><a href="user-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry </a></li> 
                         <li><a href="user-db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
-                        <li><a href="user-db-comment.php"><i class='bx bx-chat'></i> Comments</a></li>
+                        <li><a href="user-db-comment.php"><i class='bx bx-chat'></i>Comments</a></li>
                         <li><a href="user-add-blog.php"><i class="fas fa-comments"></i>Create Blogs</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
