@@ -15,30 +15,52 @@ $Blog_content2 = $_POST['Blog_content2'];
 $Tag_names = $_POST['Tag_names'];
 
 
+
+
 $customerid=$_SESSION['id'];
 
-$result = mysqli_query($conn,"INSERT INTO blog(Blog_title,Highlighted,Blog_content1,Blog_content2,Blog_img) values ('$Blog_title','$Highlighted','$Blog_content1','$Blog_content2','$filename')");
-$result2 = mysqli_query($conn,"INSERT INTO tags(Tag_names) values ('$Tag_names')");
+
+$sql = "INSERT INTO blog (Blog_title, Highlighted, Blog_content1, Blog_content2, Blog_img, Customer_Id) 
+        VALUES ('$Blog_title', '$Highlighted', '$Blog_content1', '$Blog_content2', '$filename', $customerid)";
 
 
+$result = mysqli_query($conn, $sql);
 
-if($result && $result2)
-{
+if($result){
 	if (move_uploaded_file($tempname, $folder))
 	 {
 
-		echo "uploaded successfully";
+		
+		$query="SELECT Blog_Id FROM `blog` WHERE $customerid";
+		$result = mysqli_query($conn, $query);
+		$row = mysqli_fetch_assoc($result);
+		$Blog_Id = $row['Blog_Id'];
+		if ($result) {
+			
+			$sql1 = "INSERT INTO blog_tags (Tag_Name,Blog_Id) VALUES ('$Tag_names','$Blog_Id')";
+
+				$result1 = mysqli_query($conn, $sql1);
+				if($result1){
+					echo"blog";
+					header("Location: user-dashboard.php");
+				}
+				else{
+					echo"error";
+				}
+		}else{
+			echo"error";
+
+		
+
 		header("Location: user-dashboard.php");
-	}
-	else
-	{
 
-		echo "Failed to upload image";
+		}
 
 	}
+    echo " Created" ;
 }
-else
-{
+else{
+
 	echo "failed to Uploaded";
 	header("Location: user-add-blog.php");
 }	
