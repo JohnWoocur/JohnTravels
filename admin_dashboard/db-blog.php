@@ -252,7 +252,7 @@
                                         <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
-                                <?php }?
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>

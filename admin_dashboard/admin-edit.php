@@ -208,8 +208,23 @@
                             if(mysqli_num_rows($result)==1){
                             $row=mysqli_fetch_assoc($result);
                             ?>
-                            <form class="form-horizontal" method="POST" action="A-edit-admin.php">
+                            <form class="form-horizontal" method="POST" action="A-edit-admin.php" enctype="multipart/form-data">
+                            <div class="dashboard-box user-form-wrap">
+                            <div class="col-12">
+                            </div>
+                            
+                            </div>
                                 <div class="row">
+                                <div class="col-sm-6">
+                                <div class="upload-input">
+                                    <div class="form-group">
+                                      <span class="upload-btn">Select a image</span>
+                                      <img src="admins/<?php echo $row['Image']?>" alt="User image">
+                                      <input type="file" name="myfile" accept="image/*" >                              
+                                    </div>
+                                </div>
+                            </div>
+                            
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Id</label>
@@ -266,16 +281,9 @@
                                         </div>  
                                     </div>
                                     <div class="col-12">
-                                        <h4>Upload Profile Photo</h4>
+                                        
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myfile" value="<?php echo $row["Status"]?>">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <br>
                                 <input type="submit" name="Submit" value="update">

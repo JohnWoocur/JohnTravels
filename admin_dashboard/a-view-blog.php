@@ -167,79 +167,7 @@
                     </ul>
                 </div>
             </div>
-<<<<<<< HEAD:admin_dashboard/db-enquiry.php
-            <div class="db-info-wrap db-booking">
-                <div class="dashboard-box table-opp-color-box">
-                    <h4>Recent Enquiry
 
-                    </h4>
-                    
-                    
-                    
-                    <div class="table-responsive">
-                        <table class="table" method="POST" action="">
-                            <thead>
-                                <tr>
-                                    <th>User_name</th>
-                                    <th>Check_in</th>
-                                    <th>Check_out</th>
-                                    <th>packages name</th>
-                                    <th>Id</th>
-                                    <th>status</th>   
-                                    <th>People</th>
-                                    <th>action</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <?php
-                                $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
-                                FROM enquiry 
-                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id" ;
-                                $result= mysqli_query($conn,$sql);
-                                if($result){
-                                    while($row=mysqli_fetch_assoc($result)){
-                                        $Enquiry_Id=$row['Enquiry_Id'];
-                                        $user_name=$row["First_name"] . " " . $row["Last_name"];
-                                        $Packages_name=$row['Packages_name'];
-                                        $No_of_people=$row['No_of_people'];
-                                        $Checkin_date=$row['Checkin_date'];
-                                        $Checkout_date=$row['Checkout_date'];
-                                        $Status=$row['Status'];
-                                
-                                                                                     
-                                        echo 
-                                        '<tr>
-                                                   
-                                                
-                                                <td>'.$user_name.'</td>
-                                                <td>'.$Checkin_date.'</td>
-                                                <td>'.$Checkout_date.'</td>
-                                                <td>'.$Packages_name.'</td>
-                                                <td>'.$Enquiry_Id.'</td>
-                                                <td><span class="badge badge-success">'.$Status.'</span></td>
-                                                
-                                                <td><span class="badge badge-success">'.$No_of_people.'</span></td>
-                                                <td>
-                                                '
-                                                ?>
-                                                   
-                                                <!-- <span class="badge badge-success"><i class="far fa-eye"></i></span>
-                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="fa fa-check"></i></span>
-                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span> -->
-                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span>
-                                                </td>
-                                            <?php
-                                            
-                                                }
-                                            }
-                                            
-                                            ?>
-                                            </tr>
-                                
-                                   </tbody>
-                        </table>
-=======
             <div class="db-info-wrap db-add-tour-wrap">
                 <div class="row">
                     <!-- Listings -->
@@ -299,7 +227,6 @@
                         <button type="submit" class="button-primary">Approve</button>
                         </div>
                         
->>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54:admin_dashboard/a-view-blog.php
                     </div>
                 </div>    
             </div>
