@@ -346,16 +346,22 @@
                   </div>
                   <div class="package-inner">
                      <div class="row">
+                     <?php
+                        require 'db-connection.php';
+                        $query="SELECT * FROM package WHERE Status='Active' AND Wish='Active' LIMIT 3";
+                        $result=mysqli_query($conn,$query);
+                        while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                        ?>
                         <div class="col-lg-4 col-md-6">
                            <div class="package-wrap">
                               <figure class="feature-image">
                                  <a href="#">
-                                    <img src="assets/images/img5.jpg" alt="">
+                                    <img src="../JohnTravels/admin_dashboard/package/<?php echo $row['Pack_img']; ?>" alt="">
                                  </a>
                               </figure>
                               <div class="package-price">
                                  <h6>
-                                    <span>$1,900 </span> / per person
+                                    <span>$<?php echo $row['Reqular_price']; ?> </span> / per person
                                  </h6>
                               </div>
                               <div class="package-content-wrap">
@@ -363,21 +369,22 @@
                                     <ul>
                                        <li>
                                           <i class="far fa-clock"></i>
-                                          7D/6N
+                                          <?php echo $row['Days']; ?>D/<?php echo $row['Night']; ?>N
                                        </li>
                                        <li>
                                           <i class="fas fa-user-friends"></i>
-                                          People: 5
+                                          People: <?php echo $row['Group_size']; ?>
+                                       </li>
                                        </li>
                                        <li>
                                           <i class="fas fa-map-marker-alt"></i>
-                                          Malaysia
+                                          <?php echo $row['Location']; ?>
                                        </li>
                                     </ul>
                                  </div>
                                  <div class="package-content">
                                     <h3>
-                                       <a href="#">Sunset view of beautiful lakeside resident</a>
+                                       <a href="#"><?php echo $row['Pack_title']; ?></a>
                                     </h3>
                                     <div class="review-area">
                                        <span class="review-text">(25 reviews)</span>
@@ -385,111 +392,17 @@
                                           <span style="width: 60%"></span>
                                        </div>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                    <p><?php echo $row['Description']; ?></p>
                                     <div class="btn-wrap">
                                        <a href="package-detail.php" class="button-text width-6">SEE MORE<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">ADD CART<i class="far fa-heart"></i></a>
+                                       <a href="../JohnTravels/user_dashboard/login.php" class="button-text width-6">ADD CART<i class="far fa-heart"></i></a>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img6.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$1,230 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          5D/4N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 8
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Canada
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Experience the natural beauty of island</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(17 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 100%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="package-detail.php" class="button-text width-6">SEE MORE<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">ADD CART<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                           <div class="package-wrap">
-                              <figure class="feature-image">
-                                 <a href="#">
-                                    <img src="assets/images/img7.jpg" alt="">
-                                 </a>
-                              </figure>
-                              <div class="package-price">
-                                 <h6>
-                                    <span>$2,000 </span> / per person
-                                 </h6>
-                              </div>
-                              <div class="package-content-wrap">
-                                 <div class="package-meta text-center">
-                                    <ul>
-                                       <li>
-                                          <i class="far fa-clock"></i>
-                                          6D/5N
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-user-friends"></i>
-                                          People: 6
-                                       </li>
-                                       <li>
-                                          <i class="fas fa-map-marker-alt"></i>
-                                          Portugal
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="package-content">
-                                    <h3>
-                                       <a href="#">Vacation to the water city of Portugal</a>
-                                    </h3>
-                                    <div class="review-area">
-                                       <span class="review-text">(22 reviews)</span>
-                                       <div class="rating-start" title="Rated 5 out of 5">
-                                          <span style="width: 80%"></span>
-                                       </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                       <a href="package-detail.php" class="button-text width-6">SEE MORE<i class="fas fa-arrow-right"></i></a>
-                                       <a href="#" class="button-text width-6">ADD CART<i class="far fa-heart"></i></a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        <?php } ?>
+                     
                      </div>
                      <div class="btn-wrap text-center">
                         <a href="tour-packages.php" class="button-primary">VIEW ALL PACKAGES</a>
@@ -710,84 +623,43 @@
                   </div>
                   <div class="special-inner">
                      <div class="row">
+                        <?php
+                        require 'db-connection.php';
+                        $query="SELECT * FROM package WHERE Status='Active' AND Discount>0 ORDER BY Discount DESC LIMIT 3";
+                        $result=mysqli_query($conn,$query);
+                        while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                        ?>
                         <div class="col-md-6 col-lg-4">
                            <div class="special-item">
                               <figure class="special-img">
-                                 <img src="assets/images/img9.jpg" alt="">
+                                 <img src="../JohnTravels/admin_dashboard/package/<?php echo $row['Pack_img']; ?>" alt="">
                               </figure>
                               <div class="badge-dis">
                                  <span>
-                                    <strong>20%</strong>
+                                    <strong><?php echo $row['Discount']; ?>%</strong>
                                     off
                                  </span>
                               </div>
                               <div class="special-content">
                                  <div class="meta-cat">
-                                    <a href="#">CANADA</a>
+                                    <a href="#"><?php echo $row['Pack_title']; ?></a>
                                  </div>
                                  <h3>
-                                    <a href="#">Experience the natural beauty of glacier</a>
+                                    <a href="#"><?php echo $row['Description']; ?></a>
                                  </h3>
                                  <div class="package-price">
                                     Price:
-                                    <del>$1500</del>
-                                    <ins>$1200</ins>
+                                    <del>$<?php echo $row['Reqular_price']; ?></del>
+                                    <ins>$<?php echo $row['Sale_price']; ?></ins>
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                           <div class="special-item">
-                              <figure class="special-img">
-                                 <img src="assets/images/img10.jpg" alt="">
-                              </figure>
-                              <div class="badge-dis">
-                                 <span>
-                                    <strong>15%</strong>
-                                    off
-                                 </span>
-                              </div>
-                              <div class="special-content">
-                                 <div class="meta-cat">
-                                    <a href="#">NEW ZEALAND</a>
-                                 </div>
-                                 <h3>
-                                    <a href="#">Trekking to the mountain camp site</a>
-                                 </h3>
-                                 <div class="package-price">
-                                    Price:
-                                    <del>$1300</del>
-                                    <ins>$1105</ins>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                           <div class="special-item">
-                              <figure class="special-img">
-                                 <img src="assets/images/img11.jpg" alt="">
-                              </figure>
-                              <div class="badge-dis">
-                                 <span>
-                                    <strong>15%</strong>
-                                    off
-                                 </span>
-                              </div>
-                              <div class="special-content">
-                                 <div class="meta-cat">
-                                    <a href="#">MALAYSIA</a>
-                                 </div>
-                                 <h3>
-                                    <a href="#">Sunset view of beautiful lakeside city</a>
-                                 </h3>
-                                 <div class="package-price">
-                                    Price:
-                                    <del>$1800</del>
-                                    <ins>$1476</ins>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        <?php
+                         }
+                        ?>
+                        
+                        
                      </div>
                   </div>
                </div>
