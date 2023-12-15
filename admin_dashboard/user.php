@@ -220,35 +220,7 @@ include'db-connection.php';
                                     $sql= "SELECT * FROM `customers`";
                                     $result= mysqli_query($conn,$sql);
                                     if($result){
-<<<<<<< HEAD
-                                        while($row=mysqli_fetch_assoc($result)){
-                                            $customer_id=$row['Customer_Id'];
-                                            $username=$row['Username'];
-                                            $email=$row['Email'];
-                                            $password=$row['Password'];
-                                            $create_at=$row['Create_at'];
-                                            $status=$row['Status'];
-                                            echo'<tr>
-                                            <td>'.$customer_id.'</td>
-                                            
-                                            <td><a href="#"><span class="list-name">'.$username.'</span></a>
-                                            </td>
-                                            <td>'.$email.'</td>
-                                            <td>+'.$password.'</td>
-                                            
-                                            <td>'.$create_at.'</td>
-                                            <td>
-                                                <span class="badge badge-primary">'.$status.'</span>
-                                            </td>
-                                            <td>
-                                               <a href="view-user.php?id='.$customer_id.'"> <span class="badge badge-success"><i class="far fa-eye"></i></span></a>
-                                            </td>
-                                            <td>
-                                                 <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                            </td>';
-=======
                                         while($row=mysqli_fetch_assoc($result)):
->>>>>>> bf126cc9be3df0ea7a76fd3e8794021d0d7b3d54
                                             ?>
                                             <tr> 
                                             <td><a href="#"><span class="list-name"><?php echo $row['Customer_Id'];?></span></a>
@@ -263,10 +235,10 @@ include'db-connection.php';
                                                 <a href="view-user.php?id=<?php echo $row['Customer_Id'];?>"><span class="badge badge-success"><i class="far fa-eye"></i></span>
                                             </td>
                                             <td>
-                                                <span class="badge badge-success"><i class="far fa-edit"></i></span>
+                                            <a href="user-edit.php?id=<?php echo $row['Customer_Id'];?>"><span class="badge badge-success"><i class="far fa-edit"></i></span></a>
                                             </td>
                                             <td>
-                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                            <a href="user-delete.php?id=<?php echo $row['Customer_Id'];?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                             </td>
                                         </tr>
 

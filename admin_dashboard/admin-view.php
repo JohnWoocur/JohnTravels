@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-   <head>
+   <head> 
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,10 +15,11 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
+      
 </head>
 <body>
 
-    <!-- start Container Wrapper --> 
+    <!-- start Container Wrapper -->
     <div id="container-wrapper">
         <!-- Dashboard -->
         <div id="dashboard" class="dashboard-container">
@@ -189,139 +190,107 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="db-info-wrap">
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="dashboard-box user-form-wrap">
-                            <div class="col-12">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="upload-input">
-                                    <div class="form-group"> 
-                                        <h3><u>User profile</u></h3>                  
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                
-                
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="dashboard-box user-form-wrap">
-                            <h4>Profile Details </h4>
-
-                    <?php 
-                    
-                    require "A-view-user.php";
-                    $id=$_GET['id'];
-                    //$id=4;
-                    $getuser=displayUser($id);
-                    foreach($getuser as $user):
-                        require 'A-show-customer.php'; 
-                        $r=show($user['Customer_Id']); 
-                    ?>
-                        
+                        <div class="dashboard-box">
+                            <h4>Add New ADMIN</h4>
+                            <?php 
+                            require 'db-connection.php';
+                            if (isset($_GET['Admin_Id'])) {
+                                $id = $_GET['Admin_Id']; 
                             
 
-                            <form class="form-horizontal" method="POST" action="A-edit-user.php" enctype="multipart/form-data">
-                                   
+                          //  $id=1;
+                            $query="SELECT * FROM `admins` WHERE Admin_id='$id'";
+                            $result=mysqli_query($conn,$query);
+
+                            if(mysqli_num_rows($result)==1){
+                            $row=mysqli_fetch_assoc($result);
+                            ?>
+                            <form class="form-horizontal" method="POST" action="A-edit-admin.php" enctype="multipart/form-data">
+                            <div class="dashboard-box user-form-wrap">
+                            <div class="col-12">
+                            </div>
+                            
+                            </div>
                                 <div class="row">
                                 <div class="col-sm-6">
                                 <div class="upload-input">
-                                <div class="form-group" style="border-radius:50px ; width:30%;">
-                                      <img src="../user_dashboard/Customers/<?php echo $user['Image']; ?>" alt="user" readonly >
-                                      <input type="file" name="myfile" accept="image/*" >  
+                                    <div class="form-group">
+                                      <!-- <span class="upload-btn">Select a image</span> -->
+                                      <img src="admins/<?php echo $row['Image']?>" alt="User image">
+                                      <!-- <input type="file" name="myfile" accept="image/*" >                               -->
                                     </div>
-                                    <br>
                                 </div>
-                                
                             </div>
-                            <br></br>
+                            
                                     <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Id</label>
+                                            <input name="id" class="form-control" type="text" value="<?php echo $row["Admin_Id"]?>" readonly>
+                                        </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" value="<?php echo $user['First_name']; ?> " readonly>
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $row["First_name"]?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" value="<?php echo $user['Last_name']; ?>" readonly>
+                                            <input name="lastname" class="form-control" type="text" value="<?php echo $row["Last_name"]?>" readonly>
                                         </div>
                                     </div>
-                                    
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>NIC/Passport</label>
-                                            <input name="ID" class="form-control" type="number" value="<?php echo $user['NIC']; ?>" readonly>
-                                        </div>  
-                                    </div>
-                                    
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="" type="text" readonly>
+                                            <label>Mobile</label>
+                                            <input name="phone" class="form-control" type="text" value="<?php echo $row["Mobile_number"]?>" readonly>
                                         </div>
                                     </div>
-
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Date of Birth</label>
-                                            <input type="date" id="dob" name="dob" value="<?php echo $user['Dob']; ?>" readonly>
+                                            <label>Date</label>
+                                            <input name="date" class="form-control" type="date" value="<?php echo $row["Create_at"]?>" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <h4>Contact Details</h4>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input name="city" class="form-control" type="text" value="<?php echo $row["City"]?>" readonly>
+                                        </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text" readonly>
-
+                                            <input name="country" class="form-control" type="text" value="<?php echo $row["Country"]?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                         <label>District</label>
-                                         <input name="district" id="district" class="form-control" value="<?php echo $user['district']; ?>" placeholder="" type="text" readonly>
-                                         
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                            <div class="form-group">
-                                            <label>City</label>
-                                            <input name="City" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text" readonly>
+                                            <label>password</label>
+                                            <input name="password" class="form-control" type="password" value="<?php echo $row["Password"]?>" readonly>
                                         </div>
                                     </div>
                                     
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input name="email" class="form-control" type="email" value="<?php echo $row["Email"]?>" readonly>
+                                        </div>  
+                                    </div>
                                     <div class="col-12">
-                                        <h4>Describe Yourself</h4>
+                                        
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Please Tell Us About You</label>
-                                            <input name="about" id="Address" class="form-control" value="<?php echo $user['About']; ?>" placeholder="" type="text" readonly>
-                                        </div>
-                                    </div>
-                                    
-                                
                                     
                                 </div>
-                                <input type="submit" name="Submit" value="update">
+                                <br>
+                                <!-- <input type="submit" name="Submit" value="update"> -->
                             </form>
                             <?php
-                            endforeach;
+                            }
+                            }
                             ?>
                         </div>
                     </div>  
