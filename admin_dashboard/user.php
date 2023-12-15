@@ -1,6 +1,17 @@
 <?php
 include'db-connection.php';
 ?>
+<?php
+session_start();
+if(!isset($_SESSION["aid"])){
+header("Location:login.php");
+exit();
+}
+?>
+<?php
+require 'A-dashboard.php';
+$name=displayAdmin();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -136,7 +147,7 @@ include'db-connection.php';
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>

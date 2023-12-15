@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(!isset($_SESSION["aid"])){
+header("Location:login.php");
+exit();
+}
+?>
+<?php
+require 'A-dashboard.php';
+$name=displayAdmin();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -133,7 +144,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -235,8 +246,8 @@
 
                                     <td>
                                         
-                                        <a href ="A-add-wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
-                                        <a href ="A-package-delete.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <a href ="conect_wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
+                                        <a href ="A-package-expired.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                        
                                     </td> 
                                 </tr>

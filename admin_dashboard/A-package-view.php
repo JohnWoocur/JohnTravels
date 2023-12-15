@@ -1,3 +1,15 @@
+
+<?php
+session_start();
+if(!isset($_SESSION["aid"])){
+header("Location:login.php");
+exit();
+}
+?>
+<?php
+require 'A-dashboard.php';
+$name=displayAdmin();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -133,7 +145,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <!-- <span>My Account </span> -->
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -203,7 +216,6 @@
 
                                 <tr>
                                     <th>Package Name</th>
-                                    <th>Description</th>
                                     <th>No.of people</th>
                                     <th>Days</th>
                                     <th>Night</th>
@@ -233,7 +245,6 @@
 								// output data of each row
 								
 									echo'<td>'.$row["Pack_title"].'</td>';
-									echo'<td>'.$row["Description"].'</td>';
                                     echo'<td>'.$row["Group_size"].'</td>';
 									echo'<td>'.$row["Days"].'</td>';
 									echo'<td>'.$row["Night"].'</td>';
@@ -244,13 +255,11 @@
 
                                     ?>
 
-                                    <td>
-                                        
-                                        <a href ="A-pack-active.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-success"><i class="fa fa-check"></i></span></a>
-                                        <a href ="A-pack-expired.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-danger"><i class="fa fa-times"></i></span>
-                                        <a href ="db-edit-package.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-success"><i class="fa fa-edit"></i></span>
+                                    <td><a href ="A-pack-active.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-success"><i class="fa fa-check"></i></span></a></td>
+                                    <td><a href ="A-pack-expired.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-danger"><i class="fa fa-times"></i></span></a></td>
+                                    <td><a href ="db-edit-package.php ?Pack_Id=<?php  echo $row["Pack_Id"]; ?> "><span class="badge badge-success"><i class="fa fa-edit"></i></span></a></td>
 
-                                    </td>
+                                    
                                 </tr>
                                 <?php
                             }

@@ -4,7 +4,7 @@
 if (isset($_GET['Pack_Id'])){
     
     $Pack_Id =$_GET['Pack_Id'];
-    $Wish="True";
+    $Wish="";
     $sql = "UPDATE `package` SET `Wish`='$Wish' WHERE Pack_Id=$Pack_Id";
     
     $result=mysqli_query($conn,$sql);
