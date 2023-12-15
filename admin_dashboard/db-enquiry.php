@@ -276,68 +276,10 @@ $name=displayAdmin();
                                 
                                    </tbody>
                         </table>
-            <div class="db-info-wrap db-add-tour-wrap">
-                <div class="row">
-                    <!-- Listings -->
-                    <div class="col-lg-8 col-xl-9">
-                        <div class="dashboard-box">
-                            <div class="custom-field-wrap">
-                                <div class="form-group">
-                                    <label>Blog Title</label>
-                                    <input type="text" name="name">
-                                </div>
-                                <div class="form-group">
-                                    <label>Special Description</label>
-                                    <textarea></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>1st Paragraph </label>
-                                    <textarea></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>2nd Paragraph</label>
-                                    <textarea></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="hashtags">Add Hashtags</label>
-                                <input type="text" name="hashtags" id="hashtags" >
-                            </div>
-                            <div class="custom-field-wrap">
-                                <label>Images</label>
-                                <div class="dragable-field">
-                                    <div class="dragable-field-inner">
-                                        <p class="drag-drop-info">Drop Small Resolution Image To Upload</p>
-                                        <!-- <p>or</p> -->
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <!-- <span class="upload-btn">Upload a image</span> -->
-                                              <input type="file" name="myfile">
-                                            </div>
+          
                                         </div>
-                                    </div>
-                                    <div class="dragable-field-inner">
-                                        <p class="drag-drop-info">Drop Larger Resolution Image To Upload</p>
-                                        <!-- <p>or</p> -->
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <!-- <span class="upload-btn">Upload a image</span> -->
-                                              <input type="file" name="myfile">
-                                            </div>
+                                        </div> 
                                         </div>
-                                    </div>
-                                
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add space here -->
-                        <div>
-                        <button type="submit" class="button-primary">Approve</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             Content / End 
             <!-- Copyrights -->
             <div class="copyrights">
                Copyright © 2023 John Travels LK. All rights reserveds.
