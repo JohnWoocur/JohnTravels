@@ -228,8 +228,7 @@ $name=displayAdmin();
 
                         <?php 
                         require "A-edit-package.php";
-                        //$id=$_GET["id"];
-                        $id=16;
+                        $id=$_GET["Pack_Id"];
                         $getpack=displayPackage($id);
                         foreach($getpack as $pack):
                         ?>
@@ -374,6 +373,7 @@ $name=displayAdmin();
                                             <label>Status</label>
                                             <input type="text" name="status" value="<?php echo $pack["Status"] ?>">
                                         </div>
+										<div class="col-sm-7">
                                         <div class="form-group">
                                             <label>Wish</label>
                                             <input type="text" name="wish" value="<?php echo $pack["Status"] ?>">

@@ -31,11 +31,11 @@ move_uploaded_file($imgFile,$path);
 $query="UPDATE `package` SET `Pack_title`='$Title',`Pack_img`='$imgName',`Description`='$Description',`Group_size`='$Group',`Days`='$Day',`Night`='$Night',`Sale_price`='$Saleprice',`Reqular_price`='$Price',`Discount`='$Discount',`Category`='$Category',`Map`='$Map',`Api_key`='$Api',`Popular`='$Popular',`Status`='$Status',`Trip_date`='$Date',`Wish`='$Wish' WHERE Pack_Id='$id'";
 $result=mysqli_query($conn,$query);
 if($result){
-    header('location:db-edit-package.php');
+    header('location:db-edit-package.php?Pack_Id='.$id);
     $_SESSION['Smsg']="package updated success";
 }
 else{
-    header('location:db-edit-package.php');
+    header('location:db-edit-package.php?Pack_Id='.$id);
     $_SESSION['Emsg']="package updated Failed";
 }
 ?>
