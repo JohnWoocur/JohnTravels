@@ -147,7 +147,7 @@
                            <li class="menu-item-has-children">
                               <a href="#">Blog</a>
                               <ul>
-                                 <li><a href="blog-archive.php">Blog List</a></li>
+                                 <li><a href="blog-archive-left.php">Blog List</a></li>
                                 
                               </ul>
                            </li>
