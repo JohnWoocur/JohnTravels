@@ -14,7 +14,7 @@ if(isset($_SESSION['id'])){
 
     $uImage = $row['Image'];
     $uName = $row['First_name'];
-    $uName = $row['Last_name'];
+    $uName1 = $row['Last_name'];
     $uNumber =$row['Mobile_number'];
     $uEmail = $row['Email'];
     $uAddress = $row['Address'];
@@ -158,7 +158,7 @@ if(isset($_SESSION['id'])){
                             </ul>
                             <a href="#" class="all-button">See all messages</a>
                         </div>
-                    </div>
+                    </div> 
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                         <div class="dropdown-item profile-sec">
@@ -178,30 +178,44 @@ if(isset($_SESSION['id'])){
                     </div>
                 </div>
             </div>
+
+        <?php
+        
+        
+        $pack_id = $_GET['Pack_Id'];
+         $sql = "SELECT * FROM Package WHERE Pack_Id = $pack_id";   
+            $result = mysqli_query($conn, $sql);
+            $row1 = mysqli_fetch_assoc($result);
+
+            $uNoOfPeople =$row1['Group_size'];
+           
+
+
+        ?>    
             <div class="db-info-wrap">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box">
                             <h4>Booking Details</h4>
-                            <form class="form-horizontal" method="post">
+                            <form class="form-horizontal" method="post" action="U-package-booking.php">
                                 <div class="row">
                                 <div class="col-sm-6">
                                         <div class="form-group">
 
-                                            <label>Booking Id</label>
-                                            <input name="Booking Id" class="form-control" type="text" readonly >
+                                            <label>Package Id</label>
+                                            <input name="Booking Id" class="form-control" type="text" readonly value="<?php echo $pack_id; ?>" required >
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" value="<?php echo $uName; ?>">
+                                            <input name="firstname" class="form-control" type="text" value="<?php echo $uName; ?>" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" value="<?php echo $uEmail; ?>">
+                                            <input name="lastname" class="form-control" type="text" value="<?php echo $uName1; ?>"required>
                                         </div>
                                     </div>
                                     
@@ -209,20 +223,20 @@ if(isset($_SESSION['id'])){
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input name="email" class="form-control" type="email" value="<?php echo $uEmail; ?>">
+                                            <input name="email" class="form-control" type="email" value="<?php echo $uEmail; ?>"required>
                                         </div>  
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Number of People</label>
-                                            <input name="password" class="form-control" type="text" value="<?php echo $uEmail; ?>">
+                                            <input name="password" class="form-control" type="text" value="<?php echo $uNoOfPeople; ?>"required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input name="phone" class="form-control" type="text" value="<?php echo $uNumber; ?>">
+                                            <input name="phone" class="form-control" type="text" value="<?php echo $uNumber; ?>"required>
                                         </div>
                                     </div>
                                     
@@ -231,31 +245,31 @@ if(isset($_SESSION['id'])){
                                 <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input name="address" class="form-control" type="text" value="<?php echo $uAddress; ?>">
+                                            <input name="address" class="form-control" type="text" value="<?php echo $uAddress; ?>"required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <input name="City" class="form-control" type="text" value="<?php echo $uCity; ?>">
+                                            <input name="City" class="form-control" type="text" value="<?php echo $uCity; ?>"required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>District</label>
-                                            <input name="district" class="form-control" type="text" value="<?php echo $u; ?>">
+                                            <input name="district" class="form-control" type="text" value="<?php echo $uState; ?>"required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input name="Country" class="form-control" type="text" value="<?php echo $uCountry; ?>">
+                                            <input name="Country" class="form-control" type="text" value="<?php echo $uCountry; ?>"required>
                                         </div>
                                     </div>
                                 </div>
                                 <br>
-                                <input type="submit" name="Confirm Booking">
+                                <button class="button-primary" type="submit">Confirm Details</button>
                             </form>
                         </div>
                     </div>  

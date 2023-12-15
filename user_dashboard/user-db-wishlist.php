@@ -216,7 +216,7 @@ if(isset($_SESSION['id'])){
 						  
                           $customerId = $_SESSION['id'];
 
-                          // Display the wishlist for the logged-in customer
+                          
                           $wishlistQuery = "SELECT `user-wish`.`Wish_Id`, `package`.* FROM `user-wish`
                                             JOIN `package` ON `user-wish`.`Pack_Id` = `package`.`Pack_Id`
                                             WHERE `user-wish`.`Customer_Id` = $customerId";
@@ -224,12 +224,12 @@ if(isset($_SESSION['id'])){
                           $wishlistResult = $conn->query($wishlistQuery);
                           
                           if ($wishlistResult === false) {
-                              // Query execution failed
+                             
                               die("Error executing query: " . $conn->error);
                           }
                           
                           if ($wishlistResult->num_rows > 0) {
-                              // Display wishlist items
+                             
                               while ($row = $wishlistResult->fetch_assoc()) {
                                   $wishid = $row['Wish_Id'];
                                   $image = $row['Pack_img'];
@@ -262,7 +262,7 @@ if(isset($_SESSION['id'])){
                                                           <span class="review-text"><a href="#">1 review</a></span>
                                                       </div>
                                                       <div class="button-container">
-                                                          <a href="booking-form.php"><i class="bx bx-book"></i>Book Now</a>
+                                                          <a href="booking-form.php?Pack_Id=' . $package_id . '"><i class="bx bx-book"></i>Book Now</a>
                                                           <a href="U-wishlist-delete.php?id=' . $wishid . '"><i class="far fa-trash-alt"></i> Delete</a>
                                                       </div>
                                                   </div>

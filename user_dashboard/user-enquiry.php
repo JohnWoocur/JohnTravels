@@ -197,15 +197,28 @@ if(isset($_SESSION['id'])){
                            
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Packages Name</label>
-                                            <input type="text" id="Packages_name" name="Packages_name">
+                                    <div class="form-group">
+                                    <label for="Pack_title">Packages Name</label>
+                                            <select id="Pack_title" name="Pack_title" required>
+                                            
+                                             <?php 
+                                                $query = "SELECT Pack_title FROM package";
+                                                $result = mysqli_query($conn, $query);
+                                                while ($row = $result->fetch_assoc()) {
+                                                    echo "<option value='" . $row['Pack_title'] . "'>" . $row['Pack_title'] . "</option>";
+                                                }
+                                                
+                                                ?>
+                                            
+
+
+                                            </select>
                                         </div>
                                     </div>
 									 <div class="col-sm-6">
                                         <div class="form-group">
                                              <label>No of People</label>
-                                             <input type="number" id="No_of_people" name="No_of_people">
+                                             <input type="number" id="No_of_people" name="No_of_people" required>
                                     </div>
                                      </div>
                                     <div class="col-sm-6">
@@ -217,13 +230,13 @@ if(isset($_SESSION['id'])){
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Check-IN Date</label>
-                                            <input type="date" id="Checkin_date" name="Checkin_date">
+                                            <input type="date" id="Checkin_date" name="Checkin_date" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Check-OUT Date</label>
-                                            <input type="date" id="Checkout_date" name="Checkout_date">
+                                            <input type="date" id="Checkout_date" name="Checkout_date" required>
                                         </div>
                                     </div>  
                                     

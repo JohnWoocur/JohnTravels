@@ -193,6 +193,7 @@
                     </ul>
                 </div>
             </div>
+<<<<<<<< HEAD:admin_dashboard/db-enquiry.php
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
                     <h4>Recent Enquiry
@@ -264,6 +265,7 @@
                                 
                                    </tbody>
                         </table>
+========
             <div class="db-info-wrap db-add-tour-wrap">
                 <div class="row">
                     <!-- Listings -->
@@ -322,6 +324,7 @@
                         <div>
                         <button type="submit" class="button-primary">Approve</button>
                         </div>
+>>>>>>>> 7a5f511d4ed9e0d4854c2f6f839dc69bbad3750e:admin_dashboard/view-blog.php
                     </div>
                 </div>
             </div>

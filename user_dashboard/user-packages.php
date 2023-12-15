@@ -258,7 +258,7 @@ $result = mysqli_query($conn,$sql);
                                            <span class="review-text"><a href="#">1 review</a></span>
                                         </div>
                                         <div class="button-container">
-                                            <a href="../booking.php"><i class="bx bx-book"></i>Book Now</a>
+                                            <a href="booking-form.php?Pack_Id='.$package_id.'"><i class="bx bx-book"></i>Book Now</a>
                                             <a href="U-add-wishlist.php?Pack_Id='.$package_id.'"><i class="far fa-heart"></i>Add to Wishlist</a>
                                         </div>
                                     </div>
