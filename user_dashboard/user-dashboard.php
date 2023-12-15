@@ -311,8 +311,8 @@ if(isset($_SESSION['id'])){
                                         <tr>
                                             <th>Package Name</th>
                                             <th>Date</th>
-                                            <th>Destination</th>
-                                            <th>package ID</th>
+                                            <th>Booking ID</th>
+                                            <th>Package ID</th>
                                             <th>status</th>
                                         </tr>
                                     </thead>
@@ -332,7 +332,7 @@ if(isset($_SESSION['id'])){
                                         echo "<tr>";
                                         echo "<td><span class='list-name'>" . $row['Pack_title'] . "</span><span class='list-enq-city'></span></td>";
                                         echo "<td>" . $row['Date'] . "</td>";
-                                        echo "<td>" . $row['Destination'] . "</td>";
+                                        echo "<td>" . $row['Booking_Id'] . "</td>";
                                         echo "<td>" . $row['Pack_Id'] . "</td>";
                                         echo "<td><span class='badge badge-primary'>" . $row['Status'] . "</span></td>";
                                         echo "</tr>";

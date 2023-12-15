@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 07:23 PM
+-- Generation Time: Dec 15, 2023 at 08:27 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -284,7 +284,6 @@ CREATE TABLE `package_booking` (
   `Customer_Id` int(11) NOT NULL,
   `Pack_Id` int(11) NOT NULL,
   `Date` date NOT NULL DEFAULT current_timestamp(),
-  `Destination` varchar(255) NOT NULL,
   `Status` varchar(25) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -292,20 +291,21 @@ CREATE TABLE `package_booking` (
 -- Dumping data for table `package_booking`
 --
 
-INSERT INTO `package_booking` (`Booking_Id`, `Customer_Id`, `Pack_Id`, `Date`, `Destination`, `Status`) VALUES
-(1, 10, 28, '2023-12-14', 'vavuniya', 'Pending');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pack_tags`
---
-
-CREATE TABLE `pack_tags` (
-  `Pack_tag_id` int(11) NOT NULL,
-  `Pack_Id` int(11) NOT NULL,
-  `Tag_Id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `package_booking` (`Booking_Id`, `Customer_Id`, `Pack_Id`, `Date`, `Status`) VALUES
+(1, 10, 28, '2023-12-14', 'Pending'),
+(9, 10, 29, '2023-12-15', 'Pending'),
+(10, 10, 29, '2023-12-15', 'Pending'),
+(11, 10, 29, '2023-12-15', 'Pending'),
+(12, 10, 29, '2023-12-15', 'Pending'),
+(13, 10, 29, '2023-12-15', 'Pending'),
+(14, 10, 29, '2023-12-15', 'Pending'),
+(15, 10, 29, '2023-12-15', 'Pending'),
+(16, 10, 29, '2023-12-15', 'Pending'),
+(17, 10, 28, '2023-12-15', 'Pending'),
+(18, 10, 28, '2023-12-15', 'Pending'),
+(19, 10, 28, '2023-12-15', 'Pending'),
+(20, 10, 28, '2023-12-15', 'Pending'),
+(21, 10, 28, '2023-12-15', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -339,7 +339,8 @@ CREATE TABLE `user-wish` (
 INSERT INTO `user-wish` (`Wish_Id`, `Customer_Id`, `Pack_Id`) VALUES
 (35, 8, 27),
 (37, 10, 28),
-(41, 10, 28);
+(41, 10, 28),
+(42, 10, 28);
 
 --
 -- Indexes for dumped tables
@@ -420,14 +421,6 @@ ALTER TABLE `package_booking`
   ADD KEY `fk to packagetbl` (`Pack_Id`);
 
 --
--- Indexes for table `pack_tags`
---
-ALTER TABLE `pack_tags`
-  ADD PRIMARY KEY (`Pack_tag_id`),
-  ADD KEY `fktopackagetbl` (`Pack_Id`),
-  ADD KEY `fktotagtbl` (`Tag_Id`);
-
---
 -- Indexes for table `testimonial`
 --
 ALTER TABLE `testimonial`
@@ -504,13 +497,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `package_booking`
 --
 ALTER TABLE `package_booking`
-  MODIFY `Booking_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `pack_tags`
---
-ALTER TABLE `pack_tags`
-  MODIFY `Pack_tag_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Booking_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -522,7 +509,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT for table `user-wish`
 --
 ALTER TABLE `user-wish`
-  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
@@ -560,24 +547,10 @@ ALTER TABLE `package_booking`
   ADD CONSTRAINT `package_booking_ibfk_2` FOREIGN KEY (`Pack_Id`) REFERENCES `package` (`Pack_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `pack_tags`
---
-ALTER TABLE `pack_tags`
-  ADD CONSTRAINT `pack_tags_ibfk_1` FOREIGN KEY (`Pack_Id`) REFERENCES `package` (`Pack_Id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `pack_tags_ibfk_2` FOREIGN KEY (`Tag_Id`) REFERENCES `tags` (`Tag_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
 -- Constraints for table `testimonial`
 --
 ALTER TABLE `testimonial`
   ADD CONSTRAINT `testimonial` FOREIGN KEY (`Customer_Id`) REFERENCES `customer_more_details` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `user-wish`
---
-ALTER TABLE `user-wish`
-  ADD CONSTRAINT `user-wish_ibfk_1` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user-wish_ibfk_2` FOREIGN KEY (`Pack_Id`) REFERENCES `package` (`Pack_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
