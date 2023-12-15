@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label for="first_name1">Email</label>
-                    <input type="text" class="validate" name="mail" Required>
+                    <input type="email" class="validate" name="mail" Required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>

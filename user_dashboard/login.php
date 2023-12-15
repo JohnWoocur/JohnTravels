@@ -44,7 +44,7 @@ if(isset($_SESSION['id'])){
                 ?>
                 <div class="form-group">
                     <label for="first_name1">E-Mail</label>
-                    <input type="text" class="validate" name="mail" required>
+                    <input type="email" class="validate" name="mail" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Password</label>

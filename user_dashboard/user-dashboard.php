@@ -16,9 +16,19 @@ if(isset($_SESSION['id'])){
             WHERE Customers.Customer_id = '$Customer_Id'"; 
 
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+	if(mysqli_num_rows($result)>0)
+	{
+	$row = mysqli_fetch_assoc($result);
 
     $uImage = $row['Image'];
+	$uName = $row['Username'];
+	}
+	else
+	{
+	$uImage = "sample.png";
+	$uName = "User";
+	}
+    
 }
 ?>
 <!doctype html>
@@ -157,7 +167,7 @@ if(isset($_SESSION['id'])){
                         <a class="dropdown-toggle" data-toggle="dropdown">
                         <div class="dropdown-item profile-sec">
                             <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
-                            <span><?php echo $row['Username'];?></span>
+                            <span><?php echo $uName;?></span>
                             <i class="fas fa-caret-down"></i>
                         </div>
                         </a>
