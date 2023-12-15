@@ -10,11 +10,10 @@ $result = "UPDATE package  SET Status ='Active' WHERE Pack_Id ={$_GET['Pack_Id']
 
 if ($conn->query ($result)=== TRUE) 
     {
-        echo "updated  successfully";
-        //header("Location:A-package-view.php");
+        header("Location:A-package-view.php");
     }
 else{
-    echo "Error";
+    header("Location:A-package-view.php");
     }  
 $conn->close();
 

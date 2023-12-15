@@ -9,10 +9,18 @@ exit();
 require 'A-dashboard.php';
 $name=displayAdmin();
 ?>
+<?php
+
+include "db-connection.php";
+
+$sql ="SELECT * FROM package WHERE wish = 'Active'";
+$result = mysqli_query($conn,$sql); 
+   
+?>
+
 <!doctype html>
 <html lang="en">
    <head>
-    
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +28,6 @@ $name=displayAdmin();
       <link rel="icon" type="image/png" href="../assets/images/favicon.png">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="all">
-      
       <!-- Fonts Awesome CSS -->
       <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
       <!-- google fonts -->
@@ -29,7 +36,6 @@ $name=displayAdmin();
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
-<body>
 
     <!-- start Container Wrapper -->
     <div id="container-wrapper">
@@ -180,14 +186,14 @@ $name=displayAdmin();
                                 </li>
                             </ul>
                         </li>
-                        <li class="active-menu"><a href="user.php"><i class="fas fa-user"></i>Users</a>
+                        <li><a href="user.php"><i class="fas fa-user"></i>Users</a>
                             
                         </li>
                         <li><a href="db-add-package.php"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
-                            <li><a href="A-package-view.php"> Package List</a></li>
+                               <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -196,88 +202,86 @@ $name=displayAdmin();
                         <li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
                         <li><a href="db-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry</a></li>
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
-                        <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
+                        <li class="active-menu"><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
 						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="dashboard-box">
-                            <h4>Add New ADMIN</h4>
-                            
-                            <form class="form-horizontal" method="POST" action="A-add-sub-admin.php" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" required>
+            <div class="db-info-wrap db-wislist-wrap">
+                <div class="dashboard-box ">
+                    <div class="row">
+
+                    <?php 
+                    //$id=$_GET['Pack_Id'];
+                    require 'db-connection.php';
+                    $query="SELECT * FROM `package` WHERE Wish='True'";
+                    $result=mysqli_query($conn,$query);
+						  if ($result->num_rows > 0) {
+								// output data of each row
+								while($row = $result->fetch_assoc()) {
+									$package_id=$row["Pack_Id"];
+									$image=$row["Pack_img"];
+									$pack_price=$row["Reqular_price"];
+									$Pack_title=$row["Pack_title"];
+									
+									
+						echo '
+
+                        <div class="grid-item col-md-6 col-lg-4">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                    <img src="admin_dashboard/package/'.$image.'" width ="202px" height ="118px" >
+
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                    <span >$'.$pack_price.'  </span>/ per person
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-content">
+                                        <h4>
+                                        <a href="#">'.$Pack_title.'</a>
+                                        </h4>
+                                        <div class="content-details">
+                                           <div class="rating-start" title="Rated 5 out of 5">
+                                              <span></span>
+                                           </div>
+                                           <span class="review-text"><a href="#">1 review</a></span>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Mobile</label>
-                                            <input name="phone" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Date</label>
-                                            <input name="date" class="form-control" type="date" required>
-                                        </div>
-                                    </div> -->
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <input name="city" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Country</label>
-                                            <input name="country" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>password</label>
-                                            <input name="password" class="form-control" type="text" required>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input name="email" class="form-control" type="email" required>
-                                        </div>  
-                                    </div>
-                                    <div class="col-12">
-                                        <h4>Upload Profile Photo</h4>
-                                    </div>
-                                    <div class="col-sm-6"> 
-                                        <div class="upload-input">
-                                            <div class="form-group">
-                                              <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="myFile" id="Image"  accept="image/*" required >
-                                            </div>
+                                        <div class="button-container">
+                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
+                                            <a href="A-rm-wish.php?Pack_Id='.$package_id.'"><i class="far fa-trash-alt" ></i> Remove</a>
                                         </div>
                                     </div>
                                 </div>
-                                <br>
-                                <input type="submit" name="Submit">
-                            </form>
+                            </div>
                         </div>
-                    </div>  
-                </div>
+                        ';
+
+									}
+							} else {
+								echo "<p>Nothing to show</p>";
+							}
+						   ?>
+
+
+              
+                <!-- pagination html -->
+                <!-- <div class="pagination-wrap">
+                    <nav class="pagination-inner">
+                        <ul class="pagination disabled">
+                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
+                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div> -->
             </div>
             <!-- Content / End -->
             <!-- Copyrights -->

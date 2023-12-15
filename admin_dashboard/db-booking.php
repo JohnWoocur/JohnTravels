@@ -1,5 +1,14 @@
+
 <?php
 session_start();
+if(!isset($_SESSION["aid"])){
+header("Location:login.php");
+exit();
+}
+?>
+<?php
+require 'A-dashboard.php';
+$name=displayAdmin();
 ?>
 <!doctype html>
 <html lang="en">
@@ -136,7 +145,7 @@ session_start();
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -177,6 +186,7 @@ session_start();
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                            <li><a href="A-package-view.php"> Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>

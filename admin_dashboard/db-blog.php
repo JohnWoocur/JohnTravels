@@ -1,6 +1,16 @@
 
 
-
+<?php
+session_start();
+if(!isset($_SESSION["aid"])){
+header("Location:login.php");
+exit();
+}
+?>
+<?php
+require 'A-dashboard.php';
+$name=displayAdmin();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -136,7 +146,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
                                 <img src="assets/images/comment.jpg" alt="">
-                                <span>My Account </span>
+                                <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -177,6 +187,7 @@
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
+                            <li><a href="A-package-view.php"> Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -248,8 +259,10 @@
                                     <!--  <td><span class="badge badge-success">9</span></td> -->
                                     <td>
 
-                                        <a href="A-view-blog.php?Customer_Id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
-                                        <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                                        <!-- <a href="A-view-blog.php?Customer_Id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a>
+                                        <a href="A-blog-delete.php?id=<?php echo $row['Customer_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a> -->
+                                        <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                        <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                     </td>
                                 </tr>
                                 <?php }?>

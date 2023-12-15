@@ -181,162 +181,45 @@
                   <div class="container">
                      <div class="special-inner">
                         <div class="row">
-                           <div class="col-md-6 col-lg-4">
+                           
+                           
+                        <?php
+                        require 'db-connection.php';
+
+                        $query="SELECT * FROM package WHERE Discount>0";
+                        $result=mysqli_query($conn,$query);
+                        while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                        ?>
+                        <div class="col-md-6 col-lg-4">
                               <div class="special-item">
                                  <figure class="special-img">
-                                    <img src="assets/images/img9.jpg" alt="">
+                                    <img src="../JohnTravels/admin_dashboard/package/<?php echo $row['Pack_img']; ?>" alt="package_image">
                                  </figure>
                                  <div class="badge-dis">
                                     <span>
-                                       <strong>20%</strong>
+                                       <strong><?php echo $row['Discount']; ?>%</strong>
                                        off
                                     </span>
                                  </div>
                                  <div class="special-content">
                                     <div class="meta-cat">
-                                       <a href="#">CANADA</a>
+                                       <a href="#"><?php echo $row['Pack_title']; ?></a>
                                     </div>
                                     <h3>
-                                       <a href="#">Experience the natural beauty of glacier</a>
+                                       <a href="#"><?php echo $row['Description']; ?>Experience the natural beauty of glacier</a>
                                     </h3>
                                     <div class="package-price">
                                        Price:
-                                       <del>$1500</del>
-                                       <ins>$1200</ins>
+                                       <del><?php echo $row['Reqular_price']; ?></del>
+                                       <ins><?php echo $row['Sale_price']; ?></ins>
                                     </div>
                                  </div>
                               </div>
                            </div>
-                           <div class="col-md-6 col-lg-4">
-                              <div class="special-item">
-                                 <figure class="special-img">
-                                    <img src="assets/images/img10.jpg" alt="">
-                                 </figure>
-                                 <div class="badge-dis">
-                                    <span>
-                                       <strong>15%</strong>
-                                       off
-                                    </span>
-                                 </div>
-                                 <div class="special-content">
-                                    <div class="meta-cat">
-                                       <a href="#">NEW ZEALAND</a>
-                                    </div>
-                                    <h3>
-                                       <a href="#">Trekking to the mountain camp site</a>
-                                    </h3>
-                                    <div class="package-price">
-                                       Price:
-                                       <del>$1300</del>
-                                       <ins>$1105</ins>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-6 col-lg-4">
-                              <div class="special-item">
-                                 <figure class="special-img">
-                                    <img src="assets/images/img11.jpg" alt="">
-                                 </figure>
-                                 <div class="badge-dis">
-                                    <span>
-                                       <strong>15%</strong>
-                                       off
-                                    </span>
-                                 </div>
-                                 <div class="special-content">
-                                    <div class="meta-cat">
-                                       <a href="#">MALAYSIA</a>
-                                    </div>
-                                    <h3>
-                                       <a href="#">Sunset view of beautiful lakeside city</a>
-                                    </h3>
-                                    <div class="package-price">
-                                       Price:
-                                       <del>$1800</del>
-                                       <ins>$1476</ins>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-6 col-lg-4">
-                              <div class="special-item">
-                                 <figure class="special-img">
-                                    <img src="assets/images/img11.jpg" alt="">
-                                 </figure>
-                                 <div class="badge-dis">
-                                    <span>
-                                       <strong>15%</strong>
-                                       off
-                                    </span>
-                                 </div>
-                                 <div class="special-content">
-                                    <div class="meta-cat">
-                                       <a href="#">SWITZERLAND</a>
-                                    </div>
-                                    <h3>
-                                       <a href="#">Hiking to the far west mount region</a>
-                                    </h3>
-                                    <div class="package-price">
-                                       Price:
-                                       <del>$1200</del>
-                                       <ins>$1068</ins>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-6 col-lg-4">
-                              <div class="special-item">
-                                 <figure class="special-img">
-                                    <img src="assets/images/img11.jpg" alt="">
-                                 </figure>
-                                 <div class="badge-dis">
-                                    <span>
-                                       <strong>15%</strong>
-                                       off
-                                    </span>
-                                 </div>
-                                 <div class="special-content">
-                                    <div class="meta-cat">
-                                       <a href="#">SOUTH WALES</a>
-                                    </div>
-                                    <h3>
-                                       <a href="#">Couple vacation to South Wales</a>
-                                    </h3>
-                                    <div class="package-price">
-                                       Price:
-                                       <del>$1099</del>
-                                       <ins>$956</ins>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-6 col-lg-4">
-                              <div class="special-item">
-                                 <figure class="special-img">
-                                    <img src="assets/images/img11.jpg" alt="">
-                                 </figure>
-                                 <div class="badge-dis">
-                                    <span>
-                                       <strong>15%</strong>
-                                       off
-                                    </span>
-                                 </div>
-                                 <div class="special-content">
-                                    <div class="meta-cat">
-                                       <a href="#">DUBAI (UAE)</a>
-                                    </div>
-                                    <h3>
-                                       <a href="#">Aerial view from the Burj Khalifa</a>
-                                    </h3>
-                                    <div class="package-price">
-                                       Price:
-                                       <del>$1300</del>
-                                       <ins>$1079</ins>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                           <?php
+                           } 
+                           ?>
+                           
                         </div>
                      </div>
                   </div>
