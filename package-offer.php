@@ -186,7 +186,7 @@
                         <?php
                         require 'db-connection.php';
 
-                        $query="SELECT * FROM package WHERE Discount>0";
+                        $query="SELECT * FROM package WHERE Status='Active' AND Discount>0";
                         $result=mysqli_query($conn,$query);
                         while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)){
                         ?>
@@ -206,7 +206,7 @@
                                        <a href="#"><?php echo $row['Pack_title']; ?></a>
                                     </div>
                                     <h3>
-                                       <a href="#"><?php echo $row['Description']; ?>Experience the natural beauty of glacier</a>
+                                       <a href="#"><?php echo $row['Description']; ?></a>
                                     </h3>
                                     <div class="package-price">
                                        Price:
