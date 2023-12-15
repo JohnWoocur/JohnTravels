@@ -205,6 +205,23 @@ $name=displayAdmin();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box table-opp-color-box">
+                        <?php
+                            if(isset($_SESSION["S_message"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["S_message"]; ?></div>
+                            <?php
+                            unset($_SESSION["S_message"]);
+                            endif;
+                            ?>
+
+<?php
+                            if(isset($_SESSION["E_message"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["E_message"]; ?></div>
+                            <?php
+                            unset($_SESSION["E_message"]);
+                            endif;
+                            ?>
                             <h4>Admins Details</h4>
                             
                             <div class="table-responsive">
@@ -215,8 +232,8 @@ $name=displayAdmin();
                                             <th>Name</th>
                                             <th>Phone</th>
                                             <th>Email</th>
+                                            <th>Status</th>
                                             <th>Country</th>
-                                            <!-- <th>Listings</th> -->
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -226,7 +243,7 @@ $name=displayAdmin();
                                     <?php
 
                                     include 'db-connection.php';
-                                    $query = "SELECT * FROM admins WHERE `Status`='Active' ";
+                                    $query = "SELECT * FROM admins ";
                                     $result = $conn->query($query);
                                     ?>
 
@@ -249,12 +266,14 @@ $name=displayAdmin();
                                            echo '<td><a href="#"><span class="list-name">' . $row['First_name'] . " " . $row["Last_name"]. '</span></a></td>';
                                            echo '<td>' . $row['Mobile_number'] . '</td>';
                                            echo '<td>' . $row['Email'] . '</td>';
+                                           echo '<td>' . $row['Status'] . '</td>';
                                            echo '<td>' . $row['Country'] . '</td>';
                                     ?>                                          
                                            
                                            <td><a href="admin-view.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-eye"></i></span></a></td>
 										   <td><a href="admin-edit.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-edit"></i></span></a></td>
-                                           <td><a href="A-admin-delete.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a></td>                                   
+                                           <td><a href="A-admin-delete.php?Admin_Id=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                                           <a href="A-admin-delete.php?Admin_Id2=<?php echo $row['Admin_Id']; ?>"><span class="badge badge-success"><i class="far fa-trash-alt"></i></span></a></td>                                   
                                      </tr>
                                     <?php  
 

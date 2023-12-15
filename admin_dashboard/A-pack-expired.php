@@ -5,19 +5,14 @@ include "db-connection.php";
 
 $Pack_Id = $_GET['Pack_Id'];
 
-
-$result = "UPDATE package  SET Status ='Expired' WHERE Pack_Id ={$_GET['Pack_Id']} " ;
-
-if ($conn->query ($result)=== TRUE) 
+$query="UPDATE `package` SET `Status`='Expired' WHERE Pack_Id='$Pack_Id'";
+$result=mysqli_query($conn,$query);
+if ($result) 
     {
-        echo "updated  successfully";
-        //header("Location:A-package-view.php");
+        header("Location:db-package-expired.php");
     }
 else{
-    echo "Error";
+    header("Location:db-package-expired.php");
     }  
-$conn->close();
-
-
-
+    
 ?>

@@ -217,7 +217,7 @@ $name=displayAdmin();
                             <tr>
                                     <th>User</th>
                                     <th>Date</th>
-                                    <th>Destination</th>
+                                    <!-- <th>Location</th> -->
                                     <th>Package Id</th>
                                     <th>Booking Id</th>
                                     <th>status</th>
@@ -244,7 +244,7 @@ $name=displayAdmin();
                                         </span>
                                     </td>
                                     <td><?php echo $row['Date'] ?></td>
-                                    <td><?php echo $row['Destination'] ?></td>
+                                    <!-- <td><?php echo $row['Location'] ?></td> -->
                                     <td><?php echo $row['Pack_Id'] ?></td>
                                     <td><?php echo $row['Booking_Id'] ?></td>
                                     <td><span class="badge badge-danger"><?php echo $row['Status'] ?></span></td>

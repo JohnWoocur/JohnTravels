@@ -208,6 +208,23 @@ $name=displayAdmin();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box table-opp-color-box">
+                            <?php
+                            if(isset($_SESSION["S_message"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["S_message"]; ?></div>
+                            <?php
+                            unset($_SESSION["S_message"]);
+                            endif;
+                            ?>
+
+<?php
+                            if(isset($_SESSION["E_message"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["E_message"]; ?></div>
+                            <?php
+                            unset($_SESSION["E_message"]);
+                            endif;
+                            ?>
                             <h4>User Details</h4>
                             <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
                             <div class="table-responsive">
@@ -218,9 +235,8 @@ $name=displayAdmin();
                                             <th>Id</th>
                                             <th>Username</th>
                                             <th>Email</th>
-                                            <!-- <th>Password</th> -->
                                             <th>Create_at</th>
-                                             <th>Status</th>
+                                            <th>Status</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -250,6 +266,7 @@ $name=displayAdmin();
                                             </td>
                                             <td>
                                             <a href="user-delete.php?id=<?php echo $row['Customer_Id'];?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                                            <a href="user-delete.php?Did=<?php echo $row['Customer_Id'];?>"><span class="badge badge-success"><i class="far fa-trash-alt"></i></span></a>
                                             </td>
                                         </tr>
 
