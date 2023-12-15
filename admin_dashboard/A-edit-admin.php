@@ -11,7 +11,14 @@
     $email=$_POST['email'];
     $password=$_POST['password'];
 
-    $query="UPDATE `admins` SET `First_name`='$Firstname',`Last_name`='$Lastname',`Mobile_number`='$phone',`City`='$city',`Country`='$country',`Email`='$email',`Password`='$password' WHERE Admin_Id='$ID'";
+    $imgName = $_FILES["myfile"]["name"];
+
+    $imgFile = $_FILES["myfile"]["tmp_name"];  
+
+    $path = "admins/".$imgName;
+    move_uploaded_file($imgFile,$path);
+
+    $query="UPDATE `admins` SET `First_name`='$Firstname',`Last_name`='$Lastname',`Mobile_number`='$phone',`City`='$city',`Country`='$country',`Email`='$email',`Image`='$imgName',`Password`='$password' WHERE Admin_Id='$ID'";
     $result=mysqli_query($conn,$query);
     if($result){
         echo "done";

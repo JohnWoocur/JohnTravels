@@ -1,11 +1,7 @@
 <?php
-
-include "db-connection.php";
-
-$sql ="SELECT * FROM package WHERE wish = 'Active'";
-$result = mysqli_query($conn,$sql); 
-   
+  include "db-connection.php";
 ?>
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -24,6 +20,7 @@ $result = mysqli_query($conn,$sql);
       <link rel="stylesheet" type="text/css" href="style.css">
       <title>John Travels LK</title>
 </head>
+<body>
 
     <!-- start Container Wrapper -->
     <div id="container-wrapper">
@@ -181,7 +178,6 @@ $result = mysqli_query($conn,$sql);
                         <li>
                             <a><i class="fas fa-hotel"></i></i>packages</a>
                             <ul>
-                               <li><a href="A-package-view.php">Package List</a></li>
                                 <li><a href="db-package-active.php">Active</a></li>
                                 <li><a href="db-package-pending.php">Pending</a></li>
                                 <li><a href="db-package-expired.php">Expired</a></li>
@@ -190,84 +186,146 @@ $result = mysqli_query($conn,$sql);
                         <li><a href="db-booking.php"><i class="fas fa-ticket-alt"></i> Booking</a></li>
                         <li><a href="db-enquiry.php"><i class="fas fa-ticket-alt"></i> Enquiry</a></li>
                         <li><a href="db-blog.php"><i class="far fa-user"></i>Blog</a></li>
-                        <li class="active-menu"><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
+                        <li><a href="db-wishlist.php"><i class="far fa-heart"></i>Wishlist</a></li>
                         <li><a href="db-comment.php"><i class="fas fa-comments"></i>Comments</a></li>
 						<li><a href="db-messages.php"><i class="fas fa-envelope"></i>Messages</a></li>
                         <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="db-info-wrap db-wislist-wrap">
-                <div class="dashboard-box ">
-                    <div class="row">
+            <div class="db-info-wrap db-booking">
+                <div class="dashboard-box table-opp-color-box">
+                    <h4>Recent Enquiry
 
-                    <?php 
-						  if ($result->num_rows > 0) {
-								// output data of each row
-								while($row = $result->fetch_assoc()) {
-									$package_id=$row["Pack_Id"];
-									$image=$row["Pack_img"];
-									$pack_price=$row["Reqular_price"];
-									$Pack_title=$row["Pack_title"];
-									
-									
-						echo '
+                    </h4>
+                    
+                    
+                    
+                    <div class="table-responsive">
+                        <table class="table" method="POST" action="">
+                            <thead>
+                                <tr>
+                                    <th>User_name</th>
+                                    <th>Check_in</th>
+                                    <th>Check_out</th>
+                                    <th>packages name</th>
+                                    <th>Id</th>
+                                    <th>status</th>   
+                                    <th>People</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
 
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="#">
-                                    <img src="admin_dashboard/package/'.$image.'" width ="202px" height ="118px" >
-
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                    <span >$'.$pack_price.'  </span>/ per person
-                                    </h6>
+                            <tbody>
+                                <?php
+                                $sql = "SELECT enquiry.*, customer_more_details.First_name, customer_more_details.Last_name
+                                FROM enquiry 
+                                JOIN customer_more_details ON enquiry.Customer_Id = customer_more_details.Customer_Id" ;
+                                $result= mysqli_query($conn,$sql);
+                                if($result){
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        $Enquiry_Id=$row['Enquiry_Id'];
+                                        $user_name=$row["First_name"] . " " . $row["Last_name"];
+                                        $Packages_name=$row['Packages_name'];
+                                        $No_of_people=$row['No_of_people'];
+                                        $Checkin_date=$row['Checkin_date'];
+                                        $Checkout_date=$row['Checkout_date'];
+                                        $Status=$row['Status'];
+                                
+                                                                                     
+                                        echo 
+                                        '<tr>
+                                                   
+                                                
+                                                <td>'.$user_name.'</td>
+                                                <td>'.$Checkin_date.'</td>
+                                                <td>'.$Checkout_date.'</td>
+                                                <td>'.$Packages_name.'</td>
+                                                <td>'.$Enquiry_Id.'</td>
+                                                <td><span class="badge badge-success">'.$Status.'</span></td>
+                                                
+                                                <td><span class="badge badge-success">'.$No_of_people.'</span></td>
+                                                <td>
+                                                '
+                                                ?>
+                                                   
+                                                <!-- <span class="badge badge-success"><i class="far fa-eye"></i></span>
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "> <span class="badge badge-success"><i class="fa fa-check"></i></span>
+                                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span> -->
+                                                <a href ="A-status-enquiry.php?Enquiry_Id=<?php echo $row['Enquiry_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span>
+                                                </td>
+                                            <?php
+                                            
+                                                }
+                                            }
+                                            
+                                            ?>
+                                            </tr>
+                                
+                                   </tbody>
+                        </table>
+            <div class="db-info-wrap db-add-tour-wrap">
+                <div class="row">
+                    <!-- Listings -->
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <div class="form-group">
+                                    <label>Blog Title</label>
+                                    <input type="text" name="name">
                                 </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-content">
-                                        <h4>
-                                        <a href="#">'.$Pack_title.'</a>
-                                        </h4>
-                                        <div class="content-details">
-                                           <div class="rating-start" title="Rated 5 out of 5">
-                                              <span></span>
-                                           </div>
-                                           <span class="review-text"><a href="#">1 review</a></span>
-                                        </div>
-                                        <div class="button-container">
-                                            <a href="#"><i class="far fa-edit"></i>Edit</a>
-                                            <a href=""><i class="far fa-trash-alt" ></i> Remove</a>
+                                <div class="form-group">
+                                    <label>Special Description</label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>1st Paragraph </label>
+                                    <textarea></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>2nd Paragraph</label>
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hashtags">Add Hashtags</label>
+                                <input type="text" name="hashtags" id="hashtags" >
+                            </div>
+                            <div class="custom-field-wrap">
+                                <label>Images</label>
+                                <div class="dragable-field">
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Drop Small Resolution Image To Upload</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="dragable-field-inner">
+                                        <p class="drag-drop-info">Drop Larger Resolution Image To Upload</p>
+                                        <!-- <p>or</p> -->
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                              <!-- <span class="upload-btn">Upload a image</span> -->
+                                              <input type="file" name="myfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                                 </div>
                             </div>
                         </div>
-                        ';
-
-									}
-							} else {
-								echo "<p>Nothing to show</p>";
-							}
-						   ?>
-
-
-              
-                <!-- pagination html -->
-                <div class="pagination-wrap">
-                    <nav class="pagination-inner">
-                        <ul class="pagination disabled">
-                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-                        </ul>
-                    </nav>
+                        <!-- Add space here -->
+                        <div>
+                        <button type="submit" class="button-primary">Approve</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Content / End -->
+             Content / End 
             <!-- Copyrights -->
             <div class="copyrights">
                Copyright © 2023 John Travels LK. All rights reserveds.
@@ -275,8 +333,10 @@ $result = mysqli_query($conn,$sql);
         </div>
         <!-- Dashboard / End -->
     </div>
+
+                                    
+                                
     <!-- end Container Wrapper -->
-    <!-- *Scripts* -->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

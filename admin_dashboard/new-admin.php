@@ -255,7 +255,7 @@
                                         <div class="upload-input">
                                             <div class="form-group">
                                               <span class="upload-btn">Upload a image</span>
-                                              <input type="file" name="Image" id="Image"  accept="image/*" required >
+                                              <input type="file" name="myFile" id="Image"  accept="image/*" required >
                                             </div>
                                         </div>
                                     </div>
