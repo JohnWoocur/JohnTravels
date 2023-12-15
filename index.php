@@ -166,7 +166,7 @@
             <section class="home-slider-section">
                <div class="home-slider">
                   <div class="home-banner-items">
-                     <div class="banner-inner-wrap" style="background-image: url(assets/images/slider-banner-1.jpg);"></div>
+                     <div class="banner-inner-wrap" style="background-image: url(assets/images/slider-banner-1.png);"></div>
                         <div class="banner-content-wrap">
                            <div class="container">
                               <div class="banner-content text-center">
@@ -179,7 +179,7 @@
                      <div class="overlay"></div>
                   </div>
                   <div class="home-banner-items">
-                     <div class="banner-inner-wrap" style="background-image: url(assets/images/slider-banner-2.jpg);"></div>
+                     <div class="banner-inner-wrap" style="background-image: url(assets/images/slider-banner-2.png);"></div>
                         <div class="banner-content-wrap">
                            <div class="container">
                               <div class="banner-content text-center">
@@ -416,9 +416,9 @@
                <div class="container">
                   <div class="row no-gutters align-items-center">
                      <div class="col-lg-5">
-                        <div class="callback-img" style="background-image: url(assets/images/img8.jpg);">
+                        <div class="callback-img" style="background-image: url(assets/images/JohnTravelsLK.png);">
                            <div class="video-button">
-                              <a id="video-container" data-video-id="IUN664s7N-c">
+                              <a id="video-container" data-video-id="X4K8XWAFpWA">
                                  <i class="fas fa-play"></i>
                               </a>
                            </div>
@@ -678,26 +678,26 @@
 						   <p>The life is getting more intresting.</p>
                         </div>
                         <figure class="gallery-img">
-                           <img src="assets/images/img12.jpg" alt="">
+                           <img src="assets/images/bannaer_1.jpg" alt="">
                         </figure>
                      </div>
                      <div class="col-lg-7">
                         <div class="row">
                            <div class="col-sm-6">
                               <figure class="gallery-img">
-                                 <img src="assets/images/img13.jpg" alt="">
+                                 <img src="assets/images/bannaer_2.jpg" alt="">
                               </figure>
                            </div>
                            <div class="col-sm-6">
                               <figure class="gallery-img">
-                                 <img src="assets/images/img14.jpg" alt="">
+                                 <img src="assets/images/bannaer_3.jpg" alt="">
                               </figure>
                            </div>
                         </div>
                         <div class="row">
                            <div class="col-12">
                               <figure class="gallery-img">
-                                 <img src="assets/images/img15.jpg" alt="">
+                                 <img src="assets/images/bannaer_4.jpg" alt="">
                               </figure>
                            </div>
                         </div>
@@ -781,7 +781,7 @@
                         <article class="post">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img17.jpg" alt="">
+                                 <img src="assets/images/bannaer_9.jpg" alt="">
                               </a>
                            </figure>
                            <div class="entry-content">
@@ -806,7 +806,7 @@
                         <article class="post">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img18.jpg" alt="">
+                                 <img src="assets/images/bannaer_10.jpg" alt="">
                               </a>
                            </figure>
                            <div class="entry-content">
@@ -831,7 +831,7 @@
                         <article class="post">
                            <figure class="feature-image">
                               <a href="#">
-                                 <img src="assets/images/img19.jpg" alt="">
+                                 <img src="assets/images/bannaer_13.jpg" alt="">
                               </a>
                            </figure>
                            <div class="entry-content">
@@ -924,12 +924,7 @@
                                        <li>
                                           <a href="#">info.johntravels@gmail.com</a>
                                        </li>
-                                       <li>
-                                          <a href="#">info.johntravels@gmail.com</a>
-                                       </li>
-                                       <li>
-                                          <a href="#">info.johntravels@gmail.com</a>
-                                       </li>
+                                       
                                     </ul>
                                  </div>
                               </div>
@@ -942,12 +937,7 @@
                                        <li>
                                           <a href="#">+94 76 245 0858</a>
                                        </li>
-                                       <li>
-                                          <a href="#">+94 76 245 0858</a>
-                                       </li>
-                                       <li>
-                                          <a href="#">+94 76 245 0858</a>
-                                       </li>
+                                       
                                     </ul>
                                  </div>
                               </div>
