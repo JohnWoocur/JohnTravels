@@ -197,13 +197,13 @@ if(isset($_SESSION['id'])){
                     <div class="col-lg-12">
                         <div class="dashboard-box">
                             <h4>Booking Details</h4>
-                            <form class="form-horizontal" method="post" action="U-package-booking.php">
+                            <form class="form-horizontal"  action="U-package-booking.php" method="POST">
                                 <div class="row">
                                 <div class="col-sm-6">
                                         <div class="form-group">
 
                                             <label>Package Id</label>
-                                            <input name="Booking Id" class="form-control" type="text" readonly value="<?php echo $pack_id; ?>" required >
+                                            <input name="pack_id" class="form-control" type="text" readonly value="<?php echo $pack_id; ?>" required >
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -269,7 +269,7 @@ if(isset($_SESSION['id'])){
                                     </div>
                                 </div>
                                 <br>
-                                <button class="button-primary" type="submit">Confirm Details</button>
+                                <button class="button-primary" type="submit"  >Confirm Details</button>
                             </form>
                         </div>
                     </div>  
