@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "db-connection.php";
+include 'db-connection.php';
 
 $customer_id=$_SESSION['id'];
 $pack_id=$_POST['pack_id'];
@@ -9,12 +9,12 @@ $sql="INSERT INTO `package_booking`(`Customer_Id`, `Pack_Id`) VALUE ('$customer_
 
 $result =mysqli_query($conn,$sql);
 if ($result){
-    header('location : user-dashboard.php');
-    echo"Booking added successfuly";
+    header('location: user-dashboard.php');
+   echo"Booking added successfuly";
+	exit();
 }else{
     echo"Booking Failed";
 }
-
 
 
 ?>
