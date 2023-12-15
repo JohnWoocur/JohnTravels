@@ -247,7 +247,7 @@ $name=displayAdmin();
                                     <td>
                                         
                                         <a href ="conect_wishlist.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
-                                        <a href ="A-package-expired.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                        <a href ="A-pack-expired.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
                                        
                                     </td> 
                                 </tr>

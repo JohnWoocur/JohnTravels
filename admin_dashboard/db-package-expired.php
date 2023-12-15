@@ -244,7 +244,7 @@ $name=displayAdmin();
 
                                             <td>
                                                 <!-- <span class="badge badge-success"><i class="far fa-eye"></i></span> -->
-                                                <a href ="A-package-active.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
+                                                <a href ="A-pack-active.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-success"><i class="far fa-check-circle"></i></span></a>
                                                 <a href ="A-package-delete.php?Pack_Id=<?php echo $row['Pack_Id']; ?> "><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                             </td>
                                         </tr>

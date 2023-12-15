@@ -1,9 +1,9 @@
 <?php 
 
 require 'db-connection.php';
-$filename = $_FILES["Image"]["name"];
+$filename = $_FILES["myFile"]["name"];
 
-$tempname = $_FILES["Image"]["tmp_name"];  
+$tempname = $_FILES["myFile"]["tmp_name"];  
 
 $folder = "admins/".$filename;
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['id'])){
-    unset($_SESSION['id']);
+if(isset($_SESSION['aid'])){
+    unset($_SESSION['aid']);
 }
 ?>
 <!doctype html>
