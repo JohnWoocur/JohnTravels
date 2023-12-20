@@ -151,7 +151,10 @@ $result = mysqli_query($conn,$sql);
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
+                            <?php
+                                $img=displayImg();
+                                ?>
+                                <img src="admins/<?php echo $img;?>" alt="admin">
                                 <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>

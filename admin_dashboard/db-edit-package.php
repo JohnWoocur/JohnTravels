@@ -143,7 +143,10 @@ $name=displayAdmin();
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
+                            <?php
+                                $img=displayImg();
+                                ?>
+                                <img src="admins/<?php echo $img;?>" alt="admin">
                                 <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
@@ -268,6 +271,7 @@ $name=displayAdmin();
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Group Size</label>
+                                            <label>Number of people</label>
                                             <input type="number" name="size" placeholder="No of Pax" value="<?php echo $pack["Group_size"] ?>">
                                         </div>
                                     </div>
@@ -358,30 +362,7 @@ $name=displayAdmin();
                                             <input type="text" name="apikey" value="<?php echo $pack["Api_key"] ?>">
                                         </div>
                                     </div>
-                                    <div class="dashboard-box">
-                            <h4>Special</h4>
-                            <div class="custom-field-wrap">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Popular</label>
-                                            <input type="text" name="popular" value="<?php echo $pack["Popular"] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <input type="text" name="status" value="<?php echo $pack["Status"] ?>">
-                                        </div>
-										<div class="col-sm-7">
-                                        <div class="form-group">
-                                            <label>Wish</label>
-                                            <input type="text" name="wish" value="<?php echo $pack["Status"] ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    
                                     <div class="col-5 offset-5 mt-5">
                                         <div class="publish-btn">
                                     <div class="form-group">

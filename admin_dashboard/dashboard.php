@@ -8,6 +8,7 @@ exit();
 <?php
 require 'A-dashboard.php';
 $name=displayAdmin();
+$img=displayImg();
 ?>
 <!doctype html>
 <html lang="en">
@@ -143,7 +144,7 @@ $name=displayAdmin();
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
+                                <img src="admins/<?php echo $img;?>" alt="admin">
                                 <!-- <span>My Account </span> -->
                                 <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
