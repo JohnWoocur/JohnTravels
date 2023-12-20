@@ -33,11 +33,11 @@
                 </div>
                 <div class="form-group">
                     <label for="New Password">New Password</label>
-                    <input type="password" name="new_password" class="validate">
+                    <input type="password" name="new_password" class="validate" pattern="^(?=.*[a-zA-Z])(?=\w*[0-9])\w{6,12}$" title="Must contain at least one number and one letter, and at least 6 to 12 characters (special characters not allowed)">
                 </div>
                 <div class="form-group">
                     <label for="Confirm Password">Confirm Password</label>
-                    <input id="last_name" name="confirm_password" type="password" class="validate">
+                    <input id="last_name" name="confirm_password" type="password" class="validate" pattern="^(?=.*[a-zA-Z])(?=\w*[0-9])\w{6,12}$" title="Must contain at least one number and one letter, and at least 6 to 12 characters (special characters not allowed)">
                 </div>
                 <div class="form-group">
                 <center><button class="button-primary" name="set_new_password" type="submit">Update</button></center>

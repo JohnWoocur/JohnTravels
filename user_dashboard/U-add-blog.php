@@ -1,4 +1,5 @@
 <?php
+include 'functions.php';
 session_start();
 include_once ("db-connection.php");
 
@@ -16,7 +17,7 @@ $Tag_names = $_POST['Tag_names'];
 
 
 
-
+if (isset($_SESSION['id'])) {
 $customerid=$_SESSION['id'];
 
 
@@ -41,28 +42,29 @@ if($result){
 
 				$result1 = mysqli_query($conn, $sql1);
 				if($result1){
-					echo"blog";
+					$_SESSION['success']="Blog added Successfully!";
 					header("Location: user-dashboard.php");
+					exit();
 				}
 				else{
-					echo"error";
+					$_SESSION['Emsg']= "Blog adding failed, please try again";
+					header("Location: user-add-blog.php");
+					exit();
 				}
 		}else{
-			echo"error";
-
-		
-
-		header("Location: user-dashboard.php");
-
+			$_SESSION['Emsg']="Something wrong in your id !";
+			header("Location: user-dashboard.php");
+			exit();
 		}
-
 	}
     echo " Created" ;
 }
 else{
 
-	echo "failed to Uploaded";
-	header("Location: user-add-blog.php");
-}	
+	$_SESSION['Emsg']="Blog image adding failed!";
+	header("Location: user-dashboard.php");
+	exit();
 
-?>
+}	
+}
+?> 

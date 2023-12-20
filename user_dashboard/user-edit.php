@@ -4,16 +4,29 @@ session_start();
 if(isset($_SESSION['id'])){
     $Customer_Id = $_SESSION['id'];
 
-    $sql = "SELECT Customers.*, customer_more_details.Image
-            FROM Customers
-            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
-            WHERE Customers.Customer_id = '$Customer_Id'"; 
+    $query = "SELECT * FROM customers WHERE Customer_Id = $Customer_Id "; 
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
-
-    $uImage = $row['Image'];
+    $uName = $row['Username'];
 }
+?>
+<?php
+
+    if(isset($_SESSION['id'])){
+        $Customer_Id = $_SESSION['id'];        
+        $sql = "SELECT * FROM customer_more_details WHERE Customer_Id = $Customer_Id "; 
+        
+        $Iresult = mysqli_query($conn, $sql);
+        if($Irow = mysqli_fetch_assoc($Iresult)){
+
+       $uImage = $Irow['Image'];          
+         }
+       else{
+        $uImage = "user.png";
+         }       
+     }
+
 ?>
 
 
@@ -59,11 +72,11 @@ if(isset($_SESSION['id'])){
                         <a class="dropdown-toggle" id="notifyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="dropdown-item">
                                 <i class="far fa-envelope"></i>
-                                <span class="notify">3</span>
+                                <span class="notify">0</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown">
-                            <h4> 3 Notifications</h4>
+                         <!-- <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown"> 
+                             <h4> 3 Notifications</h4>
                             <ul>
                                 <li>
                                     <a href="#">
@@ -76,7 +89,7 @@ if(isset($_SESSION['id'])){
                                         </div>
                                     </a>
                                 </li>
-                                <li> 
+                                <li>
                                     <a href="#">
                                         <div class="list-img">
                                             <img src="assets/images/comment2.jpg" alt="">
@@ -99,17 +112,17 @@ if(isset($_SESSION['id'])){
                                     </a>
                                 </li>
                             </ul>
-                            <a href="#" class="all-button">See all messages</a>
-                        </div>
-                    </div>
+                             <a href="#" class="all-button">See all messages</a> 
+                        </div> -->
+                    </div> 
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item">
                                 <i class="far fa-bell"></i>
-                                <span class="notify">3</span>
+                                <span class="notify">0</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu notification-menu">
+                        <!-- <div class="dropdown-menu notification-menu">
                             <h4> 3 Messages</h4>
                             <ul>
                                 <li>
@@ -147,7 +160,7 @@ if(isset($_SESSION['id'])){
                                 </li>
                             </ul>
                             <a href="#" class="all-button">See all messages</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
@@ -259,12 +272,20 @@ if(isset($_SESSION['id'])){
                                 <div class="col-sm-6">
                                 <div class="upload-input">
                                     <div class="form-group">
-                                      <span class="upload-btn">Select a image</span>
                                       <img src="Customers/<?php echo $user['Image']?>" alt="User image">
+                                      <span class="upload-btn">Select a image</span>
                                       <input type="file" name="myfile" accept="image/*" >                              
                                     </div>
                                 </div>
+                                <button type="submit" class="button-primary">Update Profile</button>
                             </div>
+                            <br>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"> 
+                                            <label></label>
+                                            <input name="" hidden>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-6">
                                         <div class="form-group"> 
                                             <label>First name</label>
@@ -281,14 +302,14 @@ if(isset($_SESSION['id'])){
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>NIC/Passport</label>
-                                            <input name="ID" class="form-control" type="number" value="<?php echo $user['NIC']; ?>">
+                                            <input name="ID" class="form-control" type="text" value="<?php echo $user['NIC']; ?>">
                                         </div>  
                                     </div>
                                     
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="" type="text">
+                                            <input name="phone" id="input-phone" pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9 class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="Enter 10 digital number Eg-0700000000" type="text" Required>
                                         </div>
                                     </div>
 
@@ -340,24 +361,23 @@ if(isset($_SESSION['id'])){
                                     <div class="col-sm-12">
                                         
                                     </div>
-                                    <!-- <div class="col-12">
+                                    <div class="col-sm-6">
                                         <h4>Social Media Links </h4>
                                         <div class="form-group">
                                             <label>Facebook</label>
-                                            <input name="Facebook" id="Facebook" class="form-control" value="" placeholder="" type="text">
+                                            <input name="Facebook" id="Facebook" class="form-control" value="" placeholder="Enter Your Facebook Link" type="text">
                                             <label>Instagram</label>
-                                            <input name="Instagram" id="Instagram" class="form-control" value="" placeholder="" type="text">
+                                            <input name="Instagram" id="Instagram" class="form-control" value="" placeholder="Enter Your Instagram Link" type="text">
                                             <label>Twitter</label>
-                                            <input name="Twitter" id="Twitter" class="form-control" value="" placeholder="" type="text">
+                                            <input name="Twitter" id="Twitter" class="form-control" value="" placeholder="Enter Your Twitter Link" type="text">
                                             <label>Google</label>
-                                            <input name="Google" id="Google" class="form-control" value="" placeholder="" type="text">
+                                            <input name="Google" id="Google" class="form-control" value="" placeholder="Enter Your Google Link" type="text">
                                             <label>Linkedin</label>
-                                            <input name="Linkedin" id="Linkedin" class="form-control" value="" placeholder="" type="text">
+                                            <input name="Linkedin" id="Linkedin" class="form-control" value="" placeholder="Enter Your Linkedin Link" type="text">
                                         </div>
-                                    </div> -->
-                                
-                                    <button type="submit" class="button-primary">Update Profile</button>
+                                    </div>
                                 </div>
+                                <button type="submit" class="button-primary">Update Details</button>
                             </form>
                             <?php
                             endforeach;

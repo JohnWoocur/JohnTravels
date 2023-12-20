@@ -22,7 +22,7 @@ include "db-connection.php";
 
 if(isset($_SESSION['id']))
 
-{
+{   
     $Customer_Id = $_SESSION['id'];
 
     $sql="SELECT customer_more_details.*, customers.Email
@@ -31,9 +31,9 @@ if(isset($_SESSION['id']))
     WHERE customer_more_details.Customer_Id = $Customer_Id";
      
     $result=mysqli_query($conn,$sql);
-    $row=mysqli_fetch_assoc($result);
+    if($row=mysqli_fetch_assoc($result)){
 
-    $uImage = $row['Image'];
+      $uImage = $row['Image'];
     $Customer_Name = $row['First_name'] ." ".$row['Last_name'];
     $Customer_Email = $row['Email'];
     $Customer_Phone = $row['Mobile_number'];
@@ -41,6 +41,17 @@ if(isset($_SESSION['id']))
     $Customer_Nic = $row['NIC'];
     $Customer_Dob = $row['Dob']; 
     $Customer_Country = $row['Country'];
+
+    }
+
+    else{
+      header("Location: user-edit.php");
+      $_SESSION['Emsg']="Please add your full details!";
+      
+    }
+    
+
+    
 
 
 

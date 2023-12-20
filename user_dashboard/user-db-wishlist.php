@@ -1,20 +1,32 @@
 <?php
-
 include 'db-connection.php';
 session_start();
 if(isset($_SESSION['id'])){
     $Customer_Id = $_SESSION['id'];
 
-    $sql = "SELECT Customers.*, customer_more_details.Image
-            FROM Customers
-            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
-            WHERE Customers.Customer_id = '$Customer_Id'"; 
+    $query = "SELECT * FROM customers WHERE Customer_Id = $Customer_Id "; 
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
-
-    $uImage = $row['Image'];
+    $uName = $row['Username'];
 }
+?>
+<?php
+
+    if(isset($_SESSION['id'])){
+        $Customer_Id = $_SESSION['id'];        
+        $sql = "SELECT * FROM customer_more_details WHERE Customer_Id = $Customer_Id "; 
+        
+        $Iresult = mysqli_query($conn, $sql);
+        if($Irow = mysqli_fetch_assoc($Iresult)){
+
+       $uImage = $Irow['Image'];          
+         }
+       else{
+        $uImage = "user.png";
+         }       
+     }
+
 ?>
 
 
@@ -60,11 +72,11 @@ if(isset($_SESSION['id'])){
                         <a class="dropdown-toggle" id="notifyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="dropdown-item">
                                 <i class="far fa-envelope"></i>
-                                <span class="notify">3</span>
+                                <span class="notify">0</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown">
-                            <h4> 3 Notifications</h4>
+                         <!-- <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown"> 
+                             <h4> 3 Notifications</h4>
                             <ul>
                                 <li>
                                     <a href="#">
@@ -100,17 +112,17 @@ if(isset($_SESSION['id'])){
                                     </a>
                                 </li>
                             </ul>
-                            <a href="#" class="all-button">See all messages</a>
-                        </div>
-                    </div>
+                             <a href="#" class="all-button">See all messages</a> 
+                        </div> -->
+                    </div> 
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item">
                                 <i class="far fa-bell"></i>
-                                <span class="notify">3</span>
+                                <span class="notify">0</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu notification-menu">
+                        <!-- <div class="dropdown-menu notification-menu">
                             <h4> 3 Messages</h4>
                             <ul>
                                 <li>
@@ -148,7 +160,7 @@ if(isset($_SESSION['id'])){
                                 </li>
                             </ul>
                             <a href="#" class="all-button">See all messages</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">

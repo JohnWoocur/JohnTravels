@@ -28,16 +28,17 @@
                     </a>
                 </h1>
                 <div class="form-group">
-                    <label for="first_name1">User Name</label>
+                    <label for="user name">User Name</label>
                     <input type="text" class="validate" name="name" Required>
                 </div>
                 <div class="form-group">
-                    <label for="first_name1">Email</label>
+                    <label for="email">Email</label>
                     <input type="email" class="validate" name="mail" Required>
                 </div>
                 <div class="form-group">
-                    <label for="last_name">Password</label>
-                    <input id="last_name" type="password" class="validate" name="password" Required>
+                    <label for="password">Password</label>
+                     <input  id="password" class="validate" type="password" name="password" pattern="^(?=.*[a-zA-Z])(?=\w*[0-9])\w{6,12}$" title="Must contain at least one number and one letter, and at least 6 to 12 characters (special characters not allowed)" Required>
+                    <!-- <input id="password " type="password" class="validate" name="password"  Required> -->
                 </div>
                 <div class="form-group">
                     <center><button class="button-primary" type="submit">Register</button></center>
