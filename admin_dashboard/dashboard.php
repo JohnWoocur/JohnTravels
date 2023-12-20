@@ -223,7 +223,7 @@ $img=displayImg();
                             </div>
                             <div class="dashboard-stat-content">
                                 <h4>Today Views</h4>
-                                <h5>22,520</h5> 
+                                <h5>0</h5> 
                             </div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@ $img=displayImg();
                             </div>
                             <div class="dashboard-stat-content">
                                 <h4>Earnings</h4>
-                                <h5>16,520</h5> 
+                                <h5>0</h5> 
                             </div>
                         </div>
                     </div>
@@ -246,8 +246,17 @@ $img=displayImg();
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="dashboard-stat-content">
+                                <?php 
+                                require 'db-connection.php';
+                                $query="SELECT COUNT(*) as user FROM customers WHERE Status='Active'";
+                                $result=mysqli_query($conn,$query);
+                                if($result){
+                                    $row=mysqli_fetch_assoc($result);
+                                    $countUser=$row['user'];
+                                }
+                                ?>
                                 <h4>Users</h4>
-                                <h5>18,520</h5> 
+                                <h5><?php echo $countUser ?></h5> 
                             </div>
                         </div>
                     </div>
@@ -257,8 +266,17 @@ $img=displayImg();
                                 <i class="far fa-envelope-open"></i>
                             </div>
                             <div class="dashboard-stat-content">
+                            <?php 
+                                require 'db-connection.php';
+                                $query="SELECT COUNT(*) as enquiry FROM enquiry";
+                                $result=mysqli_query($conn,$query);
+                                if($result){
+                                    $row=mysqli_fetch_assoc($result);
+                                    $countEnquiry=$row['enquiry'];
+                                }
+                                ?>
                                 <h4>Enquiry</h4>
-                                <h5>19,520</h5> 
+                                <h5><?php echo $countEnquiry ?></h5> 
                             </div>
                         </div>
                     </div>
@@ -272,31 +290,52 @@ $img=displayImg();
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Select</th>
+                                            <!-- <th>Select</th> -->
                                             <th>User</th>
                                             <th>Name</th>
                                             <th>Date</th>
-                                            <th>City</th>
-                                            <th>Enquiry</th>
+                                            <th>Package</th>
+                                            <!-- <th>Enquiry</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+
+include 'db-connection.php';
+$query = "SELECT * FROM package_booking LIMIT 5";
+$result = $conn->query($query);
+while ($row = $result->fetch_assoc()) {
+    $id=$row['Customer_Id'];
+    $idd=$row['Pack_Id'];
+
+?>
+<?php
+$query = "SELECT * FROM customer_more_details WHERE Customer_Id='$id' ";
+$result2=mysqli_query($conn,$query);
+while ($row2 = $result2->fetch_assoc()) { 
+?>
+<?php
+$query = "SELECT * FROM package WHERE Pack_Id='$idd' ";
+$result3=mysqli_query($conn,$query);
+while ($row3 = $result3->fetch_assoc()) { 
+?>
                                         <tr>
-                                            <td>
+                                            <!-- <td>
                                                 <label class="custom-input"><input type="checkbox" checked="checked">
                                                 <span class="custom-input-field"></span></label>
+                                            </td> -->
+                                            <td><span class="list-img"><img src="../user_dashboard/Customers/<?php echo $row2['Image'];?>" alt=""></span>
                                             </td>
-                                            <td><span class="list-img"><img src="assets/images/comment.jpg" alt=""></span>
+                                            <td><span class="list-enq-name"><?php echo $row2['First_name'];?></span>
                                             </td>
-                                            <td><span class="list-enq-name">John Doe</span>
-                                            </td>
-                                            <td>12 may</td>
-                                            <td>Japan</td>
-                                            <td>
+                                            <td><?php echo $row['Date'];?></td>
+                                            <td><?php echo $row3['Pack_title'];?></td>
+                                            <!-- <td>
                                                 <span class="badge badge-success">15</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
-                                        <tr>
+                                        <?php }}} ?>
+                                        <!-- <tr>
                                             <td>
                                                 <label class="custom-input"><input type="checkbox" checked="checked">
                                                 <span class="custom-input-field"></span></label>
@@ -355,7 +394,7 @@ $img=displayImg();
                                             <td>
                                                 <span class="badge badge-success">15</span>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -369,31 +408,51 @@ $img=displayImg();
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Select</th>
+                                            <!-- <th>Select</th> -->
                                             <th>User</th>
                                             <th>Name</th>
                                             <th>Date</th>
-                                            <th>City</th>
-                                            <th>Enquiry</th>
+                                            <th>Package</th>
+                                            <!-- <th>Enquiry</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+
+                                    include 'db-connection.php';
+                                    $query = "SELECT * FROM enquiry LIMIT 5";
+                                    $result = $conn->query($query);
+                                    while ($row = $result->fetch_assoc()) {
+                                        $id=$row['Customer_Id'];
+
+                                    ?>
+                                    <?php
+                                    $query = "SELECT * FROM customer_more_details WHERE Customer_Id='$id' ";
+                                    $result2=mysqli_query($conn,$query);
+                                    while ($row2 = $result2->fetch_assoc()) { 
+                                    ?>
+                                    
                                         <tr>
-                                            <td>
+                                            <!-- <td>
                                                 <label class="custom-input"><input type="checkbox">
                                                 <span class="custom-input-field"></span></label>
+                                            </td> -->
+                                            <td><span class="list-img"><img src="../user_dashboard/Customers/<?php echo $row2['Image'];?>" alt="user"></span>
                                             </td>
-                                            <td><span class="list-img"><img src="assets/images/comment.jpg" alt=""></span>
+                                            <td><span class="list-enq-name"><?php echo $row2['First_name'];?></span>
                                             </td>
-                                            <td><span class="list-enq-name">John Doe</span>
-                                            </td>
-                                            <td>12 may</td>
-                                            <td>Japan</td>
-                                            <td>
+                                            <td><?php echo $row['Checkin_date'];?></td>
+                                            <td><?php echo $row['Packages_name'];?></td>
+                                            <!-- <td>
                                                 <span class="badge badge-success">15</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
-                                        <tr>
+                                        <?php  
+                                        }
+                                        }
+                                        
+                                        ?>
+                                        <!-- <tr>
                                             <td>
                                                 <label class="custom-input"><input type="checkbox">
                                                 <span class="custom-input-field"></span></label>
@@ -452,7 +511,7 @@ $img=displayImg();
                                             <td>
                                                 <span class="badge badge-success">15</span>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -472,36 +531,50 @@ $img=displayImg();
                                             <th>Name</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Country</th>
-                                            <th>Listings</th>
-                                            <th>Enquiry</th>
-                                            <th>Bookings</th>
-                                            <th>Reviews</th>
+                                            <th>City</th>
+                                            <!-- <th>Listings</th> -->
+                                            <!-- <th>Enquiry</th>
+                                            <th>Bookings</th> -->
+                                            <!-- <th>Reviews</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+
+                                    include 'db-connection.php';
+                                    $query = "SELECT * FROM customers LIMIT 5";
+                                    $result = $conn->query($query);
+                                    while ($row = $result->fetch_assoc()) {
+                                    $id=$row['Customer_Id'];
+                                    ?>
+                                    <?php
+                                    $query = "SELECT * FROM customer_more_details WHERE Customer_Id='$id' ";
+                                    $result2=mysqli_query($conn,$query);
+                                    while ($row2 = $result2->fetch_assoc()) { 
+                                    ?>
                                         <tr>
-                                            <td><span class="list-img"><img src="assets/images/comment.jpg" alt=""></span>
+                                            <td><span class="list-img"><img src="../user_dashboard/Customers/<?php echo $row2['Image'];?>" alt="user"></span>
                                             </td>
-                                            <td><a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city">United States</span></a>
+                                            <td><a href="#"><span class="list-name"><?php echo $row2['First_name'];?></span><span class="list-enq-city">United States</span></a>
                                             </td>
-                                            <td>+01 3214 6522</td>
-                                            <td>chadengle@dummy.com</td>
-                                            <td>Australia</td>
-                                            <td>
+                                            <td><?php echo $row2['Mobile_number'];?></td>
+                                            <td><?php echo $row['Email'];?></td>
+                                            <td><?php echo $row2['City'];?></td>
+                                            <!-- <td>
                                                 <span class="badge badge-primary">02</span>
-                                            </td>
-                                            <td>
+                                            </td> -->
+                                            <!-- <td>
                                                 <span class="badge badge-danger">12</span>
                                             </td>
                                             <td>
                                                 <span class="badge badge-success">24</span>
-                                            </td>
-                                            <td>
+                                            </td> -->
+                                            <!-- <td>
                                                 <span class="badge badge-dark">36</span>
-                                            </td>
+                                            </td> -->
                                         </tr>
-                                        <tr>
+                                        <?php }} ?>
+                                        <!-- <tr>
                                             <td><span class="list-img"><img src="assets/images/comment2.jpg" alt=""></span>
                                             </td>
                                             <td><a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city">United States</span></a>
@@ -563,16 +636,16 @@ $img=displayImg();
                                             <td>
                                                 <span class="badge badge-dark">36</span>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>  
                 </div>
-                <div class="row">      
+                <!-- <div class="row">       -->
                     <!-- Recent Activity -->
-                    <div class="col-lg-7 col-12">
+                    <!-- <div class="col-lg-7 col-12">
                         <div class="dashboard-box activities-box">
                             <h4>Recent Activities</h4>
                             <ul>
@@ -613,8 +686,8 @@ $img=displayImg();
                                     <a href="#" class="close-icon"><i class="fas fa-times"></i></a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div>
                     <div class="col-lg-5 col-md-12 col-xs-12">
                         <div class="dashboard-box report-list">
                             <h4>Reports</h4>
@@ -672,10 +745,10 @@ $img=displayImg();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+                <!-- <div class="row"> -->
                     <!-- site traffic -->
-                    <div class="col-lg-4">
+                    <!-- <div class="col-lg-4">
                         <div class="dashboard-box chart-box">
                            <h4>Site Traffic</h4>
                            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
@@ -696,7 +769,7 @@ $img=displayImg();
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Content / End -->
             <!-- Copyrights -->
             <div class="copyrights">
