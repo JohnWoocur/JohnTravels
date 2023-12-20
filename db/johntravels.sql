@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 08:27 AM
+-- Generation Time: Dec 20, 2023 at 12:03 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -140,7 +140,8 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`Customer_Id`, `Username`, `Email`, `Password`, `Create_at`, `Status`, `verify_token`) VALUES
 (8, 'dilaxsan001', 'antony@gmail', '123456', '2023-12-11', 'Active', NULL),
-(10, 'Sivaharan', 'sivabook404@outlook.com', '$2y$10$si1eYcPnomimvj3MmUIaO..ZEjDgKvka/ngSZ8DEdZ0paSIcCQKFO', '2023-12-12', 'Active', 'a8d3900cae34e9ab936e3aa14f6d5df7');
+(10, 'Sivaharan', 'sivabook404@outlook.com', '$2y$10$si1eYcPnomimvj3MmUIaO..ZEjDgKvka/ngSZ8DEdZ0paSIcCQKFO', '2023-12-12', 'Active', 'a8d3900cae34e9ab936e3aa14f6d5df7'),
+(11, 'rifky', 'rifky@gmail.com', '$2y$10$GF7sXI2H9WxutQwqlhy4Yem5NpuSYQ.7M/VCEKfTnXaoNeKn7rdVK', '2023-12-20', 'Active', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,16 +161,21 @@ CREATE TABLE `customer_more_details` (
   `Address` varchar(255) NOT NULL,
   `Dob` date NOT NULL,
   `About` varchar(255) NOT NULL,
-  `Image` varchar(256) NOT NULL
+  `Image` varchar(256) NOT NULL,
+  `Facebook` varchar(255) DEFAULT NULL,
+  `Instagram` varchar(255) DEFAULT NULL,
+  `Twitter` varchar(255) DEFAULT NULL,
+  `Linkedin` varchar(255) DEFAULT NULL,
+  `Whatsapp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer_more_details`
 --
 
-INSERT INTO `customer_more_details` (`Customer_Id`, `First_name`, `Last_name`, `Mobile_number`, `NIC`, `City`, `Country`, `district`, `Address`, `Dob`, `About`, `Image`) VALUES
-(8, 'antony', 'ad', 2147483647, '991653821', 'nellukullam', 'sri lanka', 'vavuniya', 'no.22', '2023-12-13', 'ho iam dilaxsan hello', ''),
-(10, 'sivaharan', 'Mohan', 760550512, '200023233223', 'mullativu', 'srilanka', 'mullativu', 'kanukerney', '2000-12-07', 'Traveller', 'testi-img2-150x150.jpg');
+INSERT INTO `customer_more_details` (`Customer_Id`, `First_name`, `Last_name`, `Mobile_number`, `NIC`, `City`, `Country`, `district`, `Address`, `Dob`, `About`, `Image`, `Facebook`, `Instagram`, `Twitter`, `Linkedin`, `Whatsapp`) VALUES
+(8, 'antony', 'ad', 2147483647, '991653821', 'nellukullam', 'sri lanka', 'vavuniya', 'no.22', '2023-12-13', 'ho iam dilaxsan hello', '', '', '', '', '', NULL),
+(10, 'sivaharan', 'Mohan', 760550512, '200023233223', 'mullativu', 'srilanka', 'mullativu', 'kanukerney', '2000-12-07', 'Traveller', 'testi-img2-150x150.jpg', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -467,7 +473,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `enquiry`
