@@ -2,14 +2,7 @@
     
     include 'functions.php';
     session_start();
-    
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "johntravels";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
+    require 'db-connection.php';
    
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
