@@ -1,6 +1,10 @@
 <?php
 include 'db-connection.php';
 session_start();
+if(!isset($_SESSION["id"])){
+    header("Location:login.php");
+    exit();
+    }
 if(isset($_SESSION['id'])){
     $Customer_Id = $_SESSION['id'];
 
