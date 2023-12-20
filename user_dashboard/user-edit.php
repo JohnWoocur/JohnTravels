@@ -322,14 +322,19 @@ if(isset($_SESSION['id'])){
                                     <div class="col-12">
                                         <h4>Contact Details</h4>
                                     </div>
-                                    <div class="col-sm-6">
+									<div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text">
-
+                                            <label>Address</label>
+                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+									<div class="col-sm-6">
+                                            <div class="form-group">
+                                            <label>City</label>
+                                            <input name="city" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text">
+                                        </div>
+                                    </div>
+									<div class="col-sm-6">
                                         <div class="form-group">
                                          <label>District</label>
                                          <input name="district" id="district" class="form-control" value="<?php echo $user['district']; ?>" placeholder="" type="text">
@@ -337,17 +342,15 @@ if(isset($_SESSION['id'])){
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                            <div class="form-group">
-                                            <label>City</label>
-                                            <input name="city" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Address</label>
-                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text">
+                                            <label>Country</label>
+                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text">
+
                                         </div>
                                     </div>
+                                    
+                                    
+                                    
                                     
                                     <div class="col-12">
                                         <h4>Describe Yourself</h4>
