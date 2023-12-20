@@ -379,7 +379,7 @@ if(isset($_SESSION['id'])){
                                             <input name="Twitter" id="Twitter" class="form-control" value="" placeholder="Enter Your Twitter Link" type="text">
                                             <label>Google</label>
                                             <input name="Google" id="Google" class="form-control" value="" placeholder="Enter Your Google Link" type="text">
-                                            <label>Linkedin</label>
+                                            <label>Linked-in</label>
                                             <input name="Linkedin" id="Linkedin" class="form-control" value="" placeholder="Enter Your Linkedin Link" type="text">
                                         </div>
                                     </div>
