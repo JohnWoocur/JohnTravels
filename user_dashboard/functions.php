@@ -3,7 +3,7 @@
 function displayMessages() {
     if (isset($_SESSION['success'])) {
         echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
-        unset($_SESSION['success']); // Remove the message after displaying it
+        unset($_SESSION['success']); 
     }
 
     if (isset($_SESSION['error'])) {
@@ -11,7 +11,7 @@ function displayMessages() {
         unset($_SESSION['error']); // Remove the message after displaying it
     }
 
-    // Add more conditions for other types of messages (e.g., warning, info)
+    
 }
 
 ?>

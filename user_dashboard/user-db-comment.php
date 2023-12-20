@@ -4,16 +4,29 @@ session_start();
 if(isset($_SESSION['id'])){
     $Customer_Id = $_SESSION['id'];
 
-    $sql = "SELECT Customers.*, customer_more_details.Image
-            FROM Customers
-            JOIN customer_more_details ON Customers.Customer_id = customer_more_details.Customer_id 
-            WHERE Customers.Customer_id = '$Customer_Id'"; 
+    $query = "SELECT * FROM customers WHERE Customer_Id = $Customer_Id "; 
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
-
-    $uImage = $row['Image'];
+    $uName = $row['Username'];
 }
+?>
+<?php
+
+    if(isset($_SESSION['id'])){
+        $Customer_Id = $_SESSION['id'];        
+        $sql = "SELECT * FROM customer_more_details WHERE Customer_Id = $Customer_Id "; 
+        
+        $Iresult = mysqli_query($conn, $sql);
+        if($Irow = mysqli_fetch_assoc($Iresult)){
+
+       $uImage = $Irow['Image'];          
+         }
+       else{
+        $uImage = "user.png";
+         }       
+     }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,11 +71,11 @@ if(isset($_SESSION['id'])){
                         <a class="dropdown-toggle" id="notifyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="dropdown-item">
                                 <i class="far fa-envelope"></i>
-                                <span class="notify">3</span>
+                                <span class="notify">0</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown">
-                            <h4> 3 Notifications</h4>
+                         <!-- <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown"> 
+                             <h4> 3 Notifications</h4>
                             <ul>
                                 <li>
                                     <a href="#">
@@ -98,17 +111,17 @@ if(isset($_SESSION['id'])){
                                     </a>
                                 </li>
                             </ul>
-                            <a href="#" class="all-button">See all messages</a>
-                        </div>
-                    </div>
+                             <a href="#" class="all-button">See all messages</a> 
+                        </div> -->
+                    </div> 
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item">
                                 <i class="far fa-bell"></i>
-                                <span class="notify">3</span>
+                                <span class="notify">0</span>
                             </div>
                         </a>
-                        <div class="dropdown-menu notification-menu">
+                        <!-- <div class="dropdown-menu notification-menu">
                             <h4> 3 Messages</h4>
                             <ul>
                                 <li>
@@ -146,13 +159,14 @@ if(isset($_SESSION['id'])){
                                 </li>
                             </ul>
                             <a href="#" class="all-button">See all messages</a>
-                        </div>
+                        </div> -->
                     </div>
+                    
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                              <div class="dropdown-item profile-sec">
-                            <img src="Customers/<?php echo $uImage; ?>" alt="Customer Image">
-                                <span><?php echo $row['Username'];?></span>
+                           <img src="Customers/<?php  echo $uImage; ?>"> 
+                                <span><?php  echo $row['Username'];?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </a>
@@ -187,13 +201,13 @@ if(isset($_SESSION['id'])){
                 </div>
             </div>
             <div class="db-info-wrap db-comment-wrap">
-                <h4>Comments List</h4>
-                <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
-                <div class="dashboard-box">
+                <h4> No Comments </h4>
+                <!-- <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
+                <div class="dashboard-box"> -->
 
                     
                     <!-- post comment html -->
-                   <div class="comment-area">
+                   <!-- <div class="comment-area">
                         <div class="comment-area-inner">
                             <ol>
                                 <li>
@@ -238,8 +252,8 @@ if(isset($_SESSION['id'])){
                         </div>
                    </div>
                 </div>
-                <div class="dashboard-box">
-                    <!-- post comment html -->
+                <div class="dashboard-box"> -->
+                    <!-- post comment html
                    <div class="comment-area">
                         <div class="comment-area-inner">
                             <ol>
@@ -294,9 +308,9 @@ if(isset($_SESSION['id'])){
                             </ol>
                         </div>
                    </div>
-                </div>
+                </div> -->
                 <!-- pagination html -->
-                <div class="pagination-wrap">
+                <!-- <div class="pagination-wrap">
                     <nav class="pagination-inner">
                         <ul class="pagination disabled">
                             <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
@@ -305,10 +319,11 @@ if(isset($_SESSION['id'])){
                             <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </nav>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
             <!-- Content / End -->
             <!-- Copyrights -->
+    </div>
             <div class="copyrights">
                Copyright © 2023 John Travels LK. All rights reserveds.
             </div>
