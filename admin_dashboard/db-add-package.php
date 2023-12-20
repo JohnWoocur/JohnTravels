@@ -144,7 +144,10 @@ $name=displayAdmin();
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
+                            <?php
+                                $img=displayImg();
+                                ?>
+                                <img src="admins/<?php echo $img;?>" alt="admin">
                                 <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
@@ -361,7 +364,7 @@ $name=displayAdmin();
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xl-3">
+                    <!-- <<div class="col-lg-4 col-xl-3"> 
                         <div class="dashboard-box">
                             <div class="custom-field-wrap">
                                 <h4>Publish</h4>
@@ -445,7 +448,7 @@ $name=displayAdmin();
                         </div>
                     </div>
                 </div>      
-            </div>
+            </div>--> 
             <!-- Content / End -->
             <!-- Copyrights -->
             <div class="copyrights">

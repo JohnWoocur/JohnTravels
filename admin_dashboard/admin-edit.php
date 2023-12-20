@@ -8,6 +8,7 @@ exit();
 <?php
 require 'A-dashboard.php';
 $name=displayAdmin();
+$img=displayImg();
 ?>
 <!doctype html>
 <html lang="en">
@@ -144,7 +145,10 @@ $name=displayAdmin();
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
+                                <?php
+                                $img=displayImg();
+                                ?>
+                                <img src="admins/<?php echo $img;?>" alt="admin">
                                 <!-- <span>My Account </span> -->
                                 
                                 <span><?php echo $name;?></span>
@@ -232,34 +236,39 @@ $name=displayAdmin();
                                 <div class="col-sm-6">
                                 <div class="upload-input">
                                     <div class="form-group">
-                                      <span class="upload-btn">Select a image</span>
                                       <img src="admins/<?php echo $row['Image']?>" alt="User image">
-                                      <input type="file" name="myfile" accept="image/*" >                              
+                                      <input type="file" name="myfile" accept="image/*" > 
+                                      <span class="upload-btn">Select a image</span>                             
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label></label>
+                                            <input name="" hidden>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Id</label>
+                                            <label>ID</label>
                                             <input name="id" class="form-control" type="text" value="<?php echo $row["Admin_Id"]?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>First name</label>
+                                            <label>First Name</label>
                                             <input name="firstname" class="form-control" type="text" value="<?php echo $row["First_name"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Last name</label>
+                                            <label>Last Name</label>
                                             <input name="lastname" class="form-control" type="text" value="<?php echo $row["Last_name"]?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Mobile</label>
+                                            <label>Mobile Number</label>
                                             <input name="phone" class="form-control" type="text" value="<?php echo $row["Mobile_number"]?>">
                                         </div>
                                     </div>

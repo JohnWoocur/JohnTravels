@@ -143,7 +143,10 @@ $name=displayAdmin();
                     <div class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dropdown-item profile-sec">
-                                <img src="assets/images/comment.jpg" alt="">
+                            <?php
+                                $img=displayImg();
+                                ?>
+                                <img src="admins/<?php echo $img;?>" alt="admin">
                                 <span><?php echo $name;?></span>
                                 <i class="fas fa-caret-down"></i>
                             </div>
@@ -292,28 +295,30 @@ $name=displayAdmin();
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text" readonly>
+                                            <label>Address</label>
+                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text" readonly>
+
 
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                         <label>District</label>
-                                         <input name="district" id="district" class="form-control" value="<?php echo $user['district']; ?>" placeholder="" type="text" readonly>
-                                         
+                                         <label>City</label>
+                                         <input name="City" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text" readonly>
+
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                             <div class="form-group">
-                                            <label>City</label>
-                                            <input name="City" id="City" class="form-control" value="<?php echo $user['City']; ?>" placeholder="" type="text" readonly>
+                                            <label>District</label>
+                                            <input name="district" id="district" class="form-control" value="<?php echo $user['district']; ?>" placeholder="" type="text" readonly>
+
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Address</label>
-                                            <input name="Address" id="Address" class="form-control" value="<?php echo $user['Address']; ?>" placeholder="" type="text" readonly>
+                                            <label>Country</label>
+                                            <input name="country" id="country" class="form-control" value="<?php echo $user['Country']; ?>" placeholder="" type="text" readonly>
                                         </div>
                                     </div>
                                     
