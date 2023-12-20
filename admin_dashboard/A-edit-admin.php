@@ -21,9 +21,9 @@
     $query="UPDATE `admins` SET `First_name`='$Firstname',`Last_name`='$Lastname',`Mobile_number`='$phone',`City`='$city',`Country`='$country',`Email`='$email',`Image`='$imgName',`Password`='$password' WHERE Admin_Id='$ID'";
     $result=mysqli_query($conn,$query);
     if($result){
-        echo "done";
+        header('location:admin.php');
     }else{
-        echo "failed";
+        header('location:admin.php');
     }
  }
  
