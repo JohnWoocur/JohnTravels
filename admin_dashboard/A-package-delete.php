@@ -1,6 +1,6 @@
 <?php
 include 'db-connection.php';
-
+session_start();
 if (isset($_GET['Pack_Id'])) {
    
     $Pack_Id = $_GET['Pack_Id'];
@@ -9,10 +9,10 @@ if (isset($_GET['Pack_Id'])) {
     $sql = "UPDATE `package` SET `Status` = '$status' WHERE `Pack_Id` = $Pack_Id";
   
     if ($conn->query($sql) === TRUE) {
-        echo "Package deleted successfully";
+        $_SESSION['deleted']="package deleted";
         header("Location: db-package-active.php");
     } else {
-        echo "Error deleting package: " . $conn->error;
+        $_SESSION['deleted']="package deleted failed";
         header("Location: db-package-active.php");
     }
     $conn->close();

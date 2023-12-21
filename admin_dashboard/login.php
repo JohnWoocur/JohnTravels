@@ -2,6 +2,7 @@
 session_start();
 if(isset($_SESSION['aid'])){
     unset($_SESSION['aid']);
+    
 }
 ?>
 <!doctype html>
@@ -31,6 +32,7 @@ if(isset($_SESSION['aid'])){
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </h1>
+                
                 <?php
                 if(isset($_SESSION["error"])):{
                 }

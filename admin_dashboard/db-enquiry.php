@@ -210,6 +210,14 @@ $name=displayAdmin();
             </div>
             <div class="db-info-wrap db-booking">
                 <div class="dashboard-box table-opp-color-box">
+                <?php
+                            if(isset($_SESSION["enquiry"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["enquiry"]; ?></div>
+                            <?php
+                            unset($_SESSION["enquiry"]);
+                            endif;
+                            ?>
                     <h4>Recent Enquiry
 
                     </h4>

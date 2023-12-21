@@ -1,6 +1,6 @@
 <?php
 include_once ("db-connection.php");
-
+session_start();
 
 	$filename = $_FILES["Pack_img"]["name"];
 
@@ -31,15 +31,13 @@ $Sale_price =$Reqular_price-(($Reqular_price/100)*$Discount);
 $check = mysqli_query($conn,"INSERT INTO package(Pack_title, Pack_img, Description, Location, Place_one, Place_two, Place_three, Place_four, Group_size, Trip_date, Days, Night, Sale_price, Reqular_price, Discount, Category, Map, Api_key) VALUES('$Pack_title','$filename','$Description','$Location','$Place_one','$Place_two','$Place_three','$Place_four','$Group_size','$Trip_date','$Days','$Night','$Sale_price','$Reqular_price','$Discount','$Category','$Map','$Api_key')");
 if (move_uploaded_file($tempname, $folder)) {
 
-            echo "Package added. ";
+        $_SESSION['addpack']="Package added success";
         header("Location: db-add-package.php");
-        exit;
 
         }else{
 
-            echo "Package adding failed. ";
+        $_SESSION['addpack']="Package added success";
         header("Location: db-add-package.php");
-        exit;
 
     }
 /*

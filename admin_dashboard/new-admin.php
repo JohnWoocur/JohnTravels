@@ -210,6 +210,15 @@ $name=displayAdmin();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box">
+                            <?php
+                            if(isset($_SESSION['addAd'])):
+                            ?>
+                            <div class="badge badge-success"><?php echo $_SESSION['addAd'];?></div>
+                            <?php
+                            endif;
+                            unset($_SESSION['addAd']);
+                            
+                            ?>
                             <h4>Add New ADMIN</h4>
                             
                             <form class="form-horizontal" method="POST" action="A-add-sub-admin.php" enctype="multipart/form-data">

@@ -206,6 +206,14 @@ $name=displayAdmin();
             </div>
             <div class="db-info-wrap db-package-wrap">
                 <div class="dashboard-box table-opp-color-box">
+                            <?php
+                            if(isset($_SESSION["expaired"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["expaired"]; ?></div>
+                            <?php
+                            unset($_SESSION["expaired"]);
+                            endif;
+                            ?>
                                             <h4>Expired Packages List</h4>
 
                             <div class="table-responsive">
