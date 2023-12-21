@@ -241,7 +241,7 @@ if(isset($_SESSION['id'])){
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="integerInput">Phone Number </label>
-                                            <input type="number" id="Phone_number" name="Phone_number" pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9 "placeholder="Enter 10 digital number Eg-0700000000" required>
+                                            <input type="number" id="Phone_number" name="Phone_number" pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9 "placeholder="Enter 10 Digit Number Eg-0712345678" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

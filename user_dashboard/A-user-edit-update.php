@@ -12,23 +12,23 @@ $City=$_POST['city'];
 $district=$_POST['district']; 
 $Address=$_POST['Address'];	
 $About=$_POST['about'];
-
-$imgName = $_FILES["myfile"]["name"];
-
-$imgFile = $_FILES["myfile"]["tmp_name"];  
-
-$path = "Customers/".$imgName;
-move_uploaded_file($imgFile,$path);
+$Facebook=$_POST['Facebook'];
+$Instagram=$_POST['Instagram'];
+$Twitter=$_POST['Twitter'];
+$Whatsapp = $_POST['Whatsapp'];
+$Linkedin = $_POST['Linkedin'];
 
 
-$query="UPDATE `customer_more_details` SET `First_name`='$First_name',`Last_name`='$Last_name',`Mobile_number`='$Mobile_number',`NIC`='$ID',`City`='$City',`Country`='$Country',`district`='$district',`Address`='$Address',`Dob`='$Dob',`About`='$About', `Image`='$imgName'  WHERE Customer_Id='$id'";
+
+
+$query="UPDATE `customer_more_details` SET `First_name`='$First_name',`Last_name`='$Last_name',`Mobile_number`='$Mobile_number',`NIC`='$ID',`City`='$City',`Country`='$Country',`district`='$district',`Address`='$Address',`Dob`='$Dob',`About`='$About',`Facebook`='$Facebook',`Instagram`='$Instagram',`Twitter`='$Twitter',`Whatsapp`='$Whatsapp',`Linkedin`='$Linkedin'  WHERE Customer_Id='$id'";
 $result=mysqli_query($conn,$query);
 if($result){
     header('location:user-edit.php');
-    $_SESSION['Smsg']="Details Updated Success";
+    $_SESSION['edsmsg']="Details Updated Success";
 }
 else{
     header('location:user-edit.php');
-    $_SESSION['Emsg']="Details Updated failed";
+    $_SESSION['edemsg']="Details Updated failed";
 }
 ?>

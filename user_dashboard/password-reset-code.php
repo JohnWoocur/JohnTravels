@@ -25,14 +25,14 @@ function send_password_reset($get_name,$get_email,$token)
     $mail->SMTPAuth   = true;
                                                //Send using SMTP
     $mail->Host       = "smtp.gmail.com";                     //Set the SMTP server to send through                                   //Enable SMTP authentication
-    $mail->Username   = "rangertwo336@gmail.com";                     //SMTP username
-    $mail->Password   = "qtci gogx iaam xaqz";  
+    $mail->Username   = "Info.johntravels@gmail.com";                     //SMTP username
+    $mail->Password   = "dzkl enqo uggb gnmy";  
                                  //SMTP password
     $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom("rangertwo336@gmail.com", $get_name);
+    $mail->setFrom("Info.johntravels@gmail.com", $get_name);
     $mail->addAddress($get_email);     //Add a recipient
   //  $mail->addAddress('ellen@example.com');               //Name is optional
   //  $mail->addReplyTo('info@example.com', 'Information');
@@ -45,11 +45,13 @@ function send_password_reset($get_name,$get_email,$token)
     $mail->isHTML(true);
      $mail->Subject="Reset Password Notification";
 
+    
      $email_template ="
-     <h2>Hello</h2>
+     <h2> Welcome!! <br/> Embark on the adventure of resetting your password with JohnTravels </h2>
      <h3>You are receiving this email because we received a password reset request for your account.</h3>
      <br/><br/>
-     <a href='http://localhost/JohnTravels/user_dashboard/changepwd.php?token=$token&Email=$get_email'>click me </a>
+     <a href='https://johntravels.lk/user_dashboard/changepwd.php?token=$token&Email=$get_email'>click me </a>
+     <p>If you did not request a password reset, please ignore.</p>
      ";
 
      $mail->Body=$email_template;

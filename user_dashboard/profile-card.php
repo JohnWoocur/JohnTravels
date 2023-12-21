@@ -7,6 +7,7 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <!-- Fonts Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-pzjw8iOT+K9HWZY4Vs6n9wMwNND8PCjOj1pbNR5kzLQW31H6pu7TvDEeEvSNOpt46R0D6W40Wbs3gmkJXgZW5Wg==" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -54,12 +55,6 @@ if(isset($_SESSION['id']))
       
     }
     
-
-    
-
-
-
-
 
 }
 
@@ -111,14 +106,22 @@ if(isset($_SESSION['id']))
         </div>
         </div>
     
-      <div class="socials">
-      <button class="linkedin"><i class="fab fa-linkedin"></i></button>
-      <button class="twitter"><i class="fab fa-twitter"></i></button>
-      <button class="google"><i class="fab fa-google"></i></button>
-      <button class="facebook"><i class="fab fa-facebook-f"></i></button>
-      <button class="instagram"><i class="fab fa-instagram"></i></button>
-      </div>
-      
+        <?php
+          
+          $linkedinUrl = $row['Linkedin'];
+          $twitterUrl = $row['Twitter'];
+          $whatsappUrl = $row['Whatsapp'];
+          $facebookUrl = $row['Facebook'];
+          $instagramUrl = $row['Instagram'];
+
+          ?>
+         <div class="socials">
+        <button onclick="location.href='<?php echo $linkedinUrl; ?>'" type="button" class="linkedin"><i class="fab fa-linkedin"></i></button>
+        <button onclick="location.href='<?php echo $twitterUrl; ?>'" type="button" class="twitter"><i class="fab fa-twitter"></i></button>
+        <button onclick="location.href='<?php echo $whatsappUrl; ?>'" type="button" class="google"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="location.href='<?php echo $facebookUrl; ?>'" type="button" class="facebook"><i class="fab fa-facebook-f"></i></button>
+        <button onclick="location.href='<?php echo $instagramUrl; ?>'" type="button" class="instagram"><i class="fab fa-instagram"></i></button>
+        </div>
       
   
       <div class="card__action">

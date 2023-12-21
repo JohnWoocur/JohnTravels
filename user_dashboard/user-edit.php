@@ -231,23 +231,23 @@ if(isset($_SESSION['id'])){
                     <div class="col-lg-12">
                         <div class="dashboard-box user-form-wrap">
                         <?php
-                                if(isset($_SESSION['Smsg'])):
+                                if(isset($_SESSION['edsmsg'])):
                                 ?>
                                 <div class="form-group">
-                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                    <label class="badge badge-success"><?php echo $_SESSION['edsmsg']; ?></label>
                                 </div>
                                 <?php
-                                unset($_SESSION['Smsg']);
+                                unset($_SESSION['edsmsg']);
                                 endif;
                                 ?>
                                 <?php
-                                if(isset($_SESSION['Emsg'])):
+                                if(isset($_SESSION['edemsg'])):
                                 ?>
                                 <div class="form-group">
-                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                <label class="badge badge-danger"><?php echo $_SESSION['edemsg']; ?></label>
                                 </div>
                                 <?php
-                                unset($_SESSION['Emsg']);
+                                unset($_SESSION['edemsg']);
                                 endif;
                                 ?>
                             <h4>Profile Details add</h4>
@@ -266,6 +266,20 @@ if(isset($_SESSION['id'])){
                     ?>
                             
 
+                            <form class="form-horizontal" method="POST" action="U-update-photo.php" enctype="multipart/form-data">
+                                    <div class="col-sm-6">
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                                <img src="Customers/<?php echo $user['Image'] ?>" alt="User image">
+                                                <span class="upload-btn">Select an image</span>
+                                                <input type="file" name="myfile" accept="image/*">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="button-primary">Update Profile Image</button>
+                                    </div>
+                                </form>
+
+
                             <form class="form-horizontal" method="POST" action="A-user-edit-update.php" enctype="multipart/form-data">
                             <div class="dashboard-box user-form-wrap">
                             <div class="col-12">
@@ -273,23 +287,8 @@ if(isset($_SESSION['id'])){
                             
                             </div>
                                 <div class="row">
-                                <div class="col-sm-6">
-                                <div class="upload-input">
-                                    <div class="form-group">
-                                      <img src="Customers/<?php echo $user['Image']?>" alt="User image">
-                                      <span class="upload-btn">Select a image</span>
-                                      <input type="file" name="myfile" accept="image/*" >                              
-                                    </div>
-                                </div>
-                                <button type="submit" class="button-primary">Update Profile</button>
-                            </div>
+                                
                             <br>
-                                    <div class="col-sm-6">
-                                        <div class="form-group"> 
-                                            <label></label>
-                                            <input name="" hidden>
-                                        </div>
-                                    </div>
                                     <div class="col-sm-6">
                                         <div class="form-group"> 
                                             <label>First name</label>
@@ -313,7 +312,7 @@ if(isset($_SESSION['id'])){
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9 class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="Enter 10 digital number Eg-0700000000" type="text" Required>
+                                            <input name="phone" id="input-phone" pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9 "class="form-control" value="0<?php echo $user['Mobile_number']; ?>" placeholder="Enter 10 digital number Eg-0700000000" type="text" Required>
                                         </div>
                                     </div>
 
@@ -352,10 +351,6 @@ if(isset($_SESSION['id'])){
 
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
-                                    
                                     <div class="col-12">
                                         <h4>Describe Yourself</h4>
                                     </div>
@@ -372,15 +367,15 @@ if(isset($_SESSION['id'])){
                                         <h4>Social Media Links </h4>
                                         <div class="form-group">
                                             <label>Facebook</label>
-                                            <input name="Facebook" id="Facebook" class="form-control" value="" placeholder="Enter Your Facebook Link" type="text">
+                                            <input name="Facebook" id="Facebook" class="form-control" value="<?php echo $user['Facebook']; ?>" placeholder="Enter Your Facebook Link" type="text">
                                             <label>Instagram</label>
-                                            <input name="Instagram" id="Instagram" class="form-control" value="" placeholder="Enter Your Instagram Link" type="text">
+                                            <input name="Instagram" id="Instagram" class="form-control" value="<?php echo $user['Instagram']; ?>" placeholder="Enter Your Instagram Link" type="text">
                                             <label>Twitter</label>
-                                            <input name="Twitter" id="Twitter" class="form-control" value="" placeholder="Enter Your Twitter Link" type="text">
-                                            <label>Google</label>
-                                            <input name="Google" id="Google" class="form-control" value="" placeholder="Enter Your Google Link" type="text">
-                                            <label>Linked-in</label>
-                                            <input name="Linkedin" id="Linkedin" class="form-control" value="" placeholder="Enter Your Linkedin Link" type="text">
+                                            <input name="Twitter" id="Twitter" class="form-control" value="<?php echo $user['Twitter']; ?>" placeholder="Enter Your Twitter Link" type="text">
+                                            <label>Whatsapp</label>
+                                            <input name="Whatsapp" id="Whatsapp" class="form-control" value="<?php echo $user['Whatsapp']; ?>" placeholder="Enter Your Whatsapp Link" type="text">
+                                            <label>Linkedin</label>
+                                            <input name="Linkedin" id="Linkedin" class="form-control" value="<?php echo $user['Linkedin']; ?>" placeholder="Enter Your Linkedin Link" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -415,54 +410,45 @@ if(isset($_SESSION['id'])){
                             </div>
                         </div>
                                     <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group"> 
-                                            <label>First name</label>
-                                            <input name="firstname" class="form-control" type="text" value="" required>
+                                        <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label>First name</label>
+                                                <input name="firstname" class="form-control" type="text" value="" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Last name</label>
-                                            <input name="lastname" class="form-control" type="text" value="" required>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Last name</label>
+                                                <input name="lastname" class="form-control" type="text" value="" required>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>NIC/Passport</label>
+                                                <input name="ID" class="form-control" type="text" value="" required>
+                                            </div>  
+                                        </div>
                                     
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>NIC/Passport</label>
-                                            <input name="ID" class="form-control" type="number" value="" required>
-                                        </div>  
-                                    </div>
-                                    
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Phone Number</label>
-                                            <input name="phone" id="input-phone" class="form-control" value="" placeholder="" type="text" required>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Phone Number</label>
+                                                <input name="phone" id="input-phone"  pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9" class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="Enter 10 digital number Eg-0700000000" type="text" required>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Date of Birth</label>
-                                            <input type="date" id="dob" name="dob" value="" required>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Date of Birth</label>
+                                                <input type="date" id="dob" name="dob" value="" required>
+                                            </div>
                                         </div>
-                                    </div>
                                     <div class="col-12">
                                         <h4>Contact Details</h4>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <input name="country" id="country" class="form-control" value="" placeholder="" type="text" required>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                         <label>District</label>
-                                         <input name="district" id="district" class="form-control" value="" placeholder="" type="text" required>
-                                         
+                                            <label>Address</label>
+                                            <input name="Address" id="Address" class="form-control" value="" placeholder="" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -473,10 +459,17 @@ if(isset($_SESSION['id'])){
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Address</label>
-                                            <input name="Address" id="Address" class="form-control" value="" placeholder="" type="text" required>
+                                         <label>District</label>
+                                         <input name="district" id="district" class="form-control" value="" placeholder="" type="text" required> 
                                         </div>
                                     </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            <input name="country" id="country" class="form-control" value="" placeholder="" type="text" required>
+                                        </div>
+                                    </div>
+
                                     
                                     <div class="col-12">
                                         <h4>Describe Yourself</h4>
@@ -487,9 +480,23 @@ if(isset($_SESSION['id'])){
                                             <input name="about" id="Address" class="form-control" value="" placeholder="" type="text" required>
                                         </div>
                                     </div>
-                                    <div>
-                                    <button type="submit" class="button-primary">Update Profile</button>
+                                    <div class="col-sm-6">
+                                        <h4>Social Media Links </h4>
+                                        <div class="form-group">
+                                            <label>Facebook</label>
+                                            <input name="Facebook" id="Facebook" class="form-control" value="" placeholder="Enter Your Facebook Link" type="text">
+                                            <label>Instagram</label>
+                                            <input name="Instagram" id="Instagram" class="form-control" value="" placeholder="Enter Your Instagram Link" type="text">
+                                            <label>Twitter</label>
+                                            <input name="Twitter" id="Twitter" class="form-control" value="" placeholder="Enter Your Twitter Link" type="text">
+                                            <label>Whatsapp</label>
+                                            <input name="Whatsapp" id="Whatsapp" class="form-control" value="" placeholder="Enter Your Whatsapp Link" type="text">
+                                            <label>Linkedin</label>
+                                            <input name="Linkedin" id="Linkedin" class="form-control" value="" placeholder="Enter Your Linkedin Link" type="text">
+                                        </div>
+                                        <button type="submit" class="button-primary">Update Profile</button>
                                     </div>
+                                    
                             </form>
 
                             <?php
