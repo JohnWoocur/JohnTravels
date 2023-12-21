@@ -1,5 +1,6 @@
 <?php
-    require 'db-connection.php';
+session_start();
+require 'db-connection.php';
 
 if (isset($_GET['Enquiry_Id'])){
     
@@ -10,11 +11,12 @@ if (isset($_GET['Enquiry_Id'])){
     $sql = "UPDATE `enquiry` SET `Status`= 'Active' WHERE  `Enquiry_Id`=$Enquiry_Id ";
     $result = mysqli_query($conn,$sql);
     if ($result) {
-        echo"enquiry status updade succseful";
+        $_SESSION['enquiry']="Enquiry activated";
         header("Location:db-enquiry.php");
     }
     else{
-        echo "enquiry status updade failed";
+        $_SESSION['enquiry']="Enquiry activated failed";
+        header("Location:db-enquiry.php");
     }  
     $conn->close();
 }

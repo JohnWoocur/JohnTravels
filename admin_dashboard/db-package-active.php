@@ -206,6 +206,14 @@ $name=displayAdmin();
             </div>
             <div class="db-info-wrap db-package-wrap">
                 <div class="dashboard-box table-opp-color-box">
+                <?php
+                            if(isset($_SESSION["deleted"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["deleted"]; ?></div>
+                            <?php
+                            unset($_SESSION["deleted"]);
+                            endif;
+                            ?>
                     <h4>Active Packages List</h4>
 
                     <div class="table-responsive">

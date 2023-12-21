@@ -10,12 +10,12 @@ $result = "UPDATE customers  SET Status ='De-Activated' WHERE Customer_Id ={$_GE
 
 if ($conn->query ($result)=== TRUE) 
     {
-        $_SESSION["S_message"] = "Account Activated Successfully!";
+        $_SESSION["S_message"] = "Account De-Activated Successfully!";
         header('location:user.php');
         
     }
 else{
-    $_SESSION["E_message"] = "Account Activated Failed!";
+    $_SESSION["E_message"] = "Account De-Activated Failed!";
     header('location:user.php');
     }  
 }
@@ -24,12 +24,12 @@ if($_GET['Did']){
 
 if ($conn->query ($result)=== TRUE) 
     {
-        $_SESSION["S_message"] = "Account De-Activated Successfully!";
+        $_SESSION["S_message"] = "Account Activated Successfully!";
         header('location:user.php');
         
     }
 else{
-    $_SESSION["E_message"] = "Account De-Activated Failed!";
+    $_SESSION["E_message"] = "Account Activated Failed!";
     header('location:user.php');
     } 
 }

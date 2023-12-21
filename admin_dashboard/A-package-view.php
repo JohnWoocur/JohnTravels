@@ -206,6 +206,14 @@ $name=displayAdmin();
             </div>
             <div class="db-info-wrap db-package-wrap">
                 <div class="dashboard-box table-opp-color-box">
+                <?php
+                            if(isset($_SESSION["active"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["active"]; ?></div>
+                            <?php
+                            unset($_SESSION["active"]);
+                            endif;
+                            ?>
                     <h4>Packages List</h4>
                     <br>
                     <div class="table-responsive">

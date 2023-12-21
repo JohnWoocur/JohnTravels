@@ -213,6 +213,14 @@ $name=displayAdmin();
                         <form action="A-add_package.php" method="post" enctype="multipart/form-data">
                             <div class="custom-field-wrap">
                                 <div class="form-group">
+                                <?php
+                            if(isset($_SESSION["addpack"])):
+                             ?>
+                            <div class="badge badge-success"><?php echo $_SESSION["addpack"]; ?></div>
+                            <?php
+                            unset($_SESSION["addpack"]);
+                            endif;
+                            ?>
                                     <label>Package Title</label>
                                     <input type="text" placeholder="Package Title" id="Pack_title" name="Pack_title" required/>
                                 </div>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "db-connection.php";
 
 
@@ -9,10 +9,12 @@ $query="UPDATE `package` SET `Status`='Expired' WHERE Pack_Id='$Pack_Id'";
 $result=mysqli_query($conn,$query);
 if ($result) 
     {
+        $_SESSION['expaired']="package expaired";
         header("Location:db-package-expired.php");
     }
 else{
-    header("Location:db-package-expired.php");
+        $_SESSION['expaired']="package expaired failed";
+        header("Location:db-package-expired.php");
     }  
     
 ?>

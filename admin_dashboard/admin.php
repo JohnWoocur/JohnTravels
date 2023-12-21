@@ -217,12 +217,20 @@ $name=displayAdmin();
                             endif;
                             ?>
 
-<?php
+                            <?php
                             if(isset($_SESSION["E_message"])):
                              ?>
                             <div class="badge badge-success"><?php echo $_SESSION["E_message"]; ?></div>
                             <?php
                             unset($_SESSION["E_message"]);
+                            endif;
+                            ?>
+                            <?php
+                            if(isset($_SESSION['upmsg'])):
+                            ?>
+                            <div class="badge badge-success"><?php echo $_SESSION['upmsg']; ?></div>
+                            <?php
+                            unset($_SESSION['upmsg']);
                             endif;
                             ?>
                             <h4>Admins Details</h4>

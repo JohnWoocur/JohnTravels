@@ -1,6 +1,6 @@
 <?php 
  require 'db-connection.php';
-
+session_start();
  if($_SERVER["REQUEST_METHOD"]=="POST"){
     $ID=$_POST['id'];
     $Firstname=$_POST['firstname'];
@@ -21,8 +21,10 @@
     $query="UPDATE `admins` SET `First_name`='$Firstname',`Last_name`='$Lastname',`Mobile_number`='$phone',`City`='$city',`Country`='$country',`Email`='$email',`Image`='$imgName',`Password`='$password' WHERE Admin_Id='$ID'";
     $result=mysqli_query($conn,$query);
     if($result){
+        $_SESSION['upmsg']="Successfully Updated";
         header('location:admin.php');
     }else{
+        $_SESSION['upmsg']="Updated Failed";
         header('location:admin.php');
     }
  }
