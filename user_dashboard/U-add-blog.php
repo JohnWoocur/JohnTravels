@@ -42,7 +42,7 @@ if($result){
 
 				$result1 = mysqli_query($conn, $sql1);
 				if($result1){
-					$_SESSION['success']="Blog added Successfully!";
+					$_SESSION['Smsg']="Blog added Successfully!";
 					header("Location: user-dashboard.php");
 					exit();
 				}
@@ -57,7 +57,7 @@ if($result){
 			exit();
 		}
 	}
-    echo " Created" ;
+    
 }
 else{
 

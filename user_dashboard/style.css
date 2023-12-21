@@ -2500,7 +2500,7 @@ button.instagram{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 25px;
+  padding-right: 50px;
 }
 
 button.linkedin{
@@ -2574,6 +2574,7 @@ button.facebook:hover {
 button.facebook i {
   color: #fff;
   font-size: 1.4em;
+  padding-right: 14px;
 }
 button.instagram{
   margin: 50px 8px;
@@ -2592,4 +2593,11 @@ button.instagram:hover {
 button.instagram i {
   color: #fff;
   font-size: 1.4em;
+}
+
+.card .socials .i {
+  margin-right: 10px !important;
+  width: 44px;
+  height: 44px;
+  padding: 10px 6px ;
 }

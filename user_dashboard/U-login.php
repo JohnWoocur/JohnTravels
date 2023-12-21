@@ -19,28 +19,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($Password, $hashed_password)) {
                 
                 $_SESSION["id"] = $Customer_Id;
+                $_SESSION['Smsg'] = "Login successful";
                 header("Location: user-dashboard.php");
                 exit();
             } else {
                 
-                $_SESSION['error'] = "Invalid Email or password";
+                $_SESSION['Emsg'] = "Invalid Password";
                 header("Location: login.php");
                 exit();
             }
         } else {
             
-            $_SESSION['error'] = "Invalid Email or password";
+            $_SESSION['Emsg'] = "Invalid Email or password";
             header("Location: login.php");
             exit();
         }
     } else {
         
-        $_SESSION['error'] = "Database error";
+        $_SESSION['Emsg'] = "Database error";
         header("Location: login.php");
         exit();
     }
 } else {
-    $_SESSION['error'] = "Invalid request method";
+    $_SESSION['Emsg'] = "Invalid request method";
     header("Location: login.php");
     exit();
 }
