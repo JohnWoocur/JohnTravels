@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2023 at 12:03 PM
+-- Generation Time: Dec 22, 2023 at 06:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -67,24 +67,6 @@ CREATE TABLE `blog` (
   `Status` varchar(50) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `blog`
---
-
-INSERT INTO `blog` (`Blog_Id`, `Customer_Id`, `Blog_title`, `Blog_content1`, `Blog_content2`, `Highlighted`, `Blog_img`, `Create_at`, `Status`) VALUES
-(147, 10, 'Gaming', 'wqd', 'wqd', 'wqd', 'profile2.jpg', '2023-12-14', 'Pending'),
-(148, 10, 'Gamingd', 'sjhadbjh', 'sjahdbjha', 'jasdakd', 'profile2.jpg', '2023-12-14', 'Pending'),
-(149, 10, 'Gamingd', 'sjhadbjh', 'sjahdbjha', 'jasdakd', 'profile2.jpg', '2023-12-14', 'Pending'),
-(150, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(151, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(152, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(153, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(154, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(155, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(156, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(157, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending'),
-(158, 10, 'movie2', 'ewfc', 'asf', 'sfafasf', 'profile1.jpg', '2023-12-14', 'Pending');
-
 -- --------------------------------------------------------
 
 --
@@ -96,14 +78,6 @@ CREATE TABLE `blog_tags` (
   `Blog_Id` int(11) NOT NULL,
   `Tag_Name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `blog_tags`
---
-
-INSERT INTO `blog_tags` (`Blog_Tag_Id`, `Blog_Id`, `Tag_Name`) VALUES
-(7, 147, '#gaming'),
-(8, 147, '#gaming');
 
 -- --------------------------------------------------------
 
@@ -134,15 +108,6 @@ CREATE TABLE `customers` (
   `verify_token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`Customer_Id`, `Username`, `Email`, `Password`, `Create_at`, `Status`, `verify_token`) VALUES
-(8, 'dilaxsan001', 'antony@gmail', '123456', '2023-12-11', 'Active', NULL),
-(10, 'Sivaharan', 'sivabook404@outlook.com', '$2y$10$si1eYcPnomimvj3MmUIaO..ZEjDgKvka/ngSZ8DEdZ0paSIcCQKFO', '2023-12-12', 'Active', 'a8d3900cae34e9ab936e3aa14f6d5df7'),
-(11, 'rifky', 'rifky@gmail.com', '$2y$10$GF7sXI2H9WxutQwqlhy4Yem5NpuSYQ.7M/VCEKfTnXaoNeKn7rdVK', '2023-12-20', 'Active', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -150,6 +115,7 @@ INSERT INTO `customers` (`Customer_Id`, `Username`, `Email`, `Password`, `Create
 --
 
 CREATE TABLE `customer_more_details` (
+  `id` int(11) NOT NULL,
   `Customer_Id` int(11) NOT NULL,
   `First_name` varchar(255) NOT NULL,
   `Last_name` varchar(255) NOT NULL,
@@ -169,14 +135,6 @@ CREATE TABLE `customer_more_details` (
   `Whatsapp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `customer_more_details`
---
-
-INSERT INTO `customer_more_details` (`Customer_Id`, `First_name`, `Last_name`, `Mobile_number`, `NIC`, `City`, `Country`, `district`, `Address`, `Dob`, `About`, `Image`, `Facebook`, `Instagram`, `Twitter`, `Linkedin`, `Whatsapp`) VALUES
-(8, 'antony', 'ad', 2147483647, '991653821', 'nellukullam', 'sri lanka', 'vavuniya', 'no.22', '2023-12-13', 'ho iam dilaxsan hello', '', '', '', '', '', NULL),
-(10, 'sivaharan', 'Mohan', 760550512, '200023233223', 'mullativu', 'srilanka', 'mullativu', 'kanukerney', '2000-12-07', 'Traveller', 'testi-img2-150x150.jpg', '', '', '', '', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -193,15 +151,6 @@ CREATE TABLE `enquiry` (
   `Checkout_date` date NOT NULL,
   `Status` varchar(50) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `enquiry`
---
-
-INSERT INTO `enquiry` (`Enquiry_Id`, `Customer_Id`, `Packages_name`, `Phone_number`, `No_of_people`, `Checkin_date`, `Checkout_date`, `Status`) VALUES
-(7, 8, 'galle', 775487965, 20, '2023-12-13', '2023-12-22', 'Active'),
-(17, 10, 'vavuniya', 3231, 3232, '2023-12-27', '0000-00-00', 'Pending'),
-(18, 10, ' SUNSET VIEW OF BEAUTIFUL LAKESIDE RESIDENT', 213, 21, '2023-12-09', '2023-12-01', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -231,13 +180,6 @@ CREATE TABLE `guest_enquiry` (
   `No_of_people` int(11) NOT NULL,
   `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `guest_enquiry`
---
-
-INSERT INTO `guest_enquiry` (`Guest_enquriy_Id`, `Guest_Name`, `Phone_Number`, `Destination`, `No_of_people`, `Date`) VALUES
-(4, 'dilaxsan', 122546695, 'kandy', 10, '1999-12-06');
 
 -- --------------------------------------------------------
 
@@ -270,15 +212,6 @@ CREATE TABLE `package` (
   `Wish` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `package`
---
-
-INSERT INTO `package` (`Pack_Id`, `Pack_title`, `Pack_img`, `Description`, `Location`, `Place_one`, `Place_two`, `Place_three`, `Place_four`, `Group_size`, `Days`, `Night`, `Sale_price`, `Reqular_price`, `Discount`, `Category`, `Map`, `Api_key`, `Popular`, `Status`, `Trip_date`, `Wish`) VALUES
-(27, 'vavuniya', '', 'sads', 'vavuniya', 'colombo', 'sad', 'sad', 'asd', 23, 23, 23, 233, 321, 32, 'dasd', 'uis', 'hu', 'uhas', 'Delete', '2023-12-13', 'Active'),
-(28, ' SUNSET VIEW OF BEAUTIFUL LAKESIDE RESIDENT', 'img26.jpg', 'SUNSET VIEW OF BEAUTIFUL LAKESIDE RESIDENT', 'Mullaitivu', 'mulliyawalai', 'mullativu', 'oddusudaan', 'vattraapalai', 12, 12, 12, 1075, 1222, 12, 'Couple', 'Google Map', '123321', '', 'Active', '2023-12-14', ''),
-(29, 'Trincomalee', 'img27.jpg', 'LAS', 'Trincomalee', 'Koneswaram Temple', 'Marble Beach', 'Velgam Vehera', ' Fort Frederick', 60, 3, 2, -28000, 7000, 500, 'Adult', 'Google Map', '123321', '', 'Active', '2023-12-22', '');
-
 -- --------------------------------------------------------
 
 --
@@ -292,26 +225,6 @@ CREATE TABLE `package_booking` (
   `Date` date NOT NULL DEFAULT current_timestamp(),
   `Status` varchar(25) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `package_booking`
---
-
-INSERT INTO `package_booking` (`Booking_Id`, `Customer_Id`, `Pack_Id`, `Date`, `Status`) VALUES
-(1, 10, 28, '2023-12-14', 'Pending'),
-(9, 10, 29, '2023-12-15', 'Pending'),
-(10, 10, 29, '2023-12-15', 'Pending'),
-(11, 10, 29, '2023-12-15', 'Pending'),
-(12, 10, 29, '2023-12-15', 'Pending'),
-(13, 10, 29, '2023-12-15', 'Pending'),
-(14, 10, 29, '2023-12-15', 'Pending'),
-(15, 10, 29, '2023-12-15', 'Pending'),
-(16, 10, 29, '2023-12-15', 'Pending'),
-(17, 10, 28, '2023-12-15', 'Pending'),
-(18, 10, 28, '2023-12-15', 'Pending'),
-(19, 10, 28, '2023-12-15', 'Pending'),
-(20, 10, 28, '2023-12-15', 'Pending'),
-(21, 10, 28, '2023-12-15', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -337,16 +250,6 @@ CREATE TABLE `user-wish` (
   `Customer_Id` int(11) NOT NULL,
   `Pack_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user-wish`
---
-
-INSERT INTO `user-wish` (`Wish_Id`, `Customer_Id`, `Pack_Id`) VALUES
-(35, 8, 27),
-(37, 10, 28),
-(41, 10, 28),
-(42, 10, 28);
 
 --
 -- Indexes for dumped tables
@@ -391,6 +294,7 @@ ALTER TABLE `customers`
 -- Indexes for table `customer_more_details`
 --
 ALTER TABLE `customer_more_details`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk to customer tbl` (`Customer_Id`);
 
 --
@@ -455,13 +359,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT for table `blog_tags`
 --
 ALTER TABLE `blog_tags`
-  MODIFY `Blog_Tag_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Blog_Tag_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -473,13 +377,19 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `customer_more_details`
+--
+ALTER TABLE `customer_more_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `enquiry`
 --
 ALTER TABLE `enquiry`
-  MODIFY `Enquiry_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Enquiry_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `faq_form`
@@ -503,7 +413,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `package_booking`
 --
 ALTER TABLE `package_booking`
-  MODIFY `Booking_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Booking_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -515,7 +425,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT for table `user-wish`
 --
 ALTER TABLE `user-wish`
-  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
@@ -525,7 +435,7 @@ ALTER TABLE `user-wish`
 -- Constraints for table `blog`
 --
 ALTER TABLE `blog`
-  ADD CONSTRAINT `Customer_fk` FOREIGN KEY (`Customer_Id`) REFERENCES `customer_more_details` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Customer_fk` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `blog_tags`
@@ -537,7 +447,7 @@ ALTER TABLE `blog_tags`
 -- Constraints for table `customer_more_details`
 --
 ALTER TABLE `customer_more_details`
-  ADD CONSTRAINT `customer_more_details_ibfk_1` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `customer_more_details_ibfk_1` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Customer_Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enquiry`

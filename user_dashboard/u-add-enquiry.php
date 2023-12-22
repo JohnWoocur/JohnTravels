@@ -10,7 +10,7 @@ $Phone_number = $_POST['Phone_number'];
 $Checkin_date = $_POST['Checkin_date'];
 $Checkout_date = $_POST['Checkout_date'];
 
-if (isset($_SESSION['id']) && ($_SESSION['error'])) {
+if (isset($_SESSION['id'])) {
     $Customer_Id = $_SESSION['id'];
 
     
@@ -19,16 +19,16 @@ if (isset($_SESSION['id']) && ($_SESSION['error'])) {
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            $_SESSION['Smsg']="Enquiry added Successfully!";
+            $_SESSION['Esmsg']="Enquiry added Successfully!";
             header("Location: user-dashboard.php");
             exit();
         } else {
-            $_SESSION['Emsg']= "Enquiry adding failed, please try again";
-            header("Location: user-enquiry.php");
+            $_SESSION['Eemsg']= "We need your information, please add more details for the enquiry";
+            header("Location: user-edit.php");
             exit();
         }
 } else {
-    $_SESSION['Emsg']= "We need your information, please add more details for the enquiry";
+    $_SESSION['Eemsg']= "We need your information, please add more details for the enquiry";
     header("Location: user-edit.php");
     exit();
 }

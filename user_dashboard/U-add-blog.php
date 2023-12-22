@@ -42,26 +42,27 @@ if($result){
 
 				$result1 = mysqli_query($conn, $sql1);
 				if($result1){
-					$_SESSION['Smsg']="Blog added Successfully!";
+					$_SESSION['Bsmsg']="Blog added Successfully!";
 					header("Location: user-dashboard.php");
 					exit();
 				}
 				else{
-					$_SESSION['Emsg']= "Blog adding failed, please try again";
+					$_SESSION['Bemsg']= "Blog adding failed, please try again";
 					header("Location: user-add-blog.php");
 					exit();
 				}
 		}else{
-			$_SESSION['Emsg']="Something wrong in your id !";
+			$_SESSION['Bemsg']="Something wrong in your id !";
 			header("Location: user-dashboard.php");
 			exit();
 		}
 	}
+	echo"picture taken ";
     
 }
 else{
 
-	$_SESSION['Emsg']="Blog image adding failed!";
+	$_SESSION['Bemsg']="Blog image adding failed!";
 	header("Location: user-dashboard.php");
 	exit();
 

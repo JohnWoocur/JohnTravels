@@ -14,7 +14,7 @@ if(isset($_SESSION['id'])){
             WHERE Customers.Customer_id = '$Customer_Id'"; 
 
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+    if($row=mysqli_fetch_assoc($result)){
 
     $uImage = $row['Image'];
     $uName = $row['First_name'];
@@ -25,9 +25,17 @@ if(isset($_SESSION['id'])){
     $uCity = $row['City'];
     $uState = $row['district'];
     $uCountry = $row['Country'];
+    }
+    
+    else{
+      header("Location: user-edit.php");
+      $_SESSION['Eemsg']="Please add your full details!";
+      
+    }
 
 
 }
+
 ?>
 
 

@@ -397,6 +397,26 @@ if(isset($_SESSION['id'])){
 
                             <form class="form-horizontal" method="POST" action="A-new-user-edit-update.php" enctype="multipart/form-data">
                             <div class="dashboard-box user-form-wrap">
+                            <?php
+                                if(isset($_SESSION['Esmsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Esmsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Esmsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Eemsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Eemsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Eemsg']);
+                                endif;
+                                ?>
                             <div class="col-12">
                                 <h4>Upload Profile Photo</h4>
                             </div>
@@ -432,7 +452,7 @@ if(isset($_SESSION['id'])){
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Phone Number</label>
-                                                <input name="phone" id="input-phone"  pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9" class="form-control" value="<?php echo $user['Mobile_number']; ?>" placeholder="Enter 10 digital number Eg-0700000000" type="text" required>
+                                                <input name="phone" id="input-phone"  pattern="[0-9]{10}" title="Phone number with 7-9 and remaing 9 digit with 0-9" class="form-control" placeholder="Enter 10 digital number Eg-0712345678" type="text" required>
                                             </div>
                                         </div>
 

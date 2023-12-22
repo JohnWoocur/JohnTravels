@@ -51,7 +51,7 @@ if(isset($_SESSION['id']))
 
     else{
       header("Location: user-edit.php");
-      $_SESSION['Emsg']="Please add your full details!";
+      $_SESSION['Eemsg']="Please add your full details!";
       
     }
     

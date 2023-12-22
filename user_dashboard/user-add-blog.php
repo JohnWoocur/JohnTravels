@@ -207,6 +207,26 @@ if(isset($_SESSION['id'])){
                     <!-- Listings -->
                     <div class="col-lg-8 col-xl-9">
                         <div class="dashboard-box">
+                        <?php
+                                if(isset($_SESSION['Bsmsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Bsmsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Bsmsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Bemsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Bemsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Bemsg']);
+                                endif;
+                                ?>
 
                         <form action="U-add-blog.php" method="POST" enctype="multipart/form-data">
 
