@@ -208,12 +208,33 @@ if(isset($_SESSION['id'])){
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="dashboard-box">
+                        <?php
+                                if(isset($_SESSION['Esmsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Esmsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Esmsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Eemsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Eemsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Eemsg']);
+                                endif;
+                                ?>
                             <h4> Add User enquiry </h4>
                             
                             <form class="form-horizontal" method="POST" action="u-add-enquiry.php" >
                            
                                 <div class="row">
                                     <div class="col-sm-6">
+
                                     <div class="form-group">
                                     <label for="Pack_title">Packages Name</label>
                                             <select id="Pack_title" name="Pack_title" required>

@@ -275,6 +275,69 @@ if(isset($_SESSION['id'])){
                                 unset($_SESSION['Emsg']);
                                 endif;
                                 ?>
+
+                                 <?php
+                                if(isset($_SESSION['Bsmsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Bsmsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Bsmsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Bemsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Bemsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Bemsg']);
+                                endif;
+                                ?>
+
+                                <?php
+                                if(isset($_SESSION['Booksmsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Booksmsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Booksmsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Bookemsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Bookemsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Bookemsg']);
+                                endif;
+                                ?>
+
+                                <?php
+                                if(isset($_SESSION['Esmsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Esmsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Esmsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Eemsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Eemsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Eemsg']);
+                                endif;
+                                ?>
                 <div class="row">
                     <!-- Item -->
                     <div class="col-xl-3 col-sm-6">
