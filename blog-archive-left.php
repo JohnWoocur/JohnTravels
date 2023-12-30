@@ -167,13 +167,13 @@
                <div class="inner-shape"></div>
             </section>
             <!-- Inner Banner html end-->
-            <div class="archive-section blog-archive">
+            <!--<div class="archive-section blog-archive">
                <div class="archive-inner">
                   <div class="container">
                      <div class="row">
                         <div class="col-lg-8 order-md-12 primary left-sidebar">
                            <!-- blog post item html start -->
-                           <div class="grid row">
+                          <!-- <div class="grid row">
                               <div class="grid-item col-md-6">
                                  <article class="post">
                                     <figure class="feature-image">
@@ -339,7 +339,7 @@
                            </div>
                            <!-- blog post item html end -->
                            <!-- pagination html start-->
-                           <div class="post-navigation-wrap">
+                           <!--<div class="post-navigation-wrap">
                               <nav>
                                 <ul class="pagination">
                                   <li>
@@ -357,10 +357,10 @@
                                   </li>
                                 </ul>
                               </nav>
-                           </div>
+                           </div>-->
                            <!-- pagination html start-->
                         </div>
-                        <div class="col-lg-4 secondary">
+                        <center><div class="col-lg-4 secondary">
                            <div class="sidebar">
                               <aside class="widget author_widget">
                                  
@@ -389,8 +389,8 @@
                                        </div> 
                                     </div> 
                                  </div>
-                              </aside>
-                              <aside class="widget widget_latest_post widget-post-thumb">
+                              </aside></center>
+                              <!--<aside class="widget widget_latest_post widget-post-thumb">
                                  <h3 class="widget-title">Recent Post</h3>
                                  <ul>
                                     <li>
@@ -490,7 +490,7 @@
                      </div>
                   </div>
                </div>
-            </div>
+            </div>-->
          </main>
          <footer id="colophon" class="site-footer footer-primary">
             <div class="top-footer">

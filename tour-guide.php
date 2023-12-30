@@ -167,7 +167,7 @@
             </section>
             <!-- Inner Banner html end-->
             <!-- guidel html start -->
-            <div class="guide-page-section">
+           <!-- <div class="guide-page-section">
                <div class="container">
                	<div class="row">
                		<div class="col-lg-4 col-md-6">
@@ -292,7 +292,7 @@
                		</div>
                	</div>
                </div>
-            </div>
+            </div>-->
             <!-- guidel html end -->
             <!-- client section html start -->
             <div class="client-section override-client">
