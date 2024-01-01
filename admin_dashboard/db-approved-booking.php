@@ -220,7 +220,7 @@ $name=displayAdmin();
                             <tr>
                                     <th>User</th>
                                     <th>Date</th>
-                                    <th>Destination</th>
+                                    <!-- <th>Destination</th> -->
                                     <th>Package Id</th>
                                     <th>Booking Id</th>
                                     <th>status</th>
@@ -247,7 +247,7 @@ $name=displayAdmin();
                                         </span>
                                     </td>
                                     <td><?php echo $row['Date'] ?></td>
-                                    <td><?php echo $row['Destination'] ?></td>
+                                    <!-- <td><?php //echo $row['Destination'] ?></td> -->
                                     <td><?php echo $row['Pack_Id'] ?></td>
                                     <td><?php echo $row['Booking_Id'] ?></td>
                                     <td><span class="badge badge-success"><?php echo $row['Status'] ?></span></td>
@@ -256,7 +256,7 @@ $name=displayAdmin();
                                     </td>
                                     <td><span class="badge badge-success">9</span></td> -->
                                     <td>
-                                        <a href="A-booking-reject.php?id=1"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
+                                        <a href="A-booking-reject.php?id=<?php echo $row['Booking_Id']?>"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                                     </td>
                                 </tr>
                                 <?php

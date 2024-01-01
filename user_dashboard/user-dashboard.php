@@ -216,7 +216,7 @@ if(isset($_SESSION['id'])){
             }
 
             // Count the number of  Approval
-            $sqlapproval = "SELECT COUNT(*) AS total_approval FROM package_booking WHERE Status = 'Approval' AND Customer_Id =$Customer_Id";
+            $sqlapproval = "SELECT COUNT(*) AS total_approval FROM package_booking WHERE Status = 'Approved' AND Customer_Id =$Customer_Id";
             $resultapproval = $conn->query($sqlapproval);
 
             if ($resultapproval) {
@@ -240,7 +240,7 @@ if(isset($_SESSION['id'])){
             }
 
             // Count the number of Cancelled 
-            $sqlcancel = "SELECT COUNT(*) AS total_cancel FROM package_booking WHERE Status = 'Cancel' AND Customer_Id =$Customer_Id";
+            $sqlcancel = "SELECT COUNT(*) AS total_cancel FROM package_booking WHERE Status = 'Rejected' AND Customer_Id =$Customer_Id";
             $resultcancel = $conn->query($sqlcancel);
 
             if ($resultcancel) {
