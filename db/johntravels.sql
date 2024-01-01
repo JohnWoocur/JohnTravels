@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2023 at 06:43 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Jan 01, 2024 at 08:06 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -115,7 +115,6 @@ CREATE TABLE `customers` (
 --
 
 CREATE TABLE `customer_more_details` (
-  `id` int(11) NOT NULL,
   `Customer_Id` int(11) NOT NULL,
   `First_name` varchar(255) NOT NULL,
   `Last_name` varchar(255) NOT NULL,
@@ -294,7 +293,6 @@ ALTER TABLE `customers`
 -- Indexes for table `customer_more_details`
 --
 ALTER TABLE `customer_more_details`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `fk to customer tbl` (`Customer_Id`);
 
 --
@@ -359,13 +357,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `Blog_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT for table `blog_tags`
 --
 ALTER TABLE `blog_tags`
-  MODIFY `Blog_Tag_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Blog_Tag_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -377,19 +375,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `customer_more_details`
---
-ALTER TABLE `customer_more_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `enquiry`
 --
 ALTER TABLE `enquiry`
-  MODIFY `Enquiry_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `Enquiry_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `faq_form`
@@ -407,7 +399,7 @@ ALTER TABLE `guest_enquiry`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `Pack_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `package_booking`
@@ -425,7 +417,7 @@ ALTER TABLE `testimonial`
 -- AUTO_INCREMENT for table `user-wish`
 --
 ALTER TABLE `user-wish`
-  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `Wish_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
@@ -435,7 +427,7 @@ ALTER TABLE `user-wish`
 -- Constraints for table `blog`
 --
 ALTER TABLE `blog`
-  ADD CONSTRAINT `Customer_fk` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `Customer_fk` FOREIGN KEY (`Customer_Id`) REFERENCES `customer_more_details` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `blog_tags`
@@ -459,8 +451,8 @@ ALTER TABLE `enquiry`
 -- Constraints for table `package_booking`
 --
 ALTER TABLE `package_booking`
-  ADD CONSTRAINT `package_booking_ibfk_1` FOREIGN KEY (`Customer_Id`) REFERENCES `customers` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `package_booking_ibfk_2` FOREIGN KEY (`Pack_Id`) REFERENCES `package` (`Pack_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `customer` FOREIGN KEY (`Customer_Id`) REFERENCES `customer_more_details` (`Customer_Id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `package` FOREIGN KEY (`Pack_Id`) REFERENCES `package` (`Pack_Id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `testimonial`

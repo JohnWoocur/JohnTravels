@@ -30,18 +30,26 @@ if(isset($_SESSION['id'])){
                     <a href="#">
                         <img src="assets/images/logo.png" alt="">
                     </a>
-                </h1>
-                <?php
-                if(isset($_SESSION["error"])):{
-                }
-                ?>
-                <div class="form-group">
-                    <label class="badge badge-danger"><?php echo $_SESSION["error"]; ?></label>
-                </div>
-                <?php
-                unset($_SESSION["error"]);
-                endif;
-                ?>
+                </h1><?php
+                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
                 <div class="form-group">
                     <label for="first_name1">E-Mail</label>
                     <input type="email" class="validate" name="mail" required>

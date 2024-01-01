@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -27,6 +30,26 @@
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </h1>
+                <?php
+                if(isset($_SESSION['Smsg'])):
+                                ?>
+                                <div class="form-group">
+                                    <label class="badge badge-success"><?php echo $_SESSION['Smsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Smsg']);
+                                endif;
+                                ?>
+                                <?php
+                                if(isset($_SESSION['Emsg'])):
+                                ?>
+                                <div class="form-group">
+                                <label class="badge badge-danger"><?php echo $_SESSION['Emsg']; ?></label>
+                                </div>
+                                <?php
+                                unset($_SESSION['Emsg']);
+                                endif;
+                                ?>
                 <div class="form-group">
                     <label for="user name">User Name</label>
                     <input type="text" class="validate" name="name" Required>
